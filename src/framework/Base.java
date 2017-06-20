@@ -1,4 +1,4 @@
-package test;
+package framework;
 
 import org.apache.commons.lang3.SystemUtils;
 import org.openqa.selenium.By;
@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
+import test.TestResult;
 
 import java.io.*;
 import java.security.SecureRandom;
@@ -21,7 +22,7 @@ import java.util.List;
  *
  * @author AbuKhleif
  */
-public class Framework {
+public class Base {
     private List<TestResult> results = new ArrayList<TestResult>();
     private WebDriver driver;
 
@@ -30,7 +31,7 @@ public class Framework {
      *
      * @throws Exception
      */
-    void setUp() {
+    protected void setUp() {
         // select driver
         if (SystemUtils.IS_OS_LINUX) {
             System.setProperty("webdriver.chrome.driver", "drivers" + File.separator + "chromedriver");
@@ -46,7 +47,7 @@ public class Framework {
      *
      * @throws Exception
      */
-    void tearDown() {
+    protected void tearDown() {
         // write report results
         writeResults();
 
@@ -59,7 +60,7 @@ public class Framework {
      *
      * @param url
      */
-    void openURL(String url) {
+    protected void openURL(String url) {
         driver.get(url);
     }
 
@@ -68,7 +69,7 @@ public class Framework {
      *
      * @param messgae
      */
-    void verify(String messgae) {
+    protected void verify(String messgae) {
         report(isPageContains(messgae), messgae);
     }
 
@@ -78,18 +79,26 @@ public class Framework {
      * @param message1
      * @param message2
      */
-    void verify(String message1, String message2) {
+    protected void verify(String message1, String message2) {
         report(message1.equals(message2), message1, message2);
     }
 
     /**
-     * Find element by id, name, or xpath
+     * Find action by id, name, or xpath
      *
      * @param key
      * @return WebElement
      */
     private WebElement findElement(String key) {
         WebElement element = null;
+//        if ((action = findElementById(key)) != null){
+//            return action;
+//        } else if ((action = findElementByName(key)) != null){
+//            return action;
+//        } else if ((action = findElementByXPath(key)) != null){
+//            return action;
+//        }
+//    // Exceptions can be thrown...
         int trial = 4;
         while (--trial != 0) {
             try {
@@ -107,6 +116,7 @@ public class Framework {
                 // continue;
             }
         }
+        // TODO add other cases..
         return element;
     }
 
@@ -116,7 +126,7 @@ public class Framework {
      * @param elementKey
      * @param value
      */
-    void fillElement(String elementKey, String value) {
+    protected void fillElement(String elementKey, String value) {
         fillElement(findElement(elementKey), value);
     }
 
@@ -124,9 +134,9 @@ public class Framework {
      * Get text of an webElement
      *
      * @param webElementKey id, name, or xpath of webElement
-     * @return text of the element
+     * @return text of the action
      */
-    String getText(String webElementKey) {
+    protected String getText(String webElementKey) {
         return findElement(webElementKey).getText();
     }
 
@@ -135,7 +145,7 @@ public class Framework {
      *
      * @param webElementKey id, name, or xpath of webElement
      */
-    void submit(String webElementKey) {
+    protected void submit(String webElementKey) {
         findElement(webElementKey).submit();
     }
 
@@ -144,7 +154,7 @@ public class Framework {
      *
      * @param webElementKey id, name, or xpath of webElement
      */
-    void click(String webElementKey) {
+    protected void click(String webElementKey) {
         findElement(webElementKey).click();
     }
 
@@ -154,9 +164,9 @@ public class Framework {
      * Currently support find webElements just by name
      *
      * @param webElementKey id, name, or xpath of webElement
-     * @param index         of element to select
+     * @param index         of action to select
      */
-    void click(String webElementKey, int index) {
+    protected void click(String webElementKey, int index) {
         List<WebElement> elements = findElementsByName(webElementKey);
         elements.get(index).click();
     }
@@ -169,7 +179,7 @@ public class Framework {
      * @param webElementKey
      * @param visibleText
      */
-    void select(String webElementKey, String visibleText) {
+    protected void select(String webElementKey, String visibleText) {
         WebElement element = findElement(webElementKey);
         Select select = new Select(element);
         select.selectByVisibleText(visibleText);
@@ -241,7 +251,7 @@ public class Framework {
      *
      * @param accept accept alert if true, dismiss otherwise
      */
-    void respondAlert(boolean accept) {
+    protected void respondAlert(boolean accept) {
         if (accept)
             driver.switchTo().alert().accept();
         else
@@ -251,7 +261,7 @@ public class Framework {
     /**
      * @return String text of the alert
      */
-    String getAlertText() {
+    protected String getAlertText() {
         return driver.switchTo().alert().getText();
     }
 
@@ -342,7 +352,7 @@ public class Framework {
      *
      * @return String email
      */
-    String generateRandomEmail() {
+    protected String generateRandomEmail() {
         StringBuilder sb = new StringBuilder(10);
         for (int i = 0; i < 10; i++)
             sb.append(AB.charAt(rnd.nextInt(AB.length())));

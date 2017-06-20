@@ -1,12 +1,14 @@
 package test;
 
 
+import framework.Base;
+
 /**
  * Test some operations on demo.guru99.com website
  *
  * @author AbuKhleif
  */
-public class Guru99Tests extends Framework {
+public class Guru99Tests extends Base {
     private String randomEmail, username, password, id;
 
     public static void main(String[] args) {
