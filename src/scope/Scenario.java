@@ -1,9 +1,6 @@
 package scope;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 
 /**
@@ -12,14 +9,31 @@ import java.util.ArrayList;
 @XmlRootElement(name = "scenario")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Scenario implements Scope {
+    @XmlAttribute
     public String name;
     @XmlElement(name = "page")
     public ArrayList<Page> pages;
 
-
     public void parse() {
+        System.out.println("Scenario Parsed");
         for (Page page : pages) {
             page.parse();
         }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public ArrayList<Page> getPages() {
+        return pages;
+    }
+
+    public void setPages(ArrayList<Page> pages) {
+        this.pages = pages;
     }
 }

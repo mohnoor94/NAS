@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "select")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Select implements Action {
+public class Select extends Action {
     private String id;
     private String text;
 

@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "navigate-checkbox")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class ClickCheckbox implements Action {
+public class ClickCheckbox extends Action {
     private String id;
     private Integer index;
 

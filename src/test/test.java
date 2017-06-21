@@ -1,9 +1,11 @@
 package test;
 
 import action.Click;
+import action.NotText;
 import scope.Page;
 import scope.Scenario;
 import action.Text;
+import scope.Site;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -18,7 +20,7 @@ import java.util.ArrayList;
  * Created by mkhlif on 6/20/17.
  */
 public class test {
-    private static final String SCENARIO_XML = "./scenario-jaxb.xml";
+    private static final String SITE_XML = "./site.xml";
 
 
     public static void main(String[] args) throws JAXBException, FileNotFoundException {
@@ -29,21 +31,31 @@ public class test {
         Page page = new Page();
         Page page2 = new Page();
 
-//        text.setValue("hello");
+        NotText notText1 = new NotText();
+        NotText notText2 = new NotText();
+        notText1.setValue("n1");
+        notText2.setValue("n2");
+
+        text.setValue("hello");
 //        c1.setId("sdfakljas");
 //        c2.setId("zdf");
 //        c3.setId("asd");
 
+        Site site = new Site();
+        site.setUrl("http://demo.guru99.com/");
+
         Scenario scenario = new Scenario();
-//        page.text = new ArrayList<Text>();
-//        page.text.add(text);
-//
+
+        page.getActions().add(text);
+
 //        page.navigate = new ArrayList<Click>();
 //        page.navigate.add(c1);
 //        page.navigate.add(c2);
 //
-//        page2.text = new ArrayList<Text>();
-//        page2.text.add(text);
+
+        page2.getActions().add(text);
+        page2.getActions().add(notText1);
+        page2.getActions().add(notText2);
 //
 //        page2.navigate = new ArrayList<Click>();
 //        page2.navigate.add(c1);
@@ -54,17 +66,23 @@ public class test {
         scenario.pages.add(page);
         scenario.pages.add(page2);
 
+        page.setName("Page 1");
+        page.setUrl("url");
+        page2.setUrl("url2");
+
+        site.getScenarios().add(scenario);
+
 
         // create JAXB context and instantiate marshaller
-        JAXBContext context = JAXBContext.newInstance(Scenario.class);
+        JAXBContext context = JAXBContext.newInstance(Site.class);
         Marshaller m = context.createMarshaller();
         m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
         // Write to System.out
-        m.marshal(scenario, System.out);
+        m.marshal(site, System.out);
 
         // Write to File
-        m.marshal(scenario, new File(SCENARIO_XML));
+        m.marshal(site, new File(SITE_XML));
 
 
         // get variables from our xml file, created before
@@ -72,19 +90,8 @@ public class test {
         System.out.println();
         System.out.println("Output from our XML File: ");
         Unmarshaller um = context.createUnmarshaller();
-        Scenario scenario2 = (Scenario) um.unmarshal(new FileReader(
-                SCENARIO_XML));
-        scenario2.parse();
-//        ArrayList<Page> pages = scenario2.getPages();
-//        for (Page p : pages) {
-//            ArrayList<Text> texts = p.getText();
-//            for (Text t: texts){
-//                System.out.println(t+" --> "+t.getValue());
-//            }
-//            ArrayList<Click> clicks = p.getClick();
-//            for (Click c: clicks){
-//                System.out.println(c+" --> "+c.getId());
-//            }
-//        }
+        Site site1 = (Site) um.unmarshal(new FileReader(
+                SITE_XML));
+        site1.parse();
     }
 }

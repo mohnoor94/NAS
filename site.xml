@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<site url="http://demo.guru99.com/">
+    <scenario>
+        <page name="Page 1" url="url">
+            <text value="hello"/>
+        </page>
+        <page url="url2">
+            <text value="hello"/>
+            <not-text value="n1"/>
+            <not-text value="n2"/>
+        </page>
+    </scenario>
+</site>

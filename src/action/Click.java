@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "navigate")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Click implements Action {
+public class Click extends Action {
     private String id;
 
     public void doAction() {

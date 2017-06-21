@@ -2,6 +2,7 @@ package action;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -10,7 +11,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "text")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Text implements Action {
+public class Text extends Action {
+    @XmlAttribute
     private String value;
 
     public void doAction() {

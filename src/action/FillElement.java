@@ -5,11 +5,11 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * Created by mkhlif on 6/20/17.
+ * @author AbuKhleif
  */
 @XmlRootElement(name = "fill")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class FillElement implements Action {
+public class FillElement extends Action {
     private String id;
     private String value;
 
