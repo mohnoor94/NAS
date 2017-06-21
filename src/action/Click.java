@@ -8,13 +8,13 @@ import javax.xml.bind.annotation.XmlRootElement;
  * Created by mkhlif on 6/20/17.
  */
 
-@XmlRootElement(name = "click")
+@XmlRootElement(name = "navigate")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Click implements Action {
     private String id;
 
     public void doAction() {
-        System.out.println("click " + id);
+        System.out.println("navigate " + id);
     }
 
     public String getId() {

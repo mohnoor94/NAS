@@ -27,7 +27,7 @@ public class Guru99Tests extends Base {
      */
     public void register() {
         //open website
-        openURL("http://demo.guru99.com/");
+        navigate("http://demo.guru99.com/");
 
         // verify message
         verify("Enter your email address to get");
@@ -56,7 +56,7 @@ public class Guru99Tests extends Base {
      */
     public void login() {
         // open login page
-        openURL("http://demo.guru99.com/V4/index.php");
+        navigate("http://demo.guru99.com/V4/index.php");
 
         // Verify that the appearance of the message
         verify("Steps To Generate Access");
@@ -79,7 +79,7 @@ public class Guru99Tests extends Base {
      */
     public void createNewCustomer() {
         // Click New Customer Link
-        click("/html/body/div[2]/div/ul/li[2]/a");
+        navigate("/html/body/div[2]/div/ul/li[2]/a");
 
         // Verify message
         verify("Add New Customer");
@@ -89,7 +89,7 @@ public class Guru99Tests extends Base {
         fillElement("name", "Mohammad Noor");
 
         // gender
-        click("rad1", 0);
+        navigate("rad1", 0);
 
         // date of birth
         fillElement("dob", "05/22/1994");
@@ -116,7 +116,7 @@ public class Guru99Tests extends Base {
         fillElement("password", password);
 
         // submit
-        click("sub");
+        navigate("sub");
 
         // verify message
         verify("Customer Registered Successfully!!!");
@@ -130,7 +130,7 @@ public class Guru99Tests extends Base {
      */
     public void createNewAccount() {
         // Click New Account Link
-        click("/html/body/div[2]/div/ul/li[5]/a");
+        navigate("/html/body/div[2]/div/ul/li[5]/a");
 
         // Verify message
         verify("Add new account form");
@@ -146,7 +146,7 @@ public class Guru99Tests extends Base {
         fillElement("inideposit", "1000");
 
         // Submit
-        click("button2");
+        navigate("button2");
 
         // Verify message
         verify("Account Generated Successfully!!!");
@@ -157,7 +157,7 @@ public class Guru99Tests extends Base {
      */
     public void logout() {
         // Click Logout link
-        click("/html/body/div[2]/div/ul/li[15]/a");
+        navigate("/html/body/div[2]/div/ul/li[15]/a");
 
         // Get the text of the alert or prompt
         verify(getAlertText(), "You Have Succesfully Logged Out!!");

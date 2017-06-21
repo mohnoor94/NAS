@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 
 /**
- * Created by mkhlif on 6/20/17.
+ * @author AbuKhleif
  */
 
 @XmlRootElement(name = "page")
@@ -14,22 +14,20 @@ import java.util.ArrayList;
 public class Page implements Scope {
     @XmlAttribute
     private String name;
+    @XmlAttribute
+    private String url;
     @XmlElement(name = "text")
     private ArrayList<Text> text;
     @XmlElement(name = "not-text")
     private ArrayList<NotText> notText;
-    @XmlElement(name = "fill")
-    private ArrayList<FillElement> fill;
-    @XmlElement(name = "click")
-    private ArrayList<Click> click;
-    @XmlElement(name = "fill")
-    private ArrayList<ClickCheckbox> clickCheckbox;
-    @XmlElement(name = "select")
-    private ArrayList<Select> select;
 
 
     public String getName() {
         return name;
+    }
+
+    public String getUrl() {
+        return url;
     }
 
     public ArrayList<Text> getText() {
@@ -39,41 +37,11 @@ public class Page implements Scope {
         return text;
     }
 
-
     public ArrayList<NotText> getNotText() {
         if (notText == null) {
             notText = new ArrayList<NotText>();
         }
         return notText;
-    }
-
-
-    public ArrayList<FillElement> getFill() {
-        if (fill == null) {
-            fill = new ArrayList<FillElement>();
-        }
-        return fill;
-    }
-
-    public ArrayList<Click> getClick() {
-        if (click == null) {
-            click = new ArrayList<Click>();
-        }
-        return click;
-    }
-
-    public ArrayList<ClickCheckbox> getClickCheckbox() {
-        if (clickCheckbox == null) {
-            clickCheckbox = new ArrayList<ClickCheckbox>();
-        }
-        return clickCheckbox;
-    }
-
-    public ArrayList<Select> getSelect() {
-        if (select == null) {
-            select = new ArrayList<Select>();
-        }
-        return select;
     }
 
     public void setText(ArrayList<Text> text) {
@@ -82,22 +50,6 @@ public class Page implements Scope {
 
     public void setNotText(ArrayList<NotText> notText) {
         this.notText = notText;
-    }
-
-    public void setFill(ArrayList<FillElement> fill) {
-        this.fill = fill;
-    }
-
-    public void setClick(ArrayList<Click> click) {
-        this.click = click;
-    }
-
-    public void setClickCheckbox(ArrayList<ClickCheckbox> clickCheckbox) {
-        this.clickCheckbox = clickCheckbox;
-    }
-
-    public void setSelect(ArrayList<Select> select) {
-        this.select = select;
     }
 
     public void parse() {

@@ -38,17 +38,17 @@ public class test {
 //        page.text = new ArrayList<Text>();
 //        page.text.add(text);
 //
-//        page.click = new ArrayList<Click>();
-//        page.click.add(c1);
-//        page.click.add(c2);
+//        page.navigate = new ArrayList<Click>();
+//        page.navigate.add(c1);
+//        page.navigate.add(c2);
 //
 //        page2.text = new ArrayList<Text>();
 //        page2.text.add(text);
 //
-//        page2.click = new ArrayList<Click>();
-//        page2.click.add(c1);
-//        page2.click.add(c3);
-//        page2.click.add(c2);
+//        page2.navigate = new ArrayList<Click>();
+//        page2.navigate.add(c1);
+//        page2.navigate.add(c3);
+//        page2.navigate.add(c2);
 
         scenario.pages = new ArrayList<Page>();
         scenario.pages.add(page);

@@ -7,14 +7,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
-import test.TestResult;
 
 import java.io.*;
 import java.security.SecureRandom;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -22,8 +17,7 @@ import java.util.List;
  *
  * @author AbuKhleif
  */
-public class Base {
-    private List<TestResult> results = new ArrayList<TestResult>();
+public class Base extends Reportable {
     private WebDriver driver;
 
     /**
@@ -53,15 +47,6 @@ public class Base {
 
         // quit the browser
         driver.quit();
-    }
-
-    /**
-     * Open url
-     *
-     * @param url
-     */
-    protected void openURL(String url) {
-        driver.get(url);
     }
 
     /**
@@ -150,23 +135,27 @@ public class Base {
     }
 
     /**
-     * click any link
+     * navigate to any link (click link on page, if not found go to url)
      *
-     * @param webElementKey id, name, or xpath of webElement
+     * @param key id, name, or xpath of webElement
      */
-    protected void click(String webElementKey) {
-        findElement(webElementKey).click();
+    protected void navigate(String key) {
+        try {
+            findElement(key).click();
+        } catch (NullPointerException e) {
+            driver.get(key);
+        }
     }
 
     /**
      * UPDATE ME!
-     * click checkbox by index
+     * navigate checkbox by index
      * Currently support find webElements just by name
      *
      * @param webElementKey id, name, or xpath of webElement
      * @param index         of action to select
      */
-    protected void click(String webElementKey, int index) {
+    protected void navigate(String webElementKey, int index) {
         List<WebElement> elements = findElementsByName(webElementKey);
         elements.get(index).click();
     }
@@ -265,84 +254,7 @@ public class Base {
         return driver.switchTo().alert().getText();
     }
 
-    /**
-     * Report status of a message if it can be found in the page
-     *
-     * @param result
-     * @param value
-     */
-    private void report(boolean result, String value) {
-        if (result) {
-            results.add(new TestResult("Passed", "Value Founded: '" + value + "'"));
-        } else {
-            results.add(new TestResult("Failed", "Value cannot be founded: '" + value + "'"));
-        }
-    }
 
-    /**
-     * Report the equality of two messages
-     *
-     * @param result
-     * @param actualValue
-     * @param expectedValue
-     */
-    private void report(boolean result, String actualValue, String expectedValue) {
-        if (result) {
-            results.add(new TestResult("Passed", "Actual value '" + actualValue + "' matches expected value"));
-        } else {
-            results.add(new TestResult("Failed", "Actual value '" + actualValue + "' does not match expected value '" + expectedValue + "'"));
-        }
-    }
-
-    /**
-     * Write report results
-     */
-    private void writeResults() {
-        DateFormat df = new SimpleDateFormat("dd-MM-yyyy_HH-mm-ss");
-        String requiredDate = df.format(new Date());
-        File report = new File("results" + File.separator + "report_" + requiredDate + ".html");
-        BufferedReader reader = null;
-        PrintWriter writer = null;
-        try {
-            reader = new BufferedReader(new FileReader("resources" + File.separator + "report_header.html"));
-            writer = new PrintWriter(new FileWriter(report));
-
-            // Report header
-            String line;
-            while ((line = reader.readLine()) != null) {
-                writer.println(line);
-            }
-
-            // Report Contents
-            for (int i = 0; i < results.size(); i++) {
-                if (results.get(i).getResult().equals("Passed")) {
-                    writer.println("<tr><td>" + Integer.toString(i + 1) + "</td><td>" + results.get(i).getResult() +
-                            "</td><td>" + results.get(i).getDescription() + "</td></tr>");
-                } else {
-                    writer.println("<tr><td> <font color=\"red\">" + Integer.toString(i + 1) + "</font> </td><td> <font color=\"red\"><strong>" +
-                            results.get(i).getResult() +
-                            " <strong> </font></td><td> <font color=\"red\">" + results.get(i).getDescription() + "</font></td></tr>");
-                }
-            }
-
-            // Report Footer
-            reader = new BufferedReader(new FileReader("resources" + File.separator + "report_footer.html"));
-            while ((line = reader.readLine()) != null) {
-                writer.println(line);
-            }
-        } catch (Exception e) {
-            System.err.println(e);
-        } finally {
-            try {
-                if (reader != null)
-                    reader.close();
-                if (writer != null)
-                    writer.close();
-            } catch (IOException e) {
-                System.err.println(e);
-            }
-        }
-    }
 
     private static final String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     private static SecureRandom rnd = new SecureRandom();
