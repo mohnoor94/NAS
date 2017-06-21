@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * Created by mkhlif on 6/20/17.
+ * @author AbuKhleif
  */
 public class test extends Base {
     private static final String SITE_XML = "./site.xml";
@@ -40,9 +40,6 @@ public class test extends Base {
         notText2.setValue("n2");
 
         text.setValue("Enter your email address to get");
-//        c1.setId("sdfakljas");
-//        c2.setId("zdf");
-//        c3.setId("asd");
 
         Site site = new Site();
         site.setUrl("http://demo.guru99.com/");
@@ -51,19 +48,10 @@ public class test extends Base {
 
         page.getActions().add(text);
 
-//        page.navigate = new ArrayList<Click>();
-//        page.navigate.add(c1);
-//        page.navigate.add(c2);
-//
-
         page2.getActions().add(text);
         page2.getActions().add(notText1);
         page2.getActions().add(notText2);
-//
-//        page2.navigate = new ArrayList<Click>();
-//        page2.navigate.add(c1);
-//        page2.navigate.add(c3);
-//        page2.navigate.add(c2);
+
 
         scenario.pages = new ArrayList<Page>();
         scenario.pages.add(page);
