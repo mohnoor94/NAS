@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 @XmlRootElement(name = "page")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Page implements Scope {
+public class Page extends Scope {
     @XmlAttribute
     private String name;
     @XmlAttribute

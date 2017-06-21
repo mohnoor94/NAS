@@ -16,7 +16,7 @@ public class Text extends Action {
     private String value;
 
     public void doAction() {
-        System.out.println("text: " + value);
+        verify(getValue());
     }
 
     public String getValue() {

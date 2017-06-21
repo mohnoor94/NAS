@@ -2,6 +2,8 @@ package test;
 
 import action.Click;
 import action.NotText;
+import framework.Base;
+import scope.Data;
 import scope.Page;
 import scope.Scenario;
 import action.Text;
@@ -15,11 +17,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Created by mkhlif on 6/20/17.
  */
-public class test {
+public class test extends Base {
     private static final String SITE_XML = "./site.xml";
 
 
@@ -36,7 +39,7 @@ public class test {
         notText1.setValue("n1");
         notText2.setValue("n2");
 
-        text.setValue("hello");
+        text.setValue("Enter your email address to get");
 //        c1.setId("sdfakljas");
 //        c2.setId("zdf");
 //        c3.setId("asd");
@@ -92,6 +95,11 @@ public class test {
         Unmarshaller um = context.createUnmarshaller();
         Site site1 = (Site) um.unmarshal(new FileReader(
                 SITE_XML));
+
+        setUp();
         site1.parse();
+        tearDown();
+
+        System.out.println(Collections.singletonList(Data.getData()));
     }
 }

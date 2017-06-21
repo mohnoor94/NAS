@@ -13,7 +13,7 @@ import java.util.List;
  * Created by mkhlif on 6/21/17.
  */
 public class Reportable {
-    private List<TestResult> results = new ArrayList<TestResult>();
+    private static List<TestResult> results = new ArrayList<TestResult>();
 
 
     /**
@@ -49,7 +49,7 @@ public class Reportable {
     /**
      * Write report results
      */
-    protected void writeResults() {
+    protected static void writeResults() {
         DateFormat df = new SimpleDateFormat("dd-MM-yyyy_HH-mm-ss");
         String requiredDate = df.format(new Date());
         File report = new File("results" + File.separator + "report_" + requiredDate + ".html");

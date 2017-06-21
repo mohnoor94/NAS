@@ -8,7 +8,7 @@ import java.util.ArrayList;
  */
 @XmlRootElement(name = "scenario")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Scenario implements Scope {
+public class Scenario extends Scope {
     @XmlAttribute
     public String name;
     @XmlElement(name = "page")

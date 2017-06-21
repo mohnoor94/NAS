@@ -18,14 +18,14 @@ import java.util.List;
  * @author AbuKhleif
  */
 public class Base extends Reportable {
-    private WebDriver driver;
+    private static WebDriver driver;
 
     /**
      * Before all tests
      *
      * @throws Exception
      */
-    protected void setUp() {
+    protected static void setUp() {
         // select driver
         if (SystemUtils.IS_OS_LINUX) {
             System.setProperty("webdriver.chrome.driver", "drivers" + File.separator + "chromedriver");
@@ -41,7 +41,7 @@ public class Base extends Reportable {
      *
      * @throws Exception
      */
-    protected void tearDown() {
+    protected static void tearDown() {
         // write report results
         writeResults();
 

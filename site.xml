@@ -2,10 +2,10 @@
 <site url="http://demo.guru99.com/">
     <scenario>
         <page name="Page 1" url="url">
-            <text value="hello"/>
+            <text value="Enter your email address to get"/>
         </page>
         <page url="url2">
-            <text value="hello"/>
+            <text value="Enter your email address to get"/>
             <not-text value="n1"/>
             <not-text value="n2"/>
         </page>

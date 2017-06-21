@@ -6,13 +6,15 @@ import java.util.ArrayList;
 
 @XmlRootElement(name = "site")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Site implements Scope {
+public class Site extends Scope {
     @XmlAttribute
     public String url;
     @XmlElement(name = "scenario")
     public ArrayList<Scenario> scenarios;
 
     public void parse() {
+        Data.getData().put("url", getUrl());
+        navigate(getUrl());
         System.out.println("Site Parsed");
         for (Scenario scenario : scenarios) {
             scenario.parse();
