@@ -2,7 +2,6 @@ package framework;
 
 import org.apache.commons.lang3.SystemUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -18,6 +17,7 @@ import java.util.List;
  * @author AbuKhleif
  */
 public class Base extends Reportable {
+    DriverUtils driverUtils = new DriverUtils();
     private static WebDriver driver;
 
     /**
@@ -50,22 +50,25 @@ public class Base extends Reportable {
     }
 
     /**
-     * Test if the page contains a certain sentence
+     * If (find) test if the page contains a certain sentence,
+     * otherwise test if it's not contain it
      *
      * @param messgae
+     * @param find
      */
-    protected void verify(String messgae) {
-        report(isPageContains(messgae), messgae);
+    protected void verify(String messgae, boolean find) {
+        report(isPageContains(messgae), find, messgae);
     }
 
     /**
-     * Test equality of two sentences
-     *
+     * If (find) test equality of two sentences,
+     * otherwise test if they are not equal
      * @param message1
      * @param message2
+     * @param find
      */
-    protected void verify(String message1, String message2) {
-        report(message1.equals(message2), message1, message2);
+    protected void verify(String message1, String message2, boolean find) {
+        report(message1.equals(message2), find, message1, message2);
     }
 
     /**
@@ -84,25 +87,29 @@ public class Base extends Reportable {
 //            return action;
 //        }
 //    // Exceptions can be thrown...
-        int trial = 4;
-        while (--trial != 0) {
-            try {
-                if (trial == 3) {
-                    element = findElementById(key);
-                    break;
-                } else if (trial == 2) {
-                    element = findElementByName(key);
-                    break;
-                } else if (trial == 1) {
-                    element = findElementByXPath(key);
-                    break;
-                }
-            } catch (NoSuchElementException e) {
-                // continue;
-            }
-        }
-        // TODO add other cases..
-        return element;
+
+        // My Solution
+//        int trial = 4;
+//        while (--trial != 0) {
+//            try {
+//                if (trial == 3) {
+//                    element = findElementById(key);
+//                    break;
+//                } else if (trial == 2) {
+//                    element = findElementByName(key);
+//                    break;
+//                } else if (trial == 1) {
+//                    element = findElementByXPath(key);
+//                    break;
+//                }
+//            } catch (NoSuchElementException e) {
+//                // continue;
+//            }
+//        }
+//        // TODO add other cases..
+//        return element;
+
+        return DriverUtils.findElement(driver, key);
     }
 
     /**
@@ -142,26 +149,26 @@ public class Base extends Reportable {
     protected void navigate(String key) {
         try {
             findElement(key).click();
-        } catch (NullPointerException e) {
+        } catch (Exception e) {
             driver.get(key);
         }
     }
 
     /**
-     * UPDATE ME!
+     * TODO UPDATE ME!
      * navigate checkbox by index
      * Currently support find webElements just by name
      *
      * @param webElementKey id, name, or xpath of webElement
      * @param index         of action to select
      */
-    protected void navigate(String webElementKey, int index) {
+    protected void clickCheckbox(String webElementKey, int index) {
         List<WebElement> elements = findElementsByName(webElementKey);
         elements.get(index).click();
     }
 
     /**
-     * UPDATE ME!
+     * TODO UPDATE ME!
      * select value from dropdown menu
      * Currently support selection by visible text only
      *
@@ -253,7 +260,6 @@ public class Base extends Reportable {
     protected String getAlertText() {
         return driver.switchTo().alert().getText();
     }
-
 
 
     private static final String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";

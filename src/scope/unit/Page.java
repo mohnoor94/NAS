@@ -1,6 +1,9 @@
-package scope;
+package scope.unit;
 
 import action.*;
+import data.Data;
+import framework.Base;
+import scope.Scope;
 
 import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
@@ -11,7 +14,7 @@ import java.util.ArrayList;
 
 @XmlRootElement(name = "page")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Page extends Scope {
+public class Page extends Unit {
     @XmlAttribute
     private String name;
     @XmlAttribute
@@ -20,7 +23,9 @@ public class Page extends Scope {
     private ArrayList<Action> actions = new ArrayList<Action>();
 
     public void parse() {
-        System.out.println("Page parsed");
+        // TODO report page header
+        if (getUrl() != null)
+            navigate(Data.getData().get("url") + getUrl());
         for (Action action : actions) {
             action.doAction();
         }
@@ -48,7 +53,6 @@ public class Page extends Scope {
         }
         return actions;
     }
-
 
 
 }

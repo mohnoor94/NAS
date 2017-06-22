@@ -1,5 +1,7 @@
 package action;
 
+import data.Data;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -9,21 +11,32 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author AbuKhleif
  */
 
-@XmlRootElement(name = "navigate")
+@XmlRootElement(name = "store")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Click extends Action {
+public class Store extends Action {
+    @XmlAttribute
+    private String key;
     @XmlAttribute
     private String id;
 
     public void doAction() {
-        navigate(id);
+        Data.getUserData().put(key, getText(id));
     }
 
-    public Click() {
+    public Store() {
     }
 
-    public Click(String id) {
+    public Store(String key, String id) {
+        this.key = key;
         this.id = id;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 
     public String getId() {

@@ -1,5 +1,7 @@
 package scope;
 
+import data.Data;
+
 import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 
@@ -8,14 +10,16 @@ import java.util.ArrayList;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Site extends Scope {
     @XmlAttribute
-    public String url;
+    private String name;
+    @XmlAttribute
+    private String url;
     @XmlElement(name = "scenario")
-    public ArrayList<Scenario> scenarios;
+    private ArrayList<Scenario> scenarios;
 
     public void parse() {
+        // TODO report site header
         Data.getData().put("url", getUrl());
         navigate(getUrl());
-        System.out.println("Site Parsed");
         for (Scenario scenario : scenarios) {
             scenario.parse();
         }
@@ -38,5 +42,13 @@ public class Site extends Scope {
 
     public void setScenarios(ArrayList<Scenario> scenarios) {
         this.scenarios = scenarios;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

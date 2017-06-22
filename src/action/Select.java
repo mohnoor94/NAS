@@ -2,20 +2,31 @@ package action;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * Created by mkhlif on 6/20/17.
+ * @author AbuKhleif
  */
 
 @XmlRootElement(name = "select")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Select extends Action {
+    @XmlAttribute
     private String id;
+    @XmlAttribute
     private String text;
 
     public void doAction() {
+        select(id, text);
+    }
 
+    public Select() {
+    }
+
+    public Select(String id, String text) {
+        this.id = id;
+        this.text = text;
     }
 
     public String getId() {

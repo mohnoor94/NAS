@@ -22,11 +22,19 @@ public class Reportable {
      * @param result
      * @param value
      */
-    protected void report(boolean result, String value) {
-        if (result) {
-            results.add(new TestResult("Passed", "Value Founded: '" + value + "'"));
+    protected void report(boolean result, boolean expected, String value) {
+        if (expected) {
+            if (result) {
+                results.add(new TestResult("Passed", "Value Founded: '" + value + "'"));
+            } else {
+                results.add(new TestResult("Failed", "Value cannot be founded: '" + value + "'"));
+            }
         } else {
-            results.add(new TestResult("Failed", "Value cannot be founded: '" + value + "'"));
+            if (result) {
+                results.add(new TestResult("Failed", "Value Founded: '" + value + "' but it should not!"));
+            } else {
+                results.add(new TestResult("Passed", "Value '" + value + "' cannot be founded, as it should!"));
+            }
         }
     }
 
@@ -37,11 +45,19 @@ public class Reportable {
      * @param actualValue
      * @param expectedValue
      */
-    protected void report(boolean result, String actualValue, String expectedValue) {
-        if (result) {
-            results.add(new TestResult("Passed", "Actual value '" + actualValue + "' matches expected value"));
+    protected void report(boolean result, boolean expected, String actualValue, String expectedValue) {
+        if (expected) {
+            if (result) {
+                results.add(new TestResult("Passed", "Actual value '" + actualValue + "' matches expected value"));
+            } else {
+                results.add(new TestResult("Failed", "Actual value '" + actualValue + "' does not match expected value '" + expectedValue + "'"));
+            }
         } else {
-            results.add(new TestResult("Failed", "Actual value '" + actualValue + "' does not match expected value '" + expectedValue + "'"));
+            if (result) {
+                results.add(new TestResult("Failed", "Value '" + actualValue + "' founded, but it should not!"));
+            } else {
+                results.add(new TestResult("Passed", "Value '" + actualValue + "' can not be founded, as it should!"));
+            }
         }
     }
 
@@ -68,12 +84,12 @@ public class Reportable {
             // Report Contents
             for (int i = 0; i < results.size(); i++) {
                 if (results.get(i).getResult().equals("Passed")) {
-                    writer.println("<tr><td>" + Integer.toString(i + 1) + "</td><td>" + results.get(i).getResult() +
-                            "</td><td>" + results.get(i).getDescription() + "</td></tr>");
+                    writer.println("<tr><td>" + Integer.toString(i + 1) + "</td><td> <font color=\"green\">" + results.get(i).getResult() +
+                            "</font> </td><td>" + results.get(i).getDescription() + "</td></tr>");
                 } else {
-                    writer.println("<tr><td> <font color=\"red\">" + Integer.toString(i + 1) + "</font> </td><td> <font color=\"red\"><strong>" +
+                    writer.println("<tr><td>" + Integer.toString(i + 1) + "</td><td> <font color=\"red\"><strong>" +
                             results.get(i).getResult() +
-                            " <strong> </font></td><td> <font color=\"red\">" + results.get(i).getDescription() + "</font></td></tr>");
+                            " </strong> </font></td><td>" + results.get(i).getDescription() + "</td></tr>");
                 }
             }
 

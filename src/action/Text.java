@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * Created by mkhlif on 6/20/17.
+ * @author AbuKhleif
  */
 
 @XmlRootElement(name = "text")
@@ -16,7 +16,14 @@ public class Text extends Action {
     private String value;
 
     public void doAction() {
-        verify(getValue());
+        verify(getValue(), true);
+    }
+
+    public Text() {
+    }
+
+    public Text(String value) {
+        this.value = value;
     }
 
     public String getValue() {

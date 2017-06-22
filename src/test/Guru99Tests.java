@@ -30,8 +30,8 @@ public class Guru99Tests extends Base {
         navigate("http://demo.guru99.com/");
 
         // verify message
-        verify("Enter your email address to get");
-        verify("access details to demo site");
+        verify("Enter your email address to get", true);
+        verify("access details to demo site", true);
 
         // fill email with random email
         randomEmail = generateRandomEmail();
@@ -41,8 +41,8 @@ public class Guru99Tests extends Base {
         submit("emailid");
 
         // verify messages
-        verify("Access details to demo site.");
-        verify("This access is valid only for 20 days.");
+        verify("Access details to demo site.", true);
+        verify("This access is valid only for 20 days.", true);
 
         // get username and save it
         username = getText("/html/body/table/tbody/tr[4]/td[2]");
@@ -59,7 +59,7 @@ public class Guru99Tests extends Base {
         navigate("http://demo.guru99.com/V4/index.php");
 
         // Verify that the appearance of the message
-        verify("Steps To Generate Access");
+        verify("Steps To Generate Access", true);
 
         // fill username with stored value
         fillElement("uid", username);
@@ -71,7 +71,7 @@ public class Guru99Tests extends Base {
         submit("uid");
 
         // Verify that the appearance of the message
-        verify("Welcome To Manager's Page of Guru99 Bank");
+        verify("Welcome To Manager's Page of Guru99 Bank", true);
     }
 
     /**
@@ -82,14 +82,14 @@ public class Guru99Tests extends Base {
         navigate("/html/body/div[2]/div/ul/li[2]/a");
 
         // Verify message
-        verify("Add New Customer");
+        verify("Add New Customer", true);
 
         // Fill Form
         // name
         fillElement("name", "Mohammad Noor");
 
         // gender
-        navigate("rad1", 0);
+        clickCheckbox("rad1", 0);
 
         // date of birth
         fillElement("dob", "05/22/1994");
@@ -119,7 +119,7 @@ public class Guru99Tests extends Base {
         navigate("sub");
 
         // verify message
-        verify("Customer Registered Successfully!!!");
+        verify("Customer Registered Successfully!!!", true);
 
         // get id
         id = getText("//*[@id=\"customer\"]/tbody/tr[4]/td[2]");
@@ -133,7 +133,7 @@ public class Guru99Tests extends Base {
         navigate("/html/body/div[2]/div/ul/li[5]/a");
 
         // Verify message
-        verify("Add new account form");
+        verify("Add new account form", true);
 
         // Fill Form
         // customer id
@@ -149,7 +149,7 @@ public class Guru99Tests extends Base {
         navigate("button2");
 
         // Verify message
-        verify("Account Generated Successfully!!!");
+        verify("Account Generated Successfully!!!", true);
     }
 
     /**
@@ -160,12 +160,12 @@ public class Guru99Tests extends Base {
         navigate("/html/body/div[2]/div/ul/li[15]/a");
 
         // Get the text of the alert or prompt
-        verify(getAlertText(), "You Have Succesfully Logged Out!!");
+        verify(getAlertText(), "You Have Succesfully Logged Out!!", true);
 
         // Acknowledge the alert
         respondAlert(true);
 
         // Verify message
-        verify("Steps To Generate Access");
+        verify("Steps To Generate Access", true);
     }
 }

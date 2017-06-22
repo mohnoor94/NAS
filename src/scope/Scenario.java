@@ -1,23 +1,25 @@
 package scope;
 
+import scope.unit.Unit;
+
 import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 
 /**
- * Created by mkhlif on 6/20/17.
+ * @author AbuKhleif
  */
 @XmlRootElement(name = "scenario")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Scenario extends Scope {
     @XmlAttribute
-    public String name;
-    @XmlElement(name = "page")
-    public ArrayList<Page> pages;
+    private String name;
+    @XmlElementRef
+    private ArrayList<Unit> units;
 
     public void parse() {
-        System.out.println("Scenario Parsed");
-        for (Page page : pages) {
-            page.parse();
+        // TODO report scenario header
+        for (Unit unit : units) {
+            unit.parse();
         }
     }
 
@@ -29,11 +31,10 @@ public class Scenario extends Scope {
         this.name = name;
     }
 
-    public ArrayList<Page> getPages() {
-        return pages;
-    }
-
-    public void setPages(ArrayList<Page> pages) {
-        this.pages = pages;
+    public ArrayList<Unit> getUnits() {
+        if (units == null) {
+            units = new ArrayList<Unit>();
+        }
+        return units;
     }
 }

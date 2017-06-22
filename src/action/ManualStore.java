@@ -1,5 +1,7 @@
 package action;
 
+import data.Data;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -9,21 +11,32 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author AbuKhleif
  */
 
-@XmlRootElement(name = "not-text")
+@XmlRootElement(name = "store-manual")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class NotText extends Action {
+public class ManualStore extends Action {
+    @XmlAttribute
+    private String key;
     @XmlAttribute
     private String value;
 
     public void doAction() {
-        verify(getValue(), false);
+        Data.getUserData().put(key, value);
     }
 
-    public NotText() {
+    public ManualStore() {
     }
 
-    public NotText(String value) {
+    public ManualStore(String key, String value) {
+        this.key = key;
         this.value = value;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 
     public String getValue() {

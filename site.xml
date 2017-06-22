@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<site url="http://demo.guru99.com/">
-    <scenario>
-        <page name="Page 1" url="url">
-            <text value="Enter your email address to get"/>
-        </page>
-        <page url="url2">
-            <text value="Enter your email address to get"/>
-            <not-text value="n1"/>
-            <not-text value="n2"/>
+<site name="Guru 99 Bank" url="http://demo.guru99.com/">
+    <scenario name="Login">
+        <form name="Guru 99 bank Login">
+            <fill id="emailid" value="email@example.com"/>
+        </form>
+        <page>
+            <store key="username" id="/html/body/table/tbody/tr[4]/td[2]"/>
+            <store key="password" id="/html/body/table/tbody/tr[5]/td[2]"/>
         </page>
     </scenario>
 </site>
