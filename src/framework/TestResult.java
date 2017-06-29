@@ -1,4 +1,4 @@
-package test;
+package framework;
 
 /**
  * Test result row for reporting purposes

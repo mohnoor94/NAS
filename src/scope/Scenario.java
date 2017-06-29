@@ -17,13 +17,17 @@ public class Scenario extends Scope {
     private ArrayList<Unit> units;
 
     public void parse() {
-        // TODO report scenario header
+        addHeader("scenario", getName());
         for (Unit unit : units) {
             unit.parse();
         }
+        addFooter("scenario", getName());
     }
 
     public String getName() {
+        if (name == null){
+            name = "UNKNOWN";
+        }
         return name;
     }
 

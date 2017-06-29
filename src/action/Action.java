@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlSeeAlso;
  */
 @XmlSeeAlso({Click.class, ClickCheckbox.class, FillElement.class,
         ManualStore.class, NotText.class, Select.class, Store.class,
-        Text.class})
+        Submit.class, Text.class})
 public abstract class Action extends Base {
     public abstract void doAction();
 }

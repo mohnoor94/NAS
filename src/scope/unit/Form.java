@@ -1,10 +1,7 @@
 package scope.unit;
 
 import action.Action;
-import action.FillElement;
 import data.Data;
-import framework.Base;
-import scope.Scope;
 
 import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
@@ -20,30 +17,47 @@ public class Form extends Unit {
     private String name;
     @XmlAttribute
     private String url;
-    @XmlAttribute(name = "submit-button")
-    private String submitButton;
+    @XmlAttribute
+    private String relative;
     @XmlElementRef
     private ArrayList<Action> actions = new ArrayList<Action>();
 
     public void parse() {
-        // TODO report form header
-        navigate(Data.getData().get("url") + getUrl());
+        addHeader("Form", getName() + " (" + getUrl() + " )");
+
+        // navigate to form
+        if (getRelative().equals("no")) {
+            navigate(getUrl());
+        } else {
+            navigate(Data.getData().get("url") + getUrl());
+        }
+
+        // do actions
         for (Action action : actions) {
             action.doAction();
         }
-        // submit form
-        if (submitButton != null) {
-            navigate(submitButton);
-        } else {
-            for (Action action : actions) {
-                if (action instanceof FillElement) {
-                    submit(((FillElement) action).getId());
-                }
-            }
-        }
+
+        addFooter("Form", getName() + " (" + getUrl() + " )");
+    }
+
+    public Form() {
+    }
+
+    public Form(String name, String url) {
+        this.name = name;
+        this.url = url;
+    }
+
+    public Form(String name, String url, String relative) {
+        this.name = name;
+        this.url = url;
+        this.relative = relative;
     }
 
     public String getName() {
+        if (name == null){
+            name = "UNKNOWN";
+        }
         return name;
     }
 
@@ -62,18 +76,21 @@ public class Form extends Unit {
         this.url = url;
     }
 
+    public String getRelative() {
+        if (relative == null){
+            relative = "yes";
+        }
+        return relative;
+    }
+
+    public void setRelative(String relative) {
+        this.relative = relative;
+    }
+
     public ArrayList<Action> getActions() {
         if (actions == null) {
             actions = new ArrayList<Action>();
         }
         return actions;
-    }
-
-    public String getSubmitButton() {
-        return submitButton;
-    }
-
-    public void setSubmitButton(String submitButton) {
-        this.submitButton = submitButton;
     }
 }

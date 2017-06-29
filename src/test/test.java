@@ -1,11 +1,11 @@
 package test;
 
 import action.*;
-import framework.Base;
 import data.Data;
-import scope.unit.Form;
+import framework.Base;
 import scope.Scenario;
 import scope.Site;
+import scope.unit.Form;
 import scope.unit.Page;
 
 import javax.xml.bind.JAXBContext;
@@ -62,27 +62,51 @@ public class test extends Base {
 //
 //        site.getScenarios().add(scenario);
 
+        Page ak = new Page("AbuKhleif", "http://abukhleif.com/", "no");
+        Text akt1 = new Text("Latest stories");
+        Text akt2 = new Text("Abu Khleif");
+        ak.getActions().add(akt1);
+        ak.getActions().add(akt2);
+
+        Text t1 = new Text("Enter your email address to get");
+        Text t2 = new Text("Access details to demo site.");
+        NotText notFound = new NotText("Error 404");
+        Text t3 = new Text("This access is valid only for 20 days.");
         Site site = new Site();
         site.setUrl("http://demo.guru99.com/");
         site.setName("Guru 99 Bank");
         Scenario scenario = new Scenario();
+
         site.getScenarios().add(scenario);
+
         scenario.setName("Login");
         Form form = new Form();
         scenario.getUnits().add(form);
         form.setName("Guru 99 bank Login");
+        form.getActions().add(t1);
+        form.getActions().add(notFound);
         FillElement fill = new FillElement("emailid", "email@example.com");
+
         form.getActions().add(fill);
-        Page page = new Page();
-        scenario.getUnits().add(page);
+//        Page page = new Page();
+//        scenario.getUnits().add(page);
         Store username = new Store("username", "/html/body/table/tbody/tr[4]/td[2]");
         Store password = new Store("password", "/html/body/table/tbody/tr[5]/td[2]");
-        page.getActions().add(username);
-        page.getActions().add(password);
+//        page.getActions().add(username);
+//        page.getActions().add(password);
 
-        // TODO verify and actions in form not via new page!!!!
+        Submit submit = new Submit("emailid");
+        form.getActions().add(submit);
 
+        form.getActions().add(t2);
+        form.getActions().add(t3);
+        form.getActions().add(notFound);
 
+        form.getActions().add(username);
+        form.getActions().add(password);
+
+        ak.getActions().add(notFound);
+        scenario.getUnits().add(ak);
 
 
         // create JAXB context and instantiate marshaller
@@ -107,7 +131,7 @@ public class test extends Base {
 
         setUp();
         site1.parse();
-        //tearDown();
+        tearDown();
 
         System.out.println(Collections.singletonList(Data.getData()));
         System.out.println("\n\n\nUser Data:");

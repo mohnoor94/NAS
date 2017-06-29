@@ -17,15 +17,19 @@ public class Site extends Scope {
     private ArrayList<Scenario> scenarios;
 
     public void parse() {
-        // TODO report site header
+        addHeader("site", getName() + " (" + getUrl()+")");
         Data.getData().put("url", getUrl());
         navigate(getUrl());
         for (Scenario scenario : scenarios) {
             scenario.parse();
         }
+        addFooter("site", getName() + " (" + getUrl()+")");
     }
 
     public String getUrl() {
+        if (url == null) {
+            url = "#";
+        }
         return url;
     }
 
@@ -45,6 +49,9 @@ public class Site extends Scope {
     }
 
     public String getName() {
+        if (name == null) {
+            name = "UNKNOWN";
+        }
         return name;
     }
 
