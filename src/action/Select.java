@@ -18,7 +18,7 @@ public class Select extends Action {
     private String text;
 
     public void doAction() {
-        select(id, text);
+        select(getId(), getText());
     }
 
     public Select() {

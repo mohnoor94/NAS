@@ -16,7 +16,7 @@ public class Click extends Action {
     private String id;
 
     public void doAction() {
-        navigate(id);
+        navigate(getId());
     }
 
     public Click() {

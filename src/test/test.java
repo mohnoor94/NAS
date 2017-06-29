@@ -127,7 +127,7 @@ public class test extends Base {
         System.out.println("Output from our XML File: ");
         Unmarshaller um = context.createUnmarshaller();
         Site site1 = (Site) um.unmarshal(new FileReader(
-                SITE_XML));
+                "xml/site.xml"));
 
         setUp();
         site1.parse();

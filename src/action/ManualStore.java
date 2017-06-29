@@ -20,7 +20,7 @@ public class ManualStore extends Action {
     private String value;
 
     public void doAction() {
-        Data.getUserData().put(key, value);
+        Data.getUserData().put(getKey(), getValue());
     }
 
     public ManualStore() {

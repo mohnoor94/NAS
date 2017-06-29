@@ -87,6 +87,7 @@ public class Page extends Unit {
         this.relative = relative;
     }
 
+    @Override
     public ArrayList<Action> getActions() {
         if (actions == null) {
             actions = new ArrayList<Action>();

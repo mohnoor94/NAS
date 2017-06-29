@@ -95,7 +95,7 @@ public class Reportable {
     protected static void writeResults() {
         DateFormat df = new SimpleDateFormat("dd-MM-yyyy_HH-mm-ss");
         String requiredDate = df.format(new Date());
-        File report = new File("results" + File.separator + "report_" + requiredDate + ".html");
+        File report = new File("reports" + File.separator + "report_" + requiredDate + ".html");
         BufferedReader reader = null;
         PrintWriter writer = null;
         try {

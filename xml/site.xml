@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<site name="Guru 99 Bank" url="http://demo.guru99.com/">
+    <scenario name="Login">
+        <form name="Guru 99 bank Login">
+            <text value="Enter your email address to get"/>
+            <not-text value="Error 404"/>
+            <fill id="emailid" value="email@example.com"/>
+            <text value="Access details to demo site."/>
+            <text value="This access is valid only for 20 days."/>
+            <submit element="emailid"/>
+            <store key="username" id="/html/body/table/tbody/tr[4]/td[2]"/>
+            <store key="password" id="/html/body/table/tbody/tr[5]/td[2]"/>
+            <not-text value="Error 404"/>
+        </form>
+        <page name="AbuKhleif" url="http://abukhleif.com/" relative="no">
+            <text value="Latest stories"/>
+            <text value="Abu Khleif"/>
+        </page>
+    </scenario>
+</site>

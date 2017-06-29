@@ -24,6 +24,13 @@ public class Scenario extends Scope {
         addFooter("scenario", getName());
     }
 
+    public Scenario(String name) {
+        this.name = name;
+    }
+
+    public Scenario() {
+    }
+
     public String getName() {
         if (name == null){
             name = "UNKNOWN";

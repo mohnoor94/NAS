@@ -17,7 +17,7 @@ public class FillElement extends Action {
     private String value;
 
     public void doAction() {
-        fillElement(id, value);
+        fillElement(getId(), getValue());
     }
 
     public FillElement() {

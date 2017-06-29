@@ -20,7 +20,7 @@ public class Store extends Action {
     private String id;
 
     public void doAction() {
-        Data.getUserData().put(key, getText(id));
+        Data.getUserData().put(getKey(), getText(getId()));
     }
 
     public Store() {

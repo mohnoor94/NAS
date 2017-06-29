@@ -18,7 +18,7 @@ public class ClickCheckbox extends Action {
     private Integer index;
 
     public void doAction() {
-        clickCheckbox(id, index);
+        clickCheckbox(getId(), getIndex());
     }
 
     public ClickCheckbox() {
@@ -35,5 +35,13 @@ public class ClickCheckbox extends Action {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public Integer getIndex() {
+        return index;
+    }
+
+    public void setIndex(Integer index) {
+        this.index = index;
     }
 }

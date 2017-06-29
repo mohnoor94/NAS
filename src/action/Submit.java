@@ -16,8 +16,8 @@ public class Submit extends Action {
     private String element;
 
     public void doAction() {
-        if (element != null) {
-            submit(element);
+        if (getElement() != null) {
+            submit(getElement());
         }
     }
 

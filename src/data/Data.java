@@ -1,6 +1,7 @@
 package data;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Store some data for later uses
@@ -8,14 +9,20 @@ import java.util.HashMap;
  * @author AbuKhleif
  */
 public class Data {
-    private static HashMap<String, String> data = new HashMap<String, String>();
-    private static HashMap<String, String> userData = new HashMap<String, String>();
+    private static Map<String, String> data;
+    private static Map<String, String> userData;
 
-    public static HashMap<String, String> getData() {
+    public static Map<String, String> getData() {
+        if (data == null) {
+            data = new HashMap<>();
+        }
         return data;
     }
 
-    public static HashMap<String, String> getUserData() {
+    public static Map<String, String> getUserData() {
+        if (userData == null) {
+            userData = new HashMap<>();
+        }
         return userData;
     }
 }
