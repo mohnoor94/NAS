@@ -6,7 +6,10 @@ import framework.Reporter;
 import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 
-
+/**
+ *
+ * @author AbuKhleif
+ */
 @XmlRootElement(name = "site")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Site extends Scope {

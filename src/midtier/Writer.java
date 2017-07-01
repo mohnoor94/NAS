@@ -130,11 +130,6 @@ public class Writer {
      */
     public void commitActions() {
         // add actions to the current unit
-//        for (Action action : getActions()) {
-//            getActiveUnit().getActions().add(action);
-//        }
-
-
         getActiveUnit().getActions().addAll(actions);
 
         // reset actions list

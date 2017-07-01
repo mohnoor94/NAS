@@ -10,7 +10,6 @@ import java.util.ArrayList;
 /**
  * @author AbuKhleif
  */
-
 @XmlRootElement(name = "form")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Form extends Unit {

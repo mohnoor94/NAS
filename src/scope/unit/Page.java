@@ -10,7 +10,6 @@ import java.util.ArrayList;
 /**
  * @author AbuKhleif
  */
-
 @XmlRootElement(name = "page")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Page extends Unit {
