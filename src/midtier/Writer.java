@@ -11,7 +11,6 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import java.io.File;
-import java.util.ArrayList;
 
 /**
  * This class responsibility is to create xml files (qa tests)
@@ -24,7 +23,6 @@ public class Writer {
     private Page page;
     private Form form;
     private Unit activeUnit;
-    private ArrayList<Action> actions;
     private final String preFilePath = "./xml" + File.separator;
     private final String postFilePath = ".xml";
 
@@ -114,25 +112,11 @@ public class Writer {
         }
     }
 
-    public ArrayList<Action> getActions() {
-        if (actions == null) {
-            actions = new ArrayList<>();
-        }
-        return actions;
-    }
-
-    public void addAction(Action action) {
-        getActions().add(action);
-    }
-
     /**
-     * Add actions to the current unit
+     * Add an action to the current unit
+     * @param action
      */
-    public void commitActions() {
-        // add actions to the current unit
-        getActiveUnit().getActions().addAll(actions);
-
-        // reset actions list
-        getActions().clear();
+    public void addAction(Action action) {
+        getActiveUnit().getActions().add(action);
     }
 }

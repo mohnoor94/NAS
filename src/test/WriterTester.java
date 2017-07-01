@@ -15,7 +15,7 @@ import javax.xml.bind.JAXBException;
  * @author AbuKhleif
  */
 public class WriterTester {
-    static Writer writer;
+    private static Writer writer;
     private static String randomEmail;
 
     public static void main(String[] args) throws JAXBException {
@@ -32,10 +32,9 @@ public class WriterTester {
     private static void logout() {
         writer.addScenario(new Scenario("Logout"));
         writer.addForm(new Form("Logout Form", "/html/body/div[2]/div/ul/li[15]/a", "no"));
-        writer.addAction(new VerifyAlert("You Have Succesfully Logged Out!!!"));
+        writer.addAction(new VerifyAlert("You Have Succesfully Logged Out!!"));
         writer.addAction(new RespondAlert(true));
         writer.addAction(new VerifyText("Steps To Generate Access"));
-        writer.commitActions();
     }
 
     private static void createNewAccount() {
@@ -47,7 +46,6 @@ public class WriterTester {
         writer.addAction(new FillElement("inideposit", "1000"));
         writer.addAction(new Submit("button2", "button"));
         writer.addAction(new VerifyText("Account Generated Successfully!!!"));
-        writer.commitActions();
     }
 
     private static void createNewCustomer() {
@@ -67,7 +65,6 @@ public class WriterTester {
         writer.addAction(new Submit("sub", "button"));
         writer.addAction(new VerifyText("Customer Registered Successfully!!!"));
         writer.addAction(new Store("id", "//*[@id=\"customer\"]/tbody/tr[4]/td[2]"));
-        writer.commitActions();
     }
 
     private static void login() {
@@ -78,7 +75,6 @@ public class WriterTester {
         writer.addAction(new FillElement("password", "password", "yes"));
         writer.addAction(new Submit("uid"));
         writer.addAction(new VerifyText("Welcome To Manager's Page of Guru99 Bank"));
-        writer.commitActions();
     }
 
     static void register() {
@@ -93,7 +89,5 @@ public class WriterTester {
         writer.addAction(new VerifyText("This access is valid only for 20 days."));
         writer.addAction(new Store("username", "/html/body/table/tbody/tr[4]/td[2]"));
         writer.addAction(new Store("password", "/html/body/table/tbody/tr[5]/td[2]"));
-        writer.addAction(new VerifyNotText("Error 404"));
-        writer.commitActions();
-    }
+        writer.addAction(new VerifyNotText("Error 404"));}
 }

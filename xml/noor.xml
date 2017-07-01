@@ -33,7 +33,7 @@
             <fill id="state" value="Unknown"/>
             <fill id="pinno" value="123456"/>
             <fill id="telephoneno" value="0786201850"/>
-            <fill id="emailid" value="nfuVLCIsqz@example.com"/>
+            <fill id="emailid" value="JyRqElGqlD@example.com"/>
             <fill id="password" value="password" stored="yes"/>
             <submit element="sub" type="button"/>
             <text value="Customer Registered Successfully!!!"/>
@@ -52,7 +52,7 @@
     </scenario>
     <scenario name="Logout">
         <form name="Logout Form" url="/html/body/div[2]/div/ul/li[15]/a" relative="no">
-            <verify-alert expected="You Have Succesfully Logged Out!!!"/>
+            <verify-alert expected="You Have Succesfully Logged Out!!"/>
             <response-alert response="true"/>
             <text value="Steps To Generate Access"/>
         </form>
