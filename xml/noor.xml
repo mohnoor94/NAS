@@ -33,7 +33,7 @@
             <fill id="state" value="Unknown"/>
             <fill id="pinno" value="123456"/>
             <fill id="telephoneno" value="0786201850"/>
-            <fill id="emailid" value="JyRqElGqlD@example.com"/>
+            <fill id="emailid" value="QztnTuTFJO@example.com"/>
             <fill id="password" value="password" stored="yes"/>
             <submit element="sub" type="button"/>
             <text value="Customer Registered Successfully!!!"/>

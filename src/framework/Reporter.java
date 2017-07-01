@@ -123,34 +123,34 @@ public class Reporter {
             for (int i = 0; i < results.size(); i++) {
                 switch (results.get(i).getResult().toLowerCase()) {
                     case "passed":
-                        writer.println("<tr><td>" + Integer.toString(i + 1) + "</td><td> <font color=\"green\">" + results.get(i).getResult() + "</font> </td><td>" + results.get(i).getDescription() + "</td></tr>");
+                        writer.println("<tr><td>" + Integer.toString(i + 1) + "</td><td class=\"passed\">" + results.get(i).getResult() + "</td><td>" + results.get(i).getDescription() + "</td></tr>");
                         break;
                     case "failed":
-                        writer.println("<tr><td>" + Integer.toString(i + 1) + "</td><td> <font color=\"red\"><strong>" + results.get(i).getResult() + " </strong> </font></td><td>" + results.get(i).getDescription() + "</td></tr>");
+                        writer.println("<tr><td>" + Integer.toString(i + 1) + "</td><td class=\"failed\">" + results.get(i).getResult() + "</td><td>" + results.get(i).getDescription() + "</td></tr>");
                         break;
                     case "site":
-                        writer.println("<tr><td>" + Integer.toString(i + 1) + "</td>" + "<td colspan=\"2\"><h2><font color=\"STEELBLUE\">Enter Site: " + results.get(i).getDescription() + "</font></h2> </td> </tr>");
+                        writer.println("<tr><td>" + Integer.toString(i + 1) + "</td>" + "<td class=\"site\" colspan=\"2\">Enter Site: " + results.get(i).getDescription() + "</td></tr>");
                         break;
                     case "scenario":
-                        writer.println("<tr><td>" + Integer.toString(i + 1) + "</td>" + "<td colspan=\"2\"> <font color=\"TEAL\"> <h3>Start Scenario: " + results.get(i).getDescription() + "</h3> </font></td> </tr>");
+                        writer.println("<tr><td>" + Integer.toString(i + 1) + "</td>" + "<td class=\"scenario\" colspan=\"2\">Start Scenario: " + results.get(i).getDescription() + "</td></tr>");
                         break;
                     case "page":
-                        writer.println("<tr><td>" + Integer.toString(i + 1) + "</td>" + "<td colspan=\"2\"> <font color=\"PURPLE\"> <h4>Enter Page: " + results.get(i).getDescription() + "</h4> </font></td> </tr>");
+                        writer.println("<tr><td>" + Integer.toString(i + 1) + "</td>" + "<td class=\"page\" colspan=\"2\">Enter Page: " + results.get(i).getDescription() + "</td></tr>");
                         break;
                     case "form":
-                        writer.println("<tr><td>" + Integer.toString(i + 1) + "</td>" + "<td colspan=\"2\"> <font color=\"SALMON\"> <h4>Enter Form: " + results.get(i).getDescription() + "</h4> </font></td> </tr>");
+                        writer.println("<tr><td>" + Integer.toString(i + 1) + "</td>" + "<td class=\"form\" colspan=\"2\">Enter Form: " + results.get(i).getDescription() + "</td></tr>");
                         break;
                     case "site_end":
-                        writer.println("<tr><td>" + Integer.toString(i + 1) + "</td>" + "<td colspan=\"2\"> <font color=\"LIGHTSTEELBLUE\"> <h2>Leave Site: " + results.get(i).getDescription() + "</h2> </font></td> </tr>");
+                        writer.println("<tr><td>" + Integer.toString(i + 1) + "</td>" + "<td class=\"end\" colspan=\"2\">Leave Site: " + results.get(i).getDescription() + "</td></tr>");
                         break;
                     case "scenario_end":
-                        writer.println("<tr><td>" + Integer.toString(i + 1) + "</td>" + "<td colspan=\"2\"> <font color=\"LIGHTSTEELBLUE\"> <h3>End Scenario: " + results.get(i).getDescription() + "</h3> </font></td> </tr>");
+                        writer.println("<tr><td>" + Integer.toString(i + 1) + "</td>" + "<td class=\"end\" colspan=\"2\">End Scenario: " + results.get(i).getDescription() + "</td></tr>");
                         break;
                     case "page_end":
-                        writer.println("<tr><td>" + Integer.toString(i + 1) + "</td>" + "<td colspan=\"2\"> <font color=\"LIGHTSTEELBLUE\"> <h4>Leave Page: " + results.get(i).getDescription() + "</h4> </font></td> </tr>");
+                        writer.println("<tr><td>" + Integer.toString(i + 1) + "</td>" + "<td class=\"end\" colspan=\"2\">Leave Page: " + results.get(i).getDescription() + "</td></tr>");
                         break;
                     case "form_end":
-                        writer.println("<tr><td>" + Integer.toString(i + 1) + "</td>" + "<td colspan=\"2\"> <font color=\"LIGHTSTEELBLUE\"> <h4>Leave Form: " + results.get(i).getDescription() + "</h4> </font></td> </tr>");
+                        writer.println("<tr><td>" + Integer.toString(i + 1) + "</td>" + "<td class=\"end\" colspan=\"2\">Leave Form: " + results.get(i).getDescription() + "</td></tr>");
                         break;
                     default:
                         writer.println("<tr><td>" + Integer.toString(i + 1) + "</td><td>" + results.get(i).getResult() + "</td><td>" + results.get(i).getDescription() + "</td></tr>");

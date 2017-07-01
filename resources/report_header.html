@@ -1,7 +1,7 @@
 <html>
 <head>
     <title>Test Report</title>
-    <head>
+</head>
 <body>
 <style>
     th, td {
@@ -26,20 +26,52 @@
         bottom: 0;
         left: 0;
         padding: 1rem;
-        background-repeat: repeat;
-        background-attachment: scroll;
-        background-color: #efefef;
+        background: #efefef repeat scroll;
         text-align: center;
         font-weight: bold;
+    }
+
+    .passed {
+        color: green;
+    }
+
+    .failed {
+        color: red;
+        font-weight: bold;
+    }
+
+    .site {
+        color: STEELBLUE;
+        font-size: larger;
+    }
+
+    .scenario {
+        color: TEAL;
+        font-size: large;
+    }
+
+    .page {
+        color: PURPLE;
+        font-size: large;
+    }
+
+    .form {
+        color: SALMON;
+        font-size: large;
+    }
+
+    .end {
+        color: LIGHTSTEELBLUE;
+        font-size: small;
     }
 </style>
 <h1 style="text-align: center;">Test Results</h1>
 <hr/>
 <br><br>
 <div class="table">
-<table>
-    <tr>
-        <th>Step</th>
-        <th>Result</th>
-        <th>Description</th>
-    </tr>
+    <table>
+        <tr>
+            <th>Step</th>
+            <th>Result</th>
+            <th>Description</th>
+        </tr>
