@@ -1,5 +1,6 @@
 package scope;
 
+import framework.Reporter;
 import scope.unit.Unit;
 
 import javax.xml.bind.annotation.*;
@@ -17,11 +18,12 @@ public class Scenario extends Scope {
     private ArrayList<Unit> units;
 
     public void parse() {
-        addHeader("scenario", getName());
+        Reporter reporter = Reporter.getInstance();
+        reporter.addHeader("scenario", getName());
         for (Unit unit : units) {
             unit.parse();
         }
-        addFooter("scenario", getName());
+        reporter.addFooter("scenario", getName());
     }
 
     public Scenario(String name) {

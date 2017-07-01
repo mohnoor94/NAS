@@ -6,7 +6,8 @@ import javax.xml.bind.JAXBException;
 import java.io.FileNotFoundException;
 
 /**
- * Created by mkhlif on 6/29/17.
+ * Test Executer Class
+ * @author AbuKhleif
  */
 public class ExecuterTester {
     public static void main(String[] args) throws JAXBException, FileNotFoundException {

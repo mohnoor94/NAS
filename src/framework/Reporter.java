@@ -10,9 +10,18 @@ import java.util.List;
 /**
  * @author AbuKhleif
  */
-public class Reportable {
+public class Reporter {
     private static List<TestResult> results = new ArrayList<TestResult>();
+    private static Reporter reporter;
 
+    static {
+        reporter = new Reporter();
+    }
+    private Reporter() {
+    }
+    public static Reporter getInstance(){
+        return reporter;
+    }
 
     /**
      * Report status of a message if it can be found in the page
@@ -20,7 +29,7 @@ public class Reportable {
      * @param result
      * @param value
      */
-    protected void report(boolean result, boolean expected, String value) {
+    public void report(boolean result, boolean expected, String value) {
         if (expected) {
             if (result) {
                 results.add(new TestResult("Passed", "Value Founded: '" + value + "'"));
@@ -43,7 +52,7 @@ public class Reportable {
      * @param actualValue
      * @param expectedValue
      */
-    protected void report(boolean result, boolean expected, String actualValue, String expectedValue) {
+    public void report(boolean result, boolean expected, String actualValue, String expectedValue) {
         if (expected) {
             if (result) {
                 results.add(new TestResult("Passed", "Actual value '" + actualValue + "' matches expected value"));
@@ -65,7 +74,7 @@ public class Reportable {
      * @param type        site or scenario
      * @param description text to be shown
      */
-    protected void addHeader(String type, String description) {
+    public void addHeader(String type, String description) {
         results.add(new TestResult(type, description));
     }
 
@@ -75,7 +84,7 @@ public class Reportable {
      * @param type        site or scenario
      * @param description text to be shown
      */
-    protected void addFooter(String type, String description) {
+    public void addFooter(String type, String description) {
         if ("site".equals(type.toLowerCase())) {
             type = "site_end";
         } else if ("scenario".equals(type.toLowerCase())) {
@@ -92,7 +101,7 @@ public class Reportable {
     /**
      * Write report results
      */
-    protected static void writeResults() {
+    static void writeResults() {
         DateFormat df = new SimpleDateFormat("dd-MM-yyyy_HH-mm-ss");
         String requiredDate = df.format(new Date());
         File report = new File("reports" + File.separator + "report_" + requiredDate + ".html");

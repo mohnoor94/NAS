@@ -16,9 +16,10 @@ import java.util.List;
  *
  * @author AbuKhleif
  */
-public class Base extends Reportable {
+public class Base {
     DriverUtils driverUtils = new DriverUtils();
     private static WebDriver driver;
+    private static Reporter reporter = Reporter.getInstance();
 
     /**
      * Before all tests
@@ -43,7 +44,7 @@ public class Base extends Reportable {
      */
     protected static void tearDown() {
         // write report results
-        writeResults();
+        Reporter.writeResults();
 
         // quit the browser
         driver.quit();
@@ -53,11 +54,11 @@ public class Base extends Reportable {
      * If (find) test if the page contains a certain sentence,
      * otherwise test if it's not contain it
      *
-     * @param messgae
+     * @param message
      * @param find
      */
-    protected void verify(String messgae, boolean find) {
-        report(isPageContains(messgae), find, messgae);
+    protected void verify(String message, boolean find) {
+        reporter.report(isPageContains(message), find, message);
     }
 
     /**
@@ -68,7 +69,7 @@ public class Base extends Reportable {
      * @param find
      */
     protected void verify(String message1, String message2, boolean find) {
-        report(message1.equals(message2), find, message1, message2);
+        reporter.report(message1.equals(message2), find, message1, message2);
     }
 
     /**
@@ -78,16 +79,6 @@ public class Base extends Reportable {
      * @return WebElement
      */
     private WebElement findElement(String key) {
-        WebElement element = null;
-//        if ((action = findElementById(key)) != null){
-//            return action;
-//        } else if ((action = findElementByName(key)) != null){
-//            return action;
-//        } else if ((action = findElementByXPath(key)) != null){
-//            return action;
-//        }
-//    // Exceptions can be thrown...
-
         // My Solution
 //        int trial = 4;
 //        while (--trial != 0) {
@@ -270,7 +261,7 @@ public class Base extends Reportable {
      *
      * @return String email
      */
-    protected String generateRandomEmail() {
+    public String generateRandomEmail() {
         StringBuilder sb = new StringBuilder(10);
         for (int i = 0; i < 10; i++)
             sb.append(AB.charAt(rnd.nextInt(AB.length())));

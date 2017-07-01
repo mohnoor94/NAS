@@ -2,6 +2,7 @@ package scope.unit;
 
 import action.Action;
 import data.Data;
+import framework.Reporter;
 
 import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
@@ -23,10 +24,11 @@ public class Page extends Unit {
     private ArrayList<Action> actions = new ArrayList<Action>();
 
     public void parse() {
-        addHeader("Page", getName() + " (" + getUrl() + " )");
+        Reporter reporter = Reporter.getInstance();
+        reporter.addHeader("Page", getName() + " (" + getUrl() + " )");
 
         // navigate to page
-        if (getRelative().equals("no")) {
+        if ("no".equals(getRelative())) {
             navigate(getUrl());
         } else {
             navigate(Data.getData().get("url") + getUrl());
@@ -37,7 +39,7 @@ public class Page extends Unit {
             action.doAction();
         }
 
-        addFooter("Page", getName() + " (" + getUrl() + " )");
+        reporter.addFooter("Page", getName() + " (" + getUrl() + " )");
     }
 
     public Page() {

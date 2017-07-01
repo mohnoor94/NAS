@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "not-text")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class NotText extends Action {
+public class VerifyNotText extends Action {
     @XmlAttribute
     private String value;
 
@@ -19,10 +19,10 @@ public class NotText extends Action {
         verify(getValue(), false);
     }
 
-    public NotText() {
+    public VerifyNotText() {
     }
 
-    public NotText(String value) {
+    public VerifyNotText(String value) {
         this.value = value;
     }
 

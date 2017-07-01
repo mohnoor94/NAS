@@ -2,6 +2,7 @@ package scope.unit;
 
 import action.Action;
 import data.Data;
+import framework.Reporter;
 
 import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
@@ -23,7 +24,8 @@ public class Form extends Unit {
     private ArrayList<Action> actions = new ArrayList<Action>();
 
     public void parse() {
-        addHeader("Form", getName() + " (" + getUrl() + " )");
+        Reporter reporter = Reporter.getInstance();
+        reporter.addHeader("Form", getName() + " (" + getUrl() + " )");
 
         // navigate to form
         if (getRelative().equals("no")) {
@@ -37,7 +39,7 @@ public class Form extends Unit {
             action.doAction();
         }
 
-        addFooter("Form", getName() + " (" + getUrl() + " )");
+        reporter.addFooter("Form", getName() + " (" + getUrl() + " )");
     }
 
     public Form() {

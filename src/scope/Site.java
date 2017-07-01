@@ -1,6 +1,7 @@
 package scope;
 
 import data.Data;
+import framework.Reporter;
 
 import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
@@ -17,13 +18,22 @@ public class Site extends Scope {
     private ArrayList<Scenario> scenarios;
 
     public void parse() {
-        addHeader("site", getName() + " (" + getUrl()+")");
+        Reporter reporter = Reporter.getInstance();
+        reporter.addHeader("site", getName() + " (" + getUrl()+")");
         Data.getData().put("url", getUrl());
         navigate(getUrl());
         for (Scenario scenario : scenarios) {
             scenario.parse();
         }
-        addFooter("site", getName() + " (" + getUrl()+")");
+        reporter.addFooter("site", getName() + " (" + getUrl()+")");
+    }
+
+    public Site() {
+    }
+
+    public Site(String name, String url) {
+        this.name = name;
+        this.url = url;
     }
 
     public String getUrl() {

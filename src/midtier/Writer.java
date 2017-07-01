@@ -55,11 +55,11 @@ public class Writer {
     }
 
     /**
-     * Set a new scenario and add it to the site
+     * Add a new scenario to the site
      *
      * @param scenario
      */
-    public void setScenario(Scenario scenario) {
+    public void addScenario(Scenario scenario) {
         this.scenario = scenario;
         if (scenario != null) {
             site.getScenarios().add(scenario);
@@ -85,11 +85,11 @@ public class Writer {
     }
 
     /**
-     * Set a new page and add it to current scenario
+     * Add a new page to current scenario
      *
      * @param page
      */
-    public void setPage(Page page) {
+    public void addPage(Page page) {
         if (scenario != null && page != null) {
             this.page = page;
             setActiveUnit(page);
@@ -104,7 +104,7 @@ public class Writer {
      *
      * @param form
      */
-    public void setForm(Form form) {
+    public void addForm(Form form) {
         if (scenario != null && form != null) {
             this.form = form;
             setActiveUnit(form);
@@ -130,12 +130,12 @@ public class Writer {
      */
     public void commitActions() {
         // add actions to the current unit
-        for (Action action : getActions()) {
-            getActiveUnit().getActions().add(action);
-        }
+//        for (Action action : getActions()) {
+//            getActiveUnit().getActions().add(action);
+//        }
 
 
-//        getActiveUnit().getActions().addAll(actions);
+        getActiveUnit().getActions().addAll(actions);
 
         // reset actions list
         getActions().clear();
