@@ -1,7 +1,8 @@
-# AutomationTraining02
+# AKAS (Abukhleif Automation System)
 
-# V 1.9
-Use (Broswer) Drivers uisng maven...
+## Desktop Version:
+- This version includes the desktop JavaFX aplication that helps in generate and execute test cases.
 
-# V 1.8
-GUI not supported yet...
+## Important Note:
+* Branch is currently in the development stage.
+* Base branch is currently the only fully-working version, so consider to go with it.
