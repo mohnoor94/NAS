@@ -1,7 +1,6 @@
-# AutomationTraining02
+# AKAS (Abukhleif Automation System)
 
-# V 1.9
-Use (Broswer) Drivers uisng maven...
-
-# V 1.8
-GUI not supported yet...
+## Branches:
+- Base (V 2.0): Includes the basic java-driven to or manual XML files to write the test cases.
+- Desktop (soon): Includes the desktop JavaFX aplication that helps in generate and execute test cases.
+- Web (canceled): Includes the WebApp that helps in generate and execute test cases, this version has been delayed due to compatipility issues between Java WebApps and Selenium WebDriver.
