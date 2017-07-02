@@ -55,6 +55,7 @@ public class WriterTester {
         writer.addAction(new FillElement("name", "Mohammad Noor"));
         writer.addAction(new ClickCheckbox("rad1", 0));
         writer.addAction(new FillElement("dob", "05221994"));
+//        writer.addAction(new FillElement("dob", "0019940522"));
         writer.addAction(new FillElement("addr", "Amman Jordan"));
         writer.addAction(new FillElement("city", "Amman"));
         writer.addAction(new FillElement("state", "Unknown"));
