@@ -12,7 +12,6 @@ import javax.xml.bind.JAXBException;
 /**
  * Test Writer Class
  *
- *
  * @author AbuKhleif
  */
 public class WriterTester {
