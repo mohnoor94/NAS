@@ -79,7 +79,8 @@ public class WriterTester {
     }
 
     static void register() {
-        writer = new Writer(new Site("Guru 99 Bank", "http://demo.guru99.com"));
+        writer = Writer.getInstance();
+        writer.setSite(new Site("Guru 99 Bank", "http://demo.guru99.com"));
         writer.addScenario(new Scenario("Register"));
         writer.addForm(new Form("Guru 99 bank Register", ""));
         writer.addAction(new VerifyText("Enter your email address to get"));

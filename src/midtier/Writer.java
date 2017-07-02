@@ -25,6 +25,15 @@ public class Writer {
     private Unit activeUnit;
     private final String preFilePath = "./xml" + File.separator;
     private final String postFilePath = ".xml";
+    private static Writer writer;
+
+    static {
+        writer = new Writer();
+    }
+
+    public static Writer getInstance() {
+        return writer;
+    }
 
     public void write(String fileName) throws JAXBException {
         // create JAXB context and instantiate marshaller
@@ -40,7 +49,11 @@ public class Writer {
         write("site");
     }
 
-    public Writer(Site site) {
+    private Writer() {
+
+    }
+
+    public void setSite(Site site) {
         this.site = site;
     }
 
