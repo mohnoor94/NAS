@@ -1,5 +1,6 @@
 package framework;
 
+import io.github.bonigarcia.wdm.ChromeDriverManager;
 import org.apache.commons.lang3.SystemUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -14,11 +15,9 @@ import java.util.List;
 /**
  * General operations needed by tests
  *
- *
  * @author AbuKhleif
  */
 public class Base {
-    DriverUtils driverUtils = new DriverUtils();
     private static WebDriver driver;
     private static Reporter reporter = Reporter.getInstance();
 
@@ -28,13 +27,17 @@ public class Base {
      * @throws Exception
      */
     protected static void setUp() {
-        // select driver
-        if (SystemUtils.IS_OS_LINUX) {
-            System.setProperty("webdriver.chrome.driver", "drivers" + File.separator + "chromedriver");
-        } else {
-            System.setProperty("webdriver.chrome.driver", "drivers" + File.separator + "chromedriver.exe");
-        }
+        ChromeDriverManager.getInstance().setup();
         driver = new ChromeDriver();
+
+        // Old Way:
+//        // select driver
+//        if (SystemUtils.IS_OS_LINUX) {
+//            System.setProperty("webdriver.chrome.driver", "drivers" + File.separator + "chromedriver");
+//        } else {
+//            System.setProperty("webdriver.chrome.driver", "drivers" + File.separator + "chromedriver.exe");
+//        }
+//        driver = new ChromeDriver();
 //        driver.manage().window().maximize();
     }
 
@@ -80,6 +83,8 @@ public class Base {
      * @return WebElement
      */
     private WebElement findElement(String key) {
+        return DriverUtils.findElement(driver, key);
+
         // My Solution
 //        int trial = 4;
 //        while (--trial != 0) {
@@ -100,8 +105,6 @@ public class Base {
 //        }
 //        // TO-DO add other cases..
 //        return element;
-
-        return DriverUtils.findElement(driver, key);
     }
 
     /**
