@@ -51,8 +51,6 @@ public class Writer {
         write("site");
     }
 
-    o
-
     public void setSite(Site site) {
         this.site = site;
     }

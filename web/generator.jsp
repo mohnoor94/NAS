@@ -12,23 +12,67 @@
 <h1 style="text-align: center">Tests Generator</h1>
 <hr/>
 
+
 <form action="generator" method="GET" class="form-inline">
-    <input type="hidden" name="command" value="SITE"/>
-    <h2 class="form-inline">Site Details:</h2>
-    <div class="form-group">
-        <label for="name">Site Name:</label>
-        <input type="text" class="form-control" id="name" name="name">
+    <div site>
+        <input type="hidden" name="command" value="SITE"/>
+        <h2 class="form-inline">Site Details:</h2>
+        <div class="form-group">
+            <label for="name">Site Name:</label>
+            <input type="text" class="form-control" id="name" name="name">
+        </div>
+        <div class="form-group">
+            <label for="url">URL:</label>
+            <input type="text" class="form-control" id="url" name="url">
+        </div>
+        <div class="form-group">
+            <label for="xml">XML File Title:</label>
+            <input type="text" class="form-control" id="xml" name="xml">
+        </div>
     </div>
-    <div class="form-group">
-        <label for="url">URL:</label>
-        <input type="text" class="form-control" id="url" name="url">
+
+    <div id="snr" hidden>
+        <div class="form-group">
+            <label for="snr_name">Add Scenario:</label>
+            <input type="text" class="form-control" id="snr_name" name="snr_name">
+        </div>
     </div>
-    <div class="form-group">
-        <label for="xml">XML File Title:</label>
-        <input type="text" class="form-control" id="xml" name="xml">
-    </div>
-    <button type="submit" class="btn btn-default">Add</button>
 </form>
+
+<footer>
+    <div class="navbar navbar-inverse navbar-fixed-bottom">
+        <div class="container">
+            <div class="navbar-collapse collapse" id="footer-body">
+                <ul class="nav navbar-nav">
+                    <li><h5>&nbsp;Scopes:&nbsp;</h5></li>
+                    <li>&nbsp;<button type="button" class="btn btn-default" onclick="show('snr')">Add Scenario</button>
+                    </li>
+                    <li>&nbsp;<button disabled type="button" class="btn btn-default" onclick="show('snr')">Add
+                        Scenario
+                    </button>
+                    </li>
+                    <li>&nbsp;<button type="button" class="btn btn-default" onclick="show('snr')">Add Scenario</button>
+                    </li>
+                    <li>&nbsp;<button type="button" class="btn btn-default" onclick="show('snr')">Add Scenario</button>
+                    </li>
+                    <br>
+                    <br>
+                    <li><h5>&nbsp;Actions:&nbsp;</h5></li>
+                    <li> &nbsp;<button type="button" class="btn btn-default" onclick="show('snr')">Add Scenario</button>
+                    </li>
+                    <li> &nbsp;<button disabled type="button" class="btn btn-default" onclick="show('snr')">Add
+                        Scenario
+                    </button>
+                    </li>
+                    <li> &nbsp;<button type="button" class="btn btn-default" onclick="show('snr')">Add Scenario</button>
+                    </li>
+                    <li> &nbsp;<button type="button" class="btn btn-default" onclick="show('snr')">Add Scenario</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
 
 </body>
 
