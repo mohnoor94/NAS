@@ -20,7 +20,7 @@ import java.util.Collections;
  */
 public class Executer extends Base {
     private String filePath;
-    private final String preFilePath = "./xml" + File.separator;
+    private final String preFilePath = System.getProperty("user.dir") + File.separator + "xml" + File.separator;
     private final String postFilePath = ".xml";
 
     public void execute(String filePath) throws JAXBException, FileNotFoundException {

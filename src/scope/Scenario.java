@@ -21,7 +21,7 @@ public class Scenario extends Scope {
     public void parse() {
         Reporter reporter = Reporter.getInstance();
         reporter.addHeader("scenario", getName());
-        for (Unit unit : units) {
+        for (Unit unit : getUnits()) {
             unit.parse();
         }
         reporter.addFooter("scenario", getName());

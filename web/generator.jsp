@@ -12,19 +12,34 @@
 <h1 style="text-align: center">Tests Generator</h1>
 <hr/>
 
-<form action="Controller" method="GET" class="form-inline">
+<form action="generator" method="GET" class="form-inline">
     <input type="hidden" name="command" value="SITE"/>
     <h2 class="form-inline">Site Details:</h2>
     <div class="form-group">
-        <label for="name">Name:</label>
+        <label for="name">Site Name:</label>
         <input type="text" class="form-control" id="name" name="name">
     </div>
     <div class="form-group">
         <label for="url">URL:</label>
         <input type="text" class="form-control" id="url" name="url">
     </div>
+    <div class="form-group">
+        <label for="xml">XML File Title:</label>
+        <input type="text" class="form-control" id="xml" name="xml">
+    </div>
     <button type="submit" class="btn btn-default">Add</button>
 </form>
 
 </body>
+
+
+<script>
+    function hide(id) {
+        document.getElementById(id).hidden = "hidden";
+    }
+
+    function show(id) {
+        document.getElementById(id).hidden = "";
+    }
+</script>
 </html>

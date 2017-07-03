@@ -1,6 +1,7 @@
 package test;
 
 import action.*;
+import data.Data;
 import framework.Base;
 import midtier.Writer;
 import scope.Scenario;
@@ -26,7 +27,7 @@ public class WriterTester {
         createNewCustomer();
         createNewAccount();
         logout();
-        writer.write("noor");
+        writer.write("noor2");
     }
 
     private static void logout() {
