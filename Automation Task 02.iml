@@ -69,5 +69,6 @@
     <orderEntry type="library" name="Maven: org.jsoup:jsoup:1.10.2" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:guava:21.0" level="project" />
     <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.10" level="project" />
+    <orderEntry type="library" name="Maven: javax.servlet:servlet-api:3.1" level="project" />
   </component>
 </module>
