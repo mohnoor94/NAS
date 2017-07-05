@@ -7,7 +7,7 @@
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap-theme.css" rel="stylesheet">
     <%--<link href="css/bootstrap-combined.min.css" rel="stylesheet">--%>
-    <link href="css/custome.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
     <title>Tests Generator</title>
 
     <%-- js --%>
@@ -116,10 +116,23 @@
                                 <label for="sname">Scenario Name:</label>
                                 <input type="text" class="form-control" id="sname" name="sname">
                             </div>
-                        </li>
-                        <li>
-                            <button class="btn btn-primary btn-add-panel">
+                            <button class="btn btn-primary btn-add-panel add_senario">
                                 <i class="glyphicon glyphicon-plus"></i> Add Scenario
+                            </button>
+                        </li>
+                    </div>
+                    <div style="display: table-cell; vertical-align: middle;">
+                        <li>
+                            <div class="form-inline">
+                                <label for="pname">Page Name:</label>
+                                <input type="text" class="form-control" id="pname" name="pname">
+                            </div>
+                            <div class="form-inline">
+                                <label for="purl">Page Url:</label>
+                                <input type="text" class="form-control" id="purl" name="purl">
+                            </div>
+                            <button class="btn btn-primary btn-add-panel add_page">
+                                <i class="glyphicon glyphicon-plus"></i> Add Page
                             </button>
                         </li>
                     </div>
