@@ -27,7 +27,7 @@
 <div align="center">
     <h3 align="center">Site Details</h3>
     <form action="generator" method="GET" class="form-inline">
-        <div site>
+        <div id="site">
             <%--<input type="hidden" name="command" value="SITE"/>--%>
             <div class="form-group">
                 <label for="name">Site Name:</label>
@@ -42,10 +42,20 @@
                 <input type="text" class="form-control" id="xml" name="xml">
             </div>
         </div>
-        <div id="snr" hidden>
+    </form>
+    <hr/>
+</div>
+<div align="center">
+    <h3 align="center">Scenario Details</h3>
+    <form action="generator" method="GET" class="form-inline">
+        <div id="scenario">
+            <%--<input type="hidden" name="command" value="SITE"/>--%>
             <div class="form-group">
-                <label for="snr_name">Add Scenario:</label>
-                <input type="text" class="form-control" id="snr_name" name="snr_name">
+                <label for="scenario_name">Scenario Name:</label>
+                <input type="text" class="form-control" id="scenario_name" name="scenario_name">
+            </div>
+            <div>
+                <p align="center">Multiple Scenarios feature is supported by the framework but not on the WebApp yet</p>
             </div>
         </div>
     </form>
@@ -104,44 +114,44 @@
 <br/>
 <br/>
 <br/>
-<footer>
-    <div class="navbar navbar-inverse navbar-fixed-bottom">
-        <div class="container">
-            <div class="navbar-collapse collapse" id="footer-body">
-                <ul class="nav navbar-nav">
+<%--<footer>--%>
+<%--<div class="navbar navbar-inverse navbar-fixed-bottom">--%>
+<%--<div class="container">--%>
+<%--<div class="navbar-collapse collapse" id="footer-body">--%>
+<%--<ul class="nav navbar-nav">--%>
 
-                    <div style="display: table-cell; vertical-align: middle;">
-                        <li>
-                            <div class="form-inline">
-                                <label for="sname">Scenario Name:</label>
-                                <input type="text" class="form-control" id="sname" name="sname">
-                            </div>
-                            <button class="btn btn-primary btn-add-panel add_senario">
-                                <i class="glyphicon glyphicon-plus"></i> Add Scenario
-                            </button>
-                        </li>
-                    </div>
-                    <div style="display: table-cell; vertical-align: middle;">
-                        <li>
-                            <div class="form-inline">
-                                <label for="pname">Page Name:</label>
-                                <input type="text" class="form-control" id="pname" name="pname">
-                            </div>
-                            <div class="form-inline">
-                                <label for="purl">Page Url:</label>
-                                <input type="text" class="form-control" id="purl" name="purl">
-                            </div>
-                            <button class="btn btn-primary btn-add-panel add_page">
-                                <i class="glyphicon glyphicon-plus"></i> Add Page
-                            </button>
-                        </li>
-                    </div>
-            </div>
-                </ul>
-            </div>
-        </div>
-    </div>
-</footer>
+<%--<div style="display: table-cell; vertical-align: middle;">--%>
+<%--<li>--%>
+<%--<div class="form-inline">--%>
+<%--<label for="sname">Scenario Name:</label>--%>
+<%--<input type="text" class="form-control" id="sname" name="sname">--%>
+<%--</div>--%>
+<%--<button class="btn btn-primary btn-add-panel add_senario">--%>
+<%--<i class="glyphicon glyphicon-plus"></i> Add Scenario--%>
+<%--</button>--%>
+<%--</li>--%>
+<%--</div>--%>
+<%--&lt;%&ndash;<div style="display: table-cell; vertical-align: middle;">&ndash;%&gt;--%>
+<%--&lt;%&ndash;<li>&ndash;%&gt;--%>
+<%--&lt;%&ndash;<div class="form-inline">&ndash;%&gt;--%>
+<%--&lt;%&ndash;<label for="pname">Page Name:</label>&ndash;%&gt;--%>
+<%--&lt;%&ndash;<input type="text" class="form-control" id="pname" name="pname">&ndash;%&gt;--%>
+<%--&lt;%&ndash;</div>&ndash;%&gt;--%>
+<%--&lt;%&ndash;<div class="form-inline">&ndash;%&gt;--%>
+<%--&lt;%&ndash;<label for="purl">Page Url:</label>&ndash;%&gt;--%>
+<%--&lt;%&ndash;<input type="text" class="form-control" id="purl" name="purl">&ndash;%&gt;--%>
+<%--&lt;%&ndash;</div>&ndash;%&gt;--%>
+<%--&lt;%&ndash;<button class="btn btn-primary btn-add-panel add_page">&ndash;%&gt;--%>
+<%--&lt;%&ndash;<i class="glyphicon glyphicon-plus"></i> Add Page&ndash;%&gt;--%>
+<%--&lt;%&ndash;</button>&ndash;%&gt;--%>
+<%--&lt;%&ndash;</li>&ndash;%&gt;--%>
+<%--&lt;%&ndash;</div>&ndash;%&gt;--%>
+<%--</div>--%>
+<%--</ul>--%>
+<%--</div>--%>
+<%--</div>--%>
+<%--</div>--%>
+<%--</footer>--%>
 <script src="javascript.js"></script>
 </body>
 
