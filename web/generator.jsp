@@ -55,47 +55,53 @@
     <h3 align="center">Scenarios</h3>
     <div class="row">
         <%--<div class="col-xs-8">--%>
-        <%--<div class="panel-group" id="accordion">--%>
-        <%--<div class="panel panel-default">--%>
-        <%--<div class="panel-heading">--%>
-        <%--<h4 class="panel-title">--%>
-        <%--<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">--%>
-        <%--Collapsible Group Item #1--%>
-        <%--</a>--%>
-        <%--</h4>--%>
+        <div class="panel-group" id="accordion">
+            <%--<div class="panel panel-default">--%>
+            <%--<div class="panel-heading">--%>
+            <%--<h4 class="panel-title">--%>
+            <%--<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"--%>
+            <%--href="#collapseOne">--%>
+            <%--Collapsible Group Item #1--%>
+            <%--</a>--%>
+            <%--</h4>--%>
+            <%--</div>--%>
+            <%--<div id="collapseOne" class="panel-collapse collapse in">--%>
+            <%--<div class="panel-body">--%>
+            <%--Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad--%>
+            <%--squid.--%>
+            <%--3 wolf moon officia aute, non cupidatat skateboard dolor brunch.--%>
+            <%--</div>--%>
+            <%--</div>--%>
+            <%--</div>--%>
+            <%--<div class="panel panel-default template">--%>
+            <%--<div class="panel-heading">--%>
+            <%--<h4 class="panel-title">--%>
+            <%--<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"--%>
+            <%--href="#collapseThree">--%>
+            <%--Collapsible Group Item #2 (template panel)--%>
+            <%--</a>--%>
+            <%--</h4>--%>
+            <%--</div>--%>
+            <%--<div id="collapseThree" class="panel-collapse collapse">--%>
+            <%--<div class="panel-body">--%>
+            <%--Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad--%>
+            <%--squid.--%>
+            <%--3 wolf moon officia aute, non cupidatat skateboard dolor brunch.--%>
+            <%--</div>--%>
+            <%--</div>--%>
+            <%--</div>--%>
+        </div>
+        <br/>
+
         <%--</div>--%>
-        <%--<div id="collapseOne" class="panel-collapse collapse in">--%>
-        <%--<div class="panel-body">--%>
-        <%--Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.--%>
-        <%--3 wolf moon officia aute, non cupidatat skateboard dolor brunch.--%>
-        <%--</div>--%>
-        <%--</div>--%>
-        <%--</div>--%>
-        <%--<div class="panel panel-default template">--%>
-        <%--<div class="panel-heading">--%>
-        <%--<h4 class="panel-title">--%>
-        <%--<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"--%>
-        <%--href="#collapseThree">--%>
-        <%--Collapsible Group Item #2 (template panel)--%>
-        <%--</a>--%>
-        <%--</h4>--%>
-        <%--</div>--%>
-        <%--<div id="collapseThree" class="panel-collapse collapse">--%>
-        <%--<div class="panel-body">--%>
-        <%--Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.--%>
-        <%--3 wolf moon officia aute, non cupidatat skateboard dolor brunch.--%>
-        <%--</div>--%>
-        <%--</div>--%>
+        <%--<div class="col-xs-4">--%>
         <%--</div>--%>
     </div>
-    <br/>
-
-    <%--</div>--%>
-    <%--<div class="col-xs-4">--%>
-    <%--</div>--%>
-</div>
 </div>
 
+<br/>
+<br/>
+<br/>
 <br/>
 <br/>
 <footer>

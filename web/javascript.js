@@ -18,14 +18,16 @@ $(".btn-add-panel").on("click", function () {
 
     var div = document.createElement('div');
     div.className = 'panel panel-default template';
-    div.innerHTML = '<div class="panel-heading">\
+    div.innerHTML = '<div class="panel-default">\
     <h4 class="panel-title">\
     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#scenario_' + ++hash + '">' + senario_name +
         '</a>\
     </h4>\
     </div>\
-    <div id="scenario_' + hash + '" class="panel-collapse collapse">\
+    <div id="scenario_' + hash + '" class="panel-collapse collapse in">\
     <div class="panel-body">\ hahah</div>';
 
     document.getElementById('accordion').appendChild(div);
 });
+
+
