@@ -25,7 +25,7 @@ public class Site extends Scope {
         reporter.addHeader("site", getName() + " (" + getUrl()+")");
         Data.getData().put("url", getUrl());
         navigate(getUrl());
-        for (Scenario scenario : scenarios) {
+        for (Scenario scenario : getScenarios()) {
             scenario.parse();
         }
         reporter.addFooter("site", getName() + " (" + getUrl()+")");

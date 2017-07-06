@@ -1,6 +1,7 @@
 package midtier;
 
 import action.Action;
+import data.Data;
 import scope.Scenario;
 import scope.Site;
 import scope.unit.Form;
@@ -23,8 +24,18 @@ public class Writer {
     private Page page;
     private Form form;
     private Unit activeUnit;
-    private final String preFilePath = "./xml" + File.separator;
+    private final String preFilePath = System.getProperty("user.dir") + File.separator + "xml" + File.separator;
     private final String postFilePath = ".xml";
+    private static final Writer writer = new Writer();
+    ;
+
+//    static {
+//        writer = new Writer();
+//    }
+
+    public static Writer getInstance() {
+        return writer;
+    }
 
     public void write(String fileName) throws JAXBException {
         // create JAXB context and instantiate marshaller
@@ -40,7 +51,7 @@ public class Writer {
         write("site");
     }
 
-    public Writer(Site site) {
+    public void setSite(Site site) {
         this.site = site;
     }
 
@@ -114,6 +125,7 @@ public class Writer {
 
     /**
      * Add an action to the current unit
+     *
      * @param action
      */
     public void addAction(Action action) {

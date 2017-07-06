@@ -1,0 +1,236 @@
+<html>
+<head>
+    <title>Test Report</title>
+</head>
+<body>
+<style>
+    th, td {
+        padding: 5px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+    }
+
+    tr {
+        background-color: WHITESMOKE;
+    }
+
+    .table {
+        margin: auto;
+        width: 800px;
+        height: 100px;
+    }
+
+    .footer {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 1rem;
+        background: #efefef repeat scroll;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .passed {
+        color: green;
+    }
+
+    .failed {
+        color: red;
+        font-weight: bold;
+    }
+
+    .site {
+        color: STEELBLUE;
+        font-size: larger;
+    }
+
+    .scenario {
+        color: TEAL;
+        font-size: large;
+    }
+
+    .page {
+        color: PURPLE;
+        font-size: large;
+    }
+
+    .form {
+        color: SALMON;
+        font-size: large;
+    }
+
+    .end {
+        color: LIGHTSTEELBLUE;
+        font-size: small;
+    }
+</style>
+<h1 style="text-align: center;">Test Results</h1>
+<hr/>
+<br><br>
+<div class="table">
+    <table>
+        <tr>
+            <th>Step</th>
+            <th>Result</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td class="site" colspan="2">Enter Site: Guru 99 Bank (http://demo.guru99.com)</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td class="scenario" colspan="2">Start Scenario: Register</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td class="form" colspan="2">Enter Form: Guru 99 bank Register ( )</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td class="passed">Passed</td>
+            <td>Value Founded: 'Enter your email address to get'</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td class="passed">Passed</td>
+            <td>Value 'Error 404' cannot be founded, as it should!</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td class="passed">Passed</td>
+            <td>Value Founded: 'Access details to demo site.'</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td class="passed">Passed</td>
+            <td>Value Founded: 'This access is valid only for 20 days.'</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td class="passed">Passed</td>
+            <td>Value 'Error 404' cannot be founded, as it should!</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td class="end" colspan="2">Leave Form: Guru 99 bank Register ( )</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td class="end" colspan="2">End Scenario: Register</td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td class="scenario" colspan="2">Start Scenario: Login</td>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td class="form" colspan="2">Enter Form: Login Form (/V4/index.php )</td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td class="passed">Passed</td>
+            <td>Value Founded: 'Steps To Generate Access'</td>
+        </tr>
+        <tr>
+            <td>14</td>
+            <td class="passed">Passed</td>
+            <td>Value Founded: 'Welcome To Manager's Page of Guru99 Bank'</td>
+        </tr>
+        <tr>
+            <td>15</td>
+            <td class="end" colspan="2">Leave Form: Login Form (/V4/index.php )</td>
+        </tr>
+        <tr>
+            <td>16</td>
+            <td class="end" colspan="2">End Scenario: Login</td>
+        </tr>
+        <tr>
+            <td>17</td>
+            <td class="scenario" colspan="2">Start Scenario: Create New Customer</td>
+        </tr>
+        <tr>
+            <td>18</td>
+            <td class="form" colspan="2">Enter Form: Create Customer Form (/html/body/div[2]/div/ul/li[2]/a )</td>
+        </tr>
+        <tr>
+            <td>19</td>
+            <td class="passed">Passed</td>
+            <td>Value Founded: 'Add New Customer'</td>
+        </tr>
+        <tr>
+            <td>20</td>
+            <td class="passed">Passed</td>
+            <td>Value Founded: 'Customer Registered Successfully!!!'</td>
+        </tr>
+        <tr>
+            <td>21</td>
+            <td class="end" colspan="2">Leave Form: Create Customer Form (/html/body/div[2]/div/ul/li[2]/a )</td>
+        </tr>
+        <tr>
+            <td>22</td>
+            <td class="end" colspan="2">End Scenario: Create New Customer</td>
+        </tr>
+        <tr>
+            <td>23</td>
+            <td class="scenario" colspan="2">Start Scenario: Create New Account</td>
+        </tr>
+        <tr>
+            <td>24</td>
+            <td class="form" colspan="2">Enter Form: Create Account Form (/html/body/div[2]/div/ul/li[5]/a )</td>
+        </tr>
+        <tr>
+            <td>25</td>
+            <td class="passed">Passed</td>
+            <td>Value Founded: 'Add new account form'</td>
+        </tr>
+        <tr>
+            <td>26</td>
+            <td class="passed">Passed</td>
+            <td>Value Founded: 'Account Generated Successfully!!!'</td>
+        </tr>
+        <tr>
+            <td>27</td>
+            <td class="end" colspan="2">Leave Form: Create Account Form (/html/body/div[2]/div/ul/li[5]/a )</td>
+        </tr>
+        <tr>
+            <td>28</td>
+            <td class="end" colspan="2">End Scenario: Create New Account</td>
+        </tr>
+        <tr>
+            <td>29</td>
+            <td class="scenario" colspan="2">Start Scenario: Logout</td>
+        </tr>
+        <tr>
+            <td>30</td>
+            <td class="form" colspan="2">Enter Form: Logout Form (/html/body/div[2]/div/ul/li[15]/a )</td>
+        </tr>
+        <tr>
+            <td>31</td>
+            <td class="passed">Passed</td>
+            <td>Actual value 'You Have Succesfully Logged Out!!' matches expected value</td>
+        </tr>
+        <tr>
+            <td>32</td>
+            <td class="passed">Passed</td>
+            <td>Value Founded: 'Steps To Generate Access'</td>
+        </tr>
+        <tr>
+            <td>33</td>
+            <td class="end" colspan="2">Leave Form: Logout Form (/html/body/div[2]/div/ul/li[15]/a )</td>
+        </tr>
+        <tr>
+            <td>34</td>
+            <td class="end" colspan="2">End Scenario: Logout</td>
+        </tr>
+        <tr>
+            <td>35</td>
+            <td class="end" colspan="2">Leave Site: Guru 99 Bank (http://demo.guru99.com)</td>
+        </tr>
+    </table>
+    <br><br><br>
+</div>
+<div class="footer"><strong>Generated with <span style="color: #ff0000;">love</span> by AbuKhleif</strong>
+</div>
+</body>
