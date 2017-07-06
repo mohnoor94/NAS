@@ -10,8 +10,30 @@ $(function () {
     $(".dropdown-menu li a").click(function () {
         var item = $(this);
         var id = item.parent().parent().attr("aria-labelledby");
+        $("#" + id + ':first-child').text($(this).text() + ' ▲');
+        console.log();
 
-        $("#" + id + ':first-child').text($(this).text() + '☝');
+        switch (this.innerHTML) {
+            case 'Click':
+                console.log('click');
+                break;
+            case 'Apples':
+                console.log('Apples are $0.32 a pound.');
+                break;
+            case 'Bananas':
+                console.log('Bananas are $0.48 a pound.');
+                break;
+            case 'Cherries':
+                console.log('Cherries are $3.00 a pound.');
+                break;
+            case 'Mangoes':
+            case 'Papayas':
+                console.log('Mangoes and papayas are $2.79 a pound.');
+                break;
+            default:
+                console.log('hmmmm?');
+        }
+
     });
 });
 
@@ -36,10 +58,6 @@ $(".add_page").on("click", function () {
     <div class="panel-group" id="accordion_' + unitCtr + '">\
     </div></div></div></div>';
     document.getElementById('accordion').appendChild(div);
-    $('#accordion .in').collapse('hide');
-    setTimeout(function () {
-        $('#page_' + unitCtr).collapse('show');
-    }, 500);
 });
 
 $(".add_form").on("click", function () {

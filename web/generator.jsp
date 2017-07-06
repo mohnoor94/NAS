@@ -45,21 +45,10 @@
                 <div class="form-group">
                     <label for="scenario_name">Scenario Name:</label>
                     <input type="text" class="form-control" id="scenario_name" name="scenario_name">
-                </div>
-                <div>
                     <h5 align="center">Multiple Scenarios feature is supported by the framework but not yet on the
                         WebApp
                         :( </h5>
                 </div>
-            </div>
-        </form>
-        <hr/>
-    </div>
-    <div align="center">
-        <h3 align="center">Scenario Details</h3>
-        <form action="generator" method="GET" class="form-inline">
-            <div id="scenario">
-                <%--<input type="hidden" name="command" value="SITE"/>--%>
 
             </div>
         </form>
@@ -142,10 +131,18 @@
                         <li role="presentation" class="dropdown-header">Verifications</li>
                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Text</a></li>
                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Not Text</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Alert
-                        </a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Alert</a></li>
                     </ul>
                 </div>
+
+                <br>
+                <div id="Action Details">
+                    <div class="form-inline">
+                        <label for="id">ID:</label>
+                        <input type="text" class="form-control" id="id" name="id">
+                    </div>
+                </div>
+
             </li>
             <hr>
         </div>
