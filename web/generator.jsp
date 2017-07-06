@@ -20,149 +20,137 @@
     <script src="js/npm.js"></script>
 </head>
 <body>
-<div hidden id="test" class="template"></div>
-<h1 style="text-align: center">Tests Generator</h1>
-<hr/>
+<div id="page">
+    <div hidden id="test" class="template"></div>
+    <h1 style="text-align: center">Tests Generator</h1>
+    <hr/>
 
-<div align="center">
-    <h3 align="center">Site Details</h3>
-    <form action="generator" method="GET" class="form-inline">
-        <div id="site">
-            <%--<input type="hidden" name="command" value="SITE"/>--%>
-            <div class="form-group">
-                <label for="name">Site Name:</label>
-                <input type="text" class="form-control" id="name" name="name">
+    <div align="center">
+        <h3 align="center">Site Details</h3>
+        <form action="generator" method="GET" class="form-inline">
+            <div id="site">
+                <%--<input type="hidden" name="command" value="SITE"/>--%>
+                <div class="form-group">
+                    <label for="name">Site Name:</label>
+                    <input type="text" class="form-control" id="name" name="name">
+                </div>
+                <div class="form-group">
+                    <label for="url">URL:</label>
+                    <input type="text" class="form-control" id="url" name="url">
+                </div>
+                <div class="form-group">
+                    <label for="xml">XML File Title:</label>
+                    <input type="text" class="form-control" id="xml" name="xml">
+                </div>
+                <div class="form-group">
+                    <label for="scenario_name">Scenario Name:</label>
+                    <input type="text" class="form-control" id="scenario_name" name="scenario_name">
+                </div>
+                <div>
+                    <h5 align="center">Multiple Scenarios feature is supported by the framework but not yet on the
+                        WebApp
+                        :( </h5>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="url">URL:</label>
-                <input type="text" class="form-control" id="url" name="url">
+        </form>
+        <hr/>
+    </div>
+    <div align="center">
+        <h3 align="center">Scenario Details</h3>
+        <form action="generator" method="GET" class="form-inline">
+            <div id="scenario">
+                <%--<input type="hidden" name="command" value="SITE"/>--%>
+
             </div>
-            <div class="form-group">
-                <label for="xml">XML File Title:</label>
-                <input type="text" class="form-control" id="xml" name="xml">
-            </div>
-        </div>
-    </form>
-    <hr/>
-</div>
-<div align="center">
-    <h3 align="center">Scenario Details</h3>
-    <form action="generator" method="GET" class="form-inline">
-        <div id="scenario">
-            <%--<input type="hidden" name="command" value="SITE"/>--%>
-            <div class="form-group">
-                <label for="scenario_name">Scenario Name:</label>
-                <input type="text" class="form-control" id="scenario_name" name="scenario_name">
-            </div>
-            <div>
-                <p align="center">Multiple Scenarios feature is supported by the framework but not on the WebApp yet</p>
-            </div>
-        </div>
-    </form>
-    <hr/>
-</div>
-<div class="container">
-    <h3 align="center">Scenarios</h3>
-    <div class="row">
-        <%--<div class="col-xs-8">--%>
+        </form>
+        <hr/>
+    </div>
+
+    <%--Units Container--%>
+    <div class="container">
+        <h3 align="center">Units</h3>
         <div class="panel-group" id="accordion">
-            <%--<div class="panel panel-default">--%>
-            <%--<div class="panel-heading">--%>
-            <%--<h4 class="panel-title">--%>
-            <%--<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"--%>
-            <%--href="#collapseOne">--%>
-            <%--Collapsible Group Item #1--%>
-            <%--</a>--%>
-            <%--</h4>--%>
-            <%--</div>--%>
-            <%--<div id="collapseOne" class="panel-collapse collapse in">--%>
-            <%--<div class="panel-body">--%>
-            <%--Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad--%>
-            <%--squid.--%>
-            <%--3 wolf moon officia aute, non cupidatat skateboard dolor brunch.--%>
-            <%--</div>--%>
-            <%--</div>--%>
-            <%--</div>--%>
-            <%--<div class="panel panel-default template">--%>
-            <%--<div class="panel-heading">--%>
-            <%--<h4 class="panel-title">--%>
-            <%--<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"--%>
-            <%--href="#collapseThree">--%>
-            <%--Collapsible Group Item #2 (template panel)--%>
-            <%--</a>--%>
-            <%--</h4>--%>
-            <%--</div>--%>
-            <%--<div id="collapseThree" class="panel-collapse collapse">--%>
-            <%--<div class="panel-body">--%>
-            <%--Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad--%>
-            <%--squid.--%>
-            <%--3 wolf moon officia aute, non cupidatat skateboard dolor brunch.--%>
-            <%--</div>--%>
-            <%--</div>--%>
-            <%--</div>--%>
         </div>
         <br/>
-
-        <%--</div>--%>
-        <%--<div class="col-xs-4">--%>
-        <%--</div>--%>
     </div>
+
 </div>
 
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<%--<footer>--%>
-<%--<div class="navbar navbar-inverse navbar-fixed-bottom">--%>
-<%--<div class="container">--%>
-<%--<div class="navbar-collapse collapse" id="footer-body">--%>
-<%--<ul class="nav navbar-nav">--%>
+<div class="myfooter">
+    <h2>Actions</h2>
+    <ul class="nav navbar-nav">
+        <hr>
+        <%--Page Button--%>
+        <div>
+            <h3>Add Page</h3>
+            <li>
+                <div class="form-inline">
+                    <label for="pname">Page Name:</label>
+                    <input type="text" class="form-control" id="pname" name="pname">
+                </div>
+                <div class="form-inline">
+                    <label for="purl">Page Url:</label>
+                    <input type="text" class="form-control" id="purl" name="purl">
+                </div>
+                <button class="btn btn-primary btn-add-panel add_page">
+                    <i class="glyphicon glyphicon-plus"></i> Add Page
+                </button>
+            </li>
+            <hr>
+        </div>
 
-<%--<div style="display: table-cell; vertical-align: middle;">--%>
-<%--<li>--%>
-<%--<div class="form-inline">--%>
-<%--<label for="sname">Scenario Name:</label>--%>
-<%--<input type="text" class="form-control" id="sname" name="sname">--%>
-<%--</div>--%>
-<%--<button class="btn btn-primary btn-add-panel add_senario">--%>
-<%--<i class="glyphicon glyphicon-plus"></i> Add Scenario--%>
-<%--</button>--%>
-<%--</li>--%>
-<%--</div>--%>
-<%--&lt;%&ndash;<div style="display: table-cell; vertical-align: middle;">&ndash;%&gt;--%>
-<%--&lt;%&ndash;<li>&ndash;%&gt;--%>
-<%--&lt;%&ndash;<div class="form-inline">&ndash;%&gt;--%>
-<%--&lt;%&ndash;<label for="pname">Page Name:</label>&ndash;%&gt;--%>
-<%--&lt;%&ndash;<input type="text" class="form-control" id="pname" name="pname">&ndash;%&gt;--%>
-<%--&lt;%&ndash;</div>&ndash;%&gt;--%>
-<%--&lt;%&ndash;<div class="form-inline">&ndash;%&gt;--%>
-<%--&lt;%&ndash;<label for="purl">Page Url:</label>&ndash;%&gt;--%>
-<%--&lt;%&ndash;<input type="text" class="form-control" id="purl" name="purl">&ndash;%&gt;--%>
-<%--&lt;%&ndash;</div>&ndash;%&gt;--%>
-<%--&lt;%&ndash;<button class="btn btn-primary btn-add-panel add_page">&ndash;%&gt;--%>
-<%--&lt;%&ndash;<i class="glyphicon glyphicon-plus"></i> Add Page&ndash;%&gt;--%>
-<%--&lt;%&ndash;</button>&ndash;%&gt;--%>
-<%--&lt;%&ndash;</li>&ndash;%&gt;--%>
-<%--&lt;%&ndash;</div>&ndash;%&gt;--%>
-<%--</div>--%>
-<%--</ul>--%>
-<%--</div>--%>
-<%--</div>--%>
-<%--</div>--%>
-<%--</footer>--%>
+
+        <%--Form Button--%>
+        <div>
+            <h3>Add Form</h3>
+            <li>
+                <div class="form-inline">
+                    <label for="fname">Form Name:</label>
+                    <input type="text" class="form-control" id="fname" name="fname">
+                </div>
+                <div class="form-inline">
+                    <label for="purl">Form Url:</label>
+                    <input type="text" class="form-control" id="furl" name="furl">
+                </div>
+                <button class="btn btn-primary btn-add-panel add_form">
+                    <i class="glyphicon glyphicon-plus"></i> Add Form
+                </button>
+            </li>
+            <hr>
+        </div>
+
+        <%--Add Action--%>
+        <div>
+            <h3>Add Action</h3>
+            <li>
+                <div class="dropup">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+                        Actions
+                        <span class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                        <%--add class="disabled" to disable an option --%>
+                        <li role="presentation" class="dropdown-header">Actions</li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Click</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Click Checkbox</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Fill Element</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Store Value</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Add Value</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Select</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Submit</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Respond Alert</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation" class="dropdown-header">Verifications</li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Text</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Not Text</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Alert
+                        </a></li>
+                    </ul>
+                </div>
+            </li>
+            <hr>
+        </div>
+    </ul>
+</div>
 <script src="javascript.js"></script>
 </body>
-
-
-<script>
-    function hide(id) {
-        document.getElementById(id).hidden = "hidden";
-    }
-
-    function show(id) {
-        document.getElementById(id).hidden = "";
-    }
-</script>
 </html>

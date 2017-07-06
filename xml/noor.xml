@@ -26,7 +26,6 @@
         <form name="Create Customer Form" url="/html/body/div[2]/div/ul/li[2]/a" relative="no">
             <text value="Add New Customer"/>
             <fill id="name" value="Mohammad Noor"/>
-            <navigate-checkbox id="rad1" index="0"/>
             <fill id="dob" value="05221994"/>
             <fill id="addr" value="Amman Jordan"/>
             <fill id="city" value="Amman"/>

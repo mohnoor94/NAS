@@ -8,7 +8,6 @@
     <!-- Bootstrap core CSS -->
     <%--<link href="css/bootstrap-theme.css" rel="stylesheet">--%>
     <%--<link href="css/custom.css" rel="stylesheet">--%>
-
 </head>
 <body>
 <a href="generator.jsp">generator</a>
