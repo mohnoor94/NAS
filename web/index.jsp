@@ -11,6 +11,8 @@
 </head>
 <body>
 <a href="generator.jsp">generator</a>
+<a href="generator2.jsp">generator2</a>
+<a href="generator3.jsp">generator3</a>
 
 </body>
 </html>

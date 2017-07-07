@@ -6,37 +6,45 @@
 // console.log($('#accordion .in').parent().attr("id"));
 
 // show selected option as dropup text
-$(function () {
-    $(".dropdown-menu li a").click(function () {
-        var item = $(this);
-        var id = item.parent().parent().attr("aria-labelledby");
-        $("#" + id + ':first-child').text($(this).text() + ' ▲');
-        console.log();
+// $(function () {
+//     $(".dropdown-menu li a").click(function () {
+//         var item = $(this);
+//         var id = item.parent().parent().attr("aria-labelledby");
+//         $("#" + id + ':first-child').text($(this).text() + ' ▲');
+//         console.log();
+//
+//         switch (this.innerHTML) {
+//             case 'Click':
+//                 console.log('click');
+//                 break;
+//             case 'Apples':
+//                 console.log('Apples are $0.32 a pound.');
+//                 break;
+//             case 'Bananas':
+//                 console.log('Bananas are $0.48 a pound.');
+//                 break;
+//             case 'Cherries':
+//                 console.log('Cherries are $3.00 a pound.');
+//                 break;
+//             case 'Mangoes':
+//             case 'Papayas':
+//                 console.log('Mangoes and papayas are $2.79 a pound.');
+//                 break;
+//             default:
+//                 console.log('hmmmm?');
+//         }
+//
+//     });
+// });
 
-        switch (this.innerHTML) {
-            case 'Click':
-                console.log('click');
-                break;
-            case 'Apples':
-                console.log('Apples are $0.32 a pound.');
-                break;
-            case 'Bananas':
-                console.log('Bananas are $0.48 a pound.');
-                break;
-            case 'Cherries':
-                console.log('Cherries are $3.00 a pound.');
-                break;
-            case 'Mangoes':
-            case 'Papayas':
-                console.log('Mangoes and papayas are $2.79 a pound.');
-                break;
-            default:
-                console.log('hmmmm?');
-        }
-
-    });
+var snrCtr = 0;
+$(".add_scenario").on("click", function () {
+    console.log("scenario");
+    var scenario = document.createElement('tr');
+    scenario.innerHTML = '<th>Enter Scenario Name</th>';
+    document.getElementById('scenarios').appendChild(scenario);
+    console.log("..added");
 });
-
 var unitCtr = 0;
 $(".add_page").on("click", function () {
     console.log("heeee");
