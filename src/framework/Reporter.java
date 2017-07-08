@@ -1,5 +1,7 @@
 package framework;
 
+import data.Data;
+
 import java.io.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -8,7 +10,6 @@ import java.util.Date;
 import java.util.List;
 
 /**
- *
  * @author AbuKhleif
  */
 public class Reporter {
@@ -18,9 +19,11 @@ public class Reporter {
     static {
         reporter = new Reporter();
     }
+
     private Reporter() {
     }
-    public static Reporter getInstance(){
+
+    public static Reporter getInstance() {
         return reporter;
     }
 
@@ -103,9 +106,10 @@ public class Reporter {
      * Write report results
      */
     static void writeResults() {
-        DateFormat df = new SimpleDateFormat("dd-MM-yyyy_HH-mm-ss");
+        DateFormat df = new SimpleDateFormat("dd-MM-yyyy_HH-mm");
         String requiredDate = df.format(new Date());
-        File report = new File("reports" + File.separator + "report_" + requiredDate + ".html");
+        String reportPath = "reports" + File.separator + Data.getData().get("file_name") + "_" + requiredDate + ".html";
+        File report = new File(reportPath);
         BufferedReader reader = null;
         PrintWriter writer = null;
         try {
@@ -119,14 +123,13 @@ public class Reporter {
             }
 
             // Report Contents
-            // TODO edit <h?> and <font>
             for (int i = 0; i < results.size(); i++) {
                 switch (results.get(i).getResult().toLowerCase()) {
                     case "passed":
-                        writer.println("<tr><td>" + Integer.toString(i + 1) + "</td><td class=\"passed\">" + results.get(i).getResult() + "</td><td>" + results.get(i).getDescription() + "</td></tr>");
+                        writer.println("<tr><td>" + Integer.toString(i + 1) + "<td>" + results.get(i).getDescription() + "</td><td class=\"passed\">" + results.get(i).getResult() + "</td></tr>");
                         break;
                     case "failed":
-                        writer.println("<tr><td>" + Integer.toString(i + 1) + "</td><td class=\"failed\">" + results.get(i).getResult() + "</td><td>" + results.get(i).getDescription() + "</td></tr>");
+                        writer.println("<tr><td>" + Integer.toString(i + 1) + "<td>" + results.get(i).getDescription() + "</td><td class=\"failed\">" + results.get(i).getResult() + "</td></tr>");
                         break;
                     case "site":
                         writer.println("<tr><td>" + Integer.toString(i + 1) + "</td>" + "<td class=\"site\" colspan=\"2\">Enter Site: " + results.get(i).getDescription() + "</td></tr>");
@@ -139,6 +142,12 @@ public class Reporter {
                         break;
                     case "form":
                         writer.println("<tr><td>" + Integer.toString(i + 1) + "</td>" + "<td class=\"form\" colspan=\"2\">Enter Form: " + results.get(i).getDescription() + "</td></tr>");
+                        break;
+                    case "click":
+                        writer.println("<tr><td>" + Integer.toString(i + 1) + "</td>" + "<td class=\"click\" colspan=\"2\">Click: " + results.get(i).getDescription() + "</td></tr>");
+                        break;
+                    case "submit":
+                        writer.println("<tr><td>" + Integer.toString(i + 1) + "</td>" + "<td class=\"submit\" colspan=\"2\">Submit Form " + results.get(i).getDescription() + "</td></tr>");
                         break;
                     case "site_end":
                         writer.println("<tr><td>" + Integer.toString(i + 1) + "</td>" + "<td class=\"end\" colspan=\"2\">Leave Site: " + results.get(i).getDescription() + "</td></tr>");
@@ -162,6 +171,8 @@ public class Reporter {
             while ((line = reader.readLine()) != null) {
                 writer.println(line);
             }
+
+            System.out.println("Report succesfully written to \'" + reportPath + "\'");
         } catch (Exception e) {
             System.err.println(e);
         } finally {

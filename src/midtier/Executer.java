@@ -26,8 +26,10 @@ public class Executer extends Base {
     public void execute(String filePath) throws JAXBException, FileNotFoundException {
         JAXBContext context = JAXBContext.newInstance(Site.class);
         Unmarshaller um = context.createUnmarshaller();
+        System.out.println(filePath);
         Site site = (Site) um.unmarshal(new FileReader(preFilePath + filePath + postFilePath));
-
+        // Save file name to use it in report
+        Data.getData().put("file_name", filePath);
         setUp();
         site.parse();
         tearDown();

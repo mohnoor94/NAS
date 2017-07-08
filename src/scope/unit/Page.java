@@ -24,13 +24,15 @@ public class Page extends Unit {
 
     public void parse() {
         Reporter reporter = Reporter.getInstance();
-        reporter.addHeader("Page", getName() + " (" + getUrl() + " )");
+        reporter.addHeader("Page", getName() + " (" + getUrl() + ")");
 
         // navigate to page
-        if ("no".equals(getRelative())) {
+        if (getRelative().equals("no") && getUrl().equals("")) {
+            // do nothing...
+        } else if ("no".equals(getRelative())) {
             navigate(getUrl());
         } else {
-            navigate(Data.getData().get("url") + getUrl());
+            navigate(Data.getData().get("url") + "/" + getUrl());
         }
 
         // do actions
@@ -56,7 +58,7 @@ public class Page extends Unit {
     }
 
     public String getName() {
-        if (name == null){
+        if (name == null) {
             name = "UNKNOWN";
         }
         return name;
@@ -78,7 +80,7 @@ public class Page extends Unit {
     }
 
     public String getRelative() {
-        if (relative == null){
+        if (relative == null) {
             relative = "yes";
         }
         return relative;

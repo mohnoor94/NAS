@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author AbuKhleif
  */
 
-@XmlRootElement(name = "navigate-checkbox")
+@XmlRootElement(name = "click-checkbox")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ClickCheckbox extends Action {
     @XmlAttribute

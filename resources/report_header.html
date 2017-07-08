@@ -1,17 +1,26 @@
 <html>
 <head>
     <title>Test Report</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 </head>
 <body>
 <style>
+    body {
+        background-color: WHITESMOKE;
+    }
+
     th, td {
         padding: 5px;
-        text-align: center;
+        text-align: left;
         border-bottom: 1px solid #ddd;
     }
 
     tr {
         background-color: WHITESMOKE;
+    }
+
+    th {
+        text-align: center;
     }
 
     .table {
@@ -33,11 +42,14 @@
 
     .passed {
         color: green;
+        font-weight: 900;
+        text-align: center;
     }
 
     .failed {
         color: red;
-        font-weight: bold;
+        font-weight: 900;
+        text-align: center;
     }
 
     .site {
@@ -51,7 +63,7 @@
     }
 
     .page {
-        color: PURPLE;
+        color: midnightblue;
         font-size: large;
     }
 
@@ -60,18 +72,26 @@
         font-size: large;
     }
 
+    .click {
+        color: maroon;
+        /*font-size: large;*/
+    }
+
+    .submit {
+        color: maroon;
+        /*font-size: large;*/
+    }
+
     .end {
         color: LIGHTSTEELBLUE;
         font-size: small;
     }
 </style>
 <h1 style="text-align: center;">Test Results</h1>
-<hr/>
-<br><br>
 <div class="table">
-    <table>
+    <table width="100%">
         <tr>
             <th>Step</th>
-            <th>Result</th>
             <th>Description</th>
+            <th width="10%">Result</th>
         </tr>

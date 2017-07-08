@@ -1,5 +1,7 @@
 package action;
 
+import framework.Reporter;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -16,7 +18,9 @@ public class Click extends Action {
     private String id;
 
     public void doAction() {
+        Reporter reporter = Reporter.getInstance();
         navigate(getId());
+        reporter.addHeader("Click", getId());
     }
 
     public Click() {

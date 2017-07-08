@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<site name="AbuKhleif" url="http://www.abukhleif.com">
+    <scenario name="Login via manually saved data">
+        <page name="Main Page" url="">
+            <text value="Latest stories"/>
+        </page>
+        <form name="Login Page" url="wp-login.php">
+            <store-manual key="username" value="test"/>
+            <store-manual key="password" value="thisIsATest"/>
+            <text value="Username or Email Address"/>
+            <text value="Password"/>
+            <not-text value="Error 404"/>
+            <fill id="user_login" value="username" stored="yes"/>
+            <fill id="user_pass" value="password" stored="yes"/>
+            <submit element="wp-submit"/>
+        </form>
+        <form name="Profile Page - English" url="" relative="no">
+            <not-text value=": Incorrect username or password."/>
+            <text value="Profile"/>
+            <select id="locale" text="العربية"/>
+            <submit element="submit"/>
+        </form>
+        <form name="Profile Page - Arabic" url="" relative="no">
+            <text value="حسابك"/>
+            <select id="locale" text="English (UK)"/>
+            <submit element="submit"/>
+        </form>
+        <form name="Profile Page - English" url="" relative="no">
+            <text value="Profile"/>
+        </form>
+    </scenario>
+</site>

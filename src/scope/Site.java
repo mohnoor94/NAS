@@ -7,7 +7,6 @@ import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 
 /**
- *
  * @author AbuKhleif
  */
 @XmlRootElement(name = "site")
@@ -22,16 +21,23 @@ public class Site extends Scope {
 
     public void parse() {
         Reporter reporter = Reporter.getInstance();
-        reporter.addHeader("site", getName() + " (" + getUrl()+")");
-        Data.getData().put("url", getUrl());
-        navigate(getUrl());
+        reporter.addHeader("site", getName() + " (" + getUrl() + ")");
+        if (getUrl() != null) {
+            Data.getData().put("url", getUrl());
+            navigate(getUrl());
+        }
+
         for (Scenario scenario : scenarios) {
             scenario.parse();
         }
-        reporter.addFooter("site", getName() + " (" + getUrl()+")");
+        reporter.addFooter("site", getName() + " (" + getUrl() + ")");
     }
 
     public Site() {
+    }
+
+    public Site (String name){
+        this.name = name;
     }
 
     public Site(String name, String url) {
@@ -40,9 +46,9 @@ public class Site extends Scope {
     }
 
     public String getUrl() {
-        if (url == null) {
-            url = "#";
-        }
+//        if (url == null) {
+//            url = "#";
+//        }
         return url;
     }
 

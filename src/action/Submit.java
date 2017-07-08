@@ -1,12 +1,14 @@
 package action;
 
+import data.Data;
+import framework.Reporter;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
  * @author AbuKhleif
  */
 
@@ -20,12 +22,14 @@ public class Submit extends Action {
     // type = button or field
 
     public void doAction() {
+        Reporter reporter = Reporter.getInstance();
         if (getElement() != null) {
             if ("field".equals(getType())) {
                 submit(getElement());
             } else {
                 navigate(getElement());
             }
+            reporter.addHeader("Submit", "'"+Data.getData().get("form") + "' via '" + getElement() + "'");
         }
     }
 

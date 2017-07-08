@@ -1,6 +1,7 @@
 package midtier;
 
 import action.Action;
+import data.Data;
 import scope.Scenario;
 import scope.Site;
 import scope.unit.Form;
@@ -23,7 +24,7 @@ public class Writer {
     private Page page;
     private Form form;
     private Unit activeUnit;
-    private final String preFilePath = "./xml" + File.separator;
+    private final String preFilePath = "." + File.separator + "xml" + File.separator;
     private final String postFilePath = ".xml";
 
     public void write(String fileName) throws JAXBException {
@@ -33,7 +34,9 @@ public class Writer {
         m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
         // Write to File
-        m.marshal(site, new File(preFilePath + fileName + postFilePath));
+        String filePath = preFilePath + fileName + postFilePath;
+        m.marshal(site, new File(filePath));
+        System.out.println("XML file succesfully written to '" + filePath + "'");
     }
 
     public void write() throws JAXBException {
@@ -64,6 +67,15 @@ public class Writer {
         } else {
             throw new RuntimeException("Null Scenario");
         }
+    }
+
+    /**
+     * Add a new scenario by name
+     * @param scenarioName
+     */
+    public void addScenario(String scenarioName) {
+        Scenario scenario = new Scenario(scenarioName);
+        addScenario(scenario);
     }
 
     public Page getPage() {

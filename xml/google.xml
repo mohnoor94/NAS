@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<site name="Google" url="https://www.google.jo/">
+    <scenario name="Search">
+        <form name="Search Form" url="">
+            <text value="الأردن"/>
+            <text value="Google.jo"/>
+            <fill id="lst-ib" value="How to search google? =P"/>
+            <submit element="lst-ib"/>
+            <text value="How to search on Google"/>
+        </form>
+        <page name="First Result" url="//*[@id=&quot;rso&quot;]/div/div/div[1]/div/div/h3/a[2]/span" relative="no">
+            <not-text value="Error 404"/>
+            <text value="How to search on Google"/>
+            <text value="Google Search"/>
+            <text value="Tip 1: Start with the basics"/>
+            <text value="Expert Search tips"/>
+        </page>
+    </scenario>
+</site>

@@ -24,13 +24,16 @@ public class Form extends Unit {
 
     public void parse() {
         Reporter reporter = Reporter.getInstance();
-        reporter.addHeader("Form", getName() + " (" + getUrl() + " )");
+        reporter.addHeader("Form", getName() + " (" + getUrl() + ")");
+        Data.getData().put("form", getName());
 
         // navigate to form
-        if (getRelative().equals("no")) {
+        if (getRelative().equals("no") && getUrl().equals("")) {
+            // do nothing...
+        } else if (getRelative().equals("no")) {
             navigate(getUrl());
         } else {
-            navigate(Data.getData().get("url") + getUrl());
+            navigate(Data.getData().get("url") + "/" + getUrl());
         }
 
         // do actions
@@ -56,7 +59,7 @@ public class Form extends Unit {
     }
 
     public String getName() {
-        if (name == null){
+        if (name == null) {
             name = "UNKNOWN";
         }
         return name;
@@ -78,7 +81,7 @@ public class Form extends Unit {
     }
 
     public String getRelative() {
-        if (relative == null){
+        if (relative == null) {
             relative = "yes";
         }
         return relative;

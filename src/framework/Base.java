@@ -30,14 +30,6 @@ public class Base {
         ChromeDriverManager.getInstance().setup();
         driver = new ChromeDriver();
 
-        // Old Way:
-//        // select driver
-//        if (SystemUtils.IS_OS_LINUX) {
-//            System.setProperty("webdriver.chrome.driver", "drivers" + File.separator + "chromedriver");
-//        } else {
-//            System.setProperty("webdriver.chrome.driver", "drivers" + File.separator + "chromedriver.exe");
-//        }
-//        driver = new ChromeDriver();
 //        driver.manage().window().maximize();
     }
 
@@ -267,7 +259,7 @@ public class Base {
      */
     public String generateRandomEmail() {
         StringBuilder sb = new StringBuilder(10);
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 11; i++)
             sb.append(AB.charAt(rnd.nextInt(AB.length())));
         sb.append("@example.com");
         return sb.toString();
