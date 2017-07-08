@@ -10,9 +10,6 @@
     <%--<link href="css/custom.css" rel="stylesheet">--%>
 </head>
 <body>
-<a href="generator.jsp">generator</a>
-<a href="generator2.jsp">generator2</a>
-<a href="generator3.jsp">generator3</a>
-
+<h1 style="text-align: center"><a href="generator.jsp">generator</a></h1>
 </body>
 </html>

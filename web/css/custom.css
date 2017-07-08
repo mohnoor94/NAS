@@ -1,9 +1,44 @@
-footer {
-    position: fixed;
-    height: 100px;
-    bottom: 0;
-    width: 100%;
+/*footer {*/
+/*position: fixed;*/
+/*height: 100px;*/
+/*bottom: 0;*/
+/*width: 100%;*/
+/*}*/
+
+#selectable {
+    border-collapse: collapse;
 }
+
+#selectable .ui-selecting {
+    background: #22cadb;
+}
+
+#selectable .ui-selected {
+    background: #2f87db;
+    color: white;
+}
+
+/*#selectable tr th, td {*/
+    /*!*border: 1px solid red;*!*/
+    /*!*padding: 6px;*!*/
+/*}*/
+
+/*table, tr, td, th {*/
+/*border-collapse: collapse;*/
+/*}*/
+
+/*tr.header {*/
+/*cursor: pointer;*/
+/*}*/
+
+/*.header .sign:after {*/
+/*content: "+";*/
+/*display: inline-block;*/
+/*}*/
+
+/*.header.expand .sign:after {*/
+/*content: "-";*/
+/*}*/
 
 h1 {
     text-align: center;
@@ -32,8 +67,8 @@ h1 {
     top: 0;
     bottom: 0;
     left: 0;
-    right: 0;
-    /*right: 300px;*/
+    /*right: 0;*/
+    right: 300px;
     text-align: center;
     overflow-y: auto;
 }
@@ -53,7 +88,7 @@ h1 {
 }
 
 /*.panel-group .panel-heading + .panel-collapse > .panel-body {*/
-    /*border: 1px solid #ddd;*/
+/*border: 1px solid #ddd;*/
 /*}*/
 
 /*.panel-group,*/
@@ -64,55 +99,55 @@ h1 {
 /*.panel-group .panel-title a,*/
 /*.panel-group .panel-body,*/
 /*.panel-group .panel-group .panel-heading + .panel-collapse > .panel-body {*/
-    /*border-radius: 2px;*/
-    /*border: 0;*/
+/*border-radius: 2px;*/
+/*border: 0;*/
 /*}*/
 
 /*.panel-group .panel-heading {*/
-    /*padding: 0;*/
+/*padding: 0;*/
 /*}*/
 
 /*.panel-group .panel-heading a {*/
-    /*display: block;*/
-    /*background: #668bb1;*/
-    /*color: #ffffff;*/
-    /*padding: 15px;*/
-    /*text-decoration: none;*/
-    /*position: relative;*/
+/*display: block;*/
+/*background: #668bb1;*/
+/*color: #ffffff;*/
+/*padding: 15px;*/
+/*text-decoration: none;*/
+/*position: relative;*/
 /*}*/
 
 /*.panel-group .panel-heading a.collapsed {*/
-    /*background: #eeeeee;*/
-    /*color: inherit;*/
+/*background: #eeeeee;*/
+/*color: inherit;*/
 /*}*/
 
 /*.panel-group .panel-heading a:after {*/
-    /*content: 'Active';*/
-    /*position: absolute;*/
-    /*right: 20px;*/
-    /*top: 5px;*/
-    /*font-size: 30px;*/
+/*content: 'Active';*/
+/*position: absolute;*/
+/*right: 20px;*/
+/*top: 5px;*/
+/*font-size: 30px;*/
 /*}*/
 
 /*.panel-group .panel-heading a.collapsed:after {*/
-    /*content: '+';*/
+/*content: '+';*/
 /*}*/
 
 /*.panel-group .panel-collapse {*/
-    /*margin-top: 5px !important;*/
+/*margin-top: 5px !important;*/
 /*}*/
 
 /*.panel-group .panel-body {*/
-    /*background: #ffffff;*/
-    /*padding: 15px;*/
+/*background: #ffffff;*/
+/*padding: 15px;*/
 /*}*/
 
 /*.panel-group .panel {*/
-    /*background-color: transparent;*/
+/*background-color: transparent;*/
 /*}*/
 
 /*.panel-group .panel-body p:last-child,*/
 /*.panel-group .panel-body ul:last-child,*/
 /*.panel-group .panel-body ol:last-child {*/
-    /*margin-bottom: 0;*/
+/*margin-bottom: 0;*/
 /*}*/
