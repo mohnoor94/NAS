@@ -39,25 +39,26 @@ to the date and time of the execution.
 (no values) resulting in staying at the same page or form and use all actions
 of the unit (page or form). This can help in execute the scenarios in more
 logical (natural) way, and generates more readable and natural reports.
+* Other minor changes and bugs fixing.
 
 #### V 2.0, V1.9.2, V1.9.1:
-* Minor changes and bug fixing.
+* Minor changes and bugs fixing.
 
 #### V1.9:
 * **ChromeDriver** using **Maven** instead of include it in the project package.
-* Other minor changes and bug fixing.
+* Other minor changes and bugs fixing.
 
 #### V1.8:
 * Changes in reports design.
-* Other minor changes and bug fixing.
+* Other minor changes and bugs fixing.
 
 #### V1.7.1:
-* Minor changes and bug fixing.
+* Minor changes and bugs fixing.
 
 #### V1.7:
 * Adding any action to an instance of Writer class results in adding it directly,
 **no need for committing each group of actions** separately.
-* Other minor changes and bug fixing.
+* Other minor changes and bugs fixing.
 
 #### V1.6:
 * Fix FillElement action reading process from stored data.
@@ -71,7 +72,7 @@ the need to extend it, all classes will accesses one shared copy of the
 Reporter instance.
 * Add **WriterTester** and **ExecuterTester** to help in generate and execute
 XML files via Java code.
-* Other minor changes and bug fixing.
+* Other minor changes and bugs fixing.
 
 #### V1.5:
 * New (and better) **design** for reports.
@@ -86,7 +87,7 @@ including the actions resulting in each group of verification results.
  to use static URLs via setting this attribute to "no".
 * **CSS** is now the only used way to design report rows, instead of some
 deprecated html tags.
-* Other minor changes and bug fixing.
+* Other minor changes and bugs fixing.
 
 #### V1.4:
 * Add **Click** action.
@@ -109,12 +110,12 @@ ways using single attribute (id).
 * Add **Unit** class which the Form and Page classes extend to apply
  polymorphism principles.
 * Update **Site** scope class, and add name and url properties to it.
-* Other minor changes and bug fixing.
+* Other minor changes and bugs fixing.
 
 #### V1.3:
 * Add **Data** to store data, both the data stored by the user, and some
 other needed data like the main site url.
-* Other minor changes and bug fixing.
+* Other minor changes and bugs fixing.
 
 #### V1.2:
 * Add **Action** abstract class, all actions extend this class, each page now
@@ -127,7 +128,7 @@ and Interfaces!
 actions of the page.
 * Update **Scenario** scope class.
 * Add Main **Site** scope class.
-* Other minor changes and bug fixing.
+* Other minor changes and bugs fixing.
 
 #### V1.1:
 * Add **Reportable** class.
@@ -138,6 +139,7 @@ actions of the page.
 * Add **Page** unit.
 * Add **Scenario** scope.
 * Add **Scope** interface.
+* Other minor changes and bugs fixing.
 
 ##### V1.0:
 * Initial Release.
