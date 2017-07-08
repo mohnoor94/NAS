@@ -130,6 +130,7 @@ actions of the page.
 * Add Main **Site** scope class.
 * Other minor changes and bugs fixing.
 
+
 #### V1.1:
 * Add **Reportable** class.
 * Update **Base** Framework.
