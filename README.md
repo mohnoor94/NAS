@@ -16,6 +16,14 @@ to help you write your own files.
 * ExecuterTester Class (under src/test folder) is an example of how can the files tests
 executed, you can create your own class or just use it as is.
 
+## Samples:
+* Test Files (XML) samples can be found inside the project under xml folder.
+* Java Classes which used to generate XML files can be found under (src/test)
+folder.
+* Java Class (ExecuterTEster) which used to execute the tests can be found under (src/test)
+folder.
+
+
 ## User Guide:
 * Will be available soon, you can use the information in run and testing
 section (above) at the moment.
