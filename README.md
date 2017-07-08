@@ -53,7 +53,6 @@ logical (natural) way, and generates more readable and natural reports.
 
 #### V1.7.1:
 * Minor changes and bug fixing.
-* Other minor changes and bug fixing.
 
 #### V1.7:
 * Adding any action to an instance of Writer class results in adding it directly,
