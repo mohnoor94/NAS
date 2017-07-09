@@ -29,7 +29,7 @@ public class WriterTester_Google {
         writer.addAction(new FillElement("lst-ib", "How to search google? =P"));
         writer.addAction(new Submit("lst-ib"));
         writer.addAction(new VerifyText("How to search on Google"));
-        writer.addPage(new Page("First Result", "//*[@id=\"rso\"]/div/div/div[1]/div/div/h3/a[2]/span", "no"));
+        writer.addPage(new Page("First Result", "How to search on Google - Google Search Help - Google ...", "no"));
         writer.addAction(new VerifyNotText("Error 404"));
         writer.addAction(new VerifyText("How to search on Google"));
         writer.addAction(new VerifyText("Google Search"));

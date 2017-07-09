@@ -1,5 +1,6 @@
 package test;
 
+import framework.Driver;
 import midtier.Executer;
 
 import javax.xml.bind.JAXBException;
@@ -12,15 +13,16 @@ import java.io.FileNotFoundException;
  */
 public class ExecuterTester {
     public static void main(String[] args) throws JAXBException, FileNotFoundException {
-        Executer executer = new Executer();
-//        executer.execute("guru99");
-//        executer.execute("abukhleif");
-//        executer.execute("google");
-//        executer.execute("multiple_sites");
-//        executer.execute("multiple_sites2");
-//        executer.execute("abukhleif_login");
-//        executer.execute("abukhleif_login2");
-//        executer.execute("guru99_errors");
-//        executer.printData();
+        Executer executer;
+//        executer = new Executer("guru99", Driver.CHROME);
+//        executer = new Executer("abukhleif", Driver.CHROME);
+        executer = new Executer("google", Driver.CHROME);
+//        executer = new Executer("multiple_sites", Driver.CHROME);
+//        executer = new Executer("multiple_sites2", Driver.CHROME);
+//        executer = new Executer("abukhleif_login", Driver.CHROME);
+//        executer = new Executer("abukhleif_login2", Driver.CHROME);
+//        executer = new Executer("guru99_errors", Driver.CHROME);
+        executer.execute();
+        executer.printData();
     }
 }

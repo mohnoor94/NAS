@@ -27,13 +27,13 @@
             <text value="Add New Customer"/>
             <fill id="name" value="Mohammad Noor"/>
             <click-checkbox id="rad1" index="0"/>
-            <fill id="dob" value="0019940522"/>
+            <fill id="dob" value="05221994"/>
             <fill id="addr" value="Amman Jordan"/>
             <fill id="city" value="Amman"/>
             <fill id="state" value="Unknown"/>
             <fill id="pinno" value="123456"/>
             <fill id="telephoneno" value="0786201850"/>
-            <fill id="emailid" value="az9GuGhvG2Z@example.com"/>
+            <fill id="emailid" value="2R3vGdXAFv8@example.com"/>
             <fill id="password" value="password" stored="yes"/>
             <submit element="sub" type="button"/>
             <text value="Customer Registered Successfully, Wohooo!!!"/>

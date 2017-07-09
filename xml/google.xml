@@ -8,7 +8,7 @@
             <submit element="lst-ib"/>
             <text value="How to search on Google"/>
         </form>
-        <page name="First Result" url="//*[@id=&quot;rso&quot;]/div/div/div[1]/div/div/h3/a[2]/span" relative="no">
+        <page name="First Result" url="How to search on Google - Google Search Help - Google ..." relative="no">
             <not-text value="Error 404"/>
             <text value="How to search on Google"/>
             <text value="Google Search"/>

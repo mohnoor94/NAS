@@ -3,6 +3,7 @@ package midtier;
 
 import data.Data;
 import framework.Base;
+import framework.Driver;
 import scope.Site;
 
 import javax.xml.bind.JAXBContext;
@@ -18,25 +19,21 @@ import java.util.Collections;
  *
  * @author AbuKhleif
  */
-public class Executer extends Base {
+public class Executer extends Base{
     private String filePath;
     private final String preFilePath = "./xml" + File.separator;
     private final String postFilePath = ".xml";
+    private Driver driver;
 
-    public void execute(String filePath) throws JAXBException, FileNotFoundException {
+    public void execute() throws JAXBException, FileNotFoundException {
         JAXBContext context = JAXBContext.newInstance(Site.class);
         Unmarshaller um = context.createUnmarshaller();
-        System.out.println(filePath);
         Site site = (Site) um.unmarshal(new FileReader(preFilePath + filePath + postFilePath));
         // Save file name to use it in report
         Data.getData().put("file_name", filePath);
-        setUp();
+        setUp(driver);
         site.parse();
         tearDown();
-    }
-
-    public void execute() throws JAXBException, FileNotFoundException {
-        execute("site");
     }
 
     public void printData() {
@@ -46,10 +43,15 @@ public class Executer extends Base {
         System.out.println(Collections.singletonList(Data.getUserData()));
     }
 
-    public Executer() {
+
+    public Executer(String filePath, Driver driver) {
+        this.filePath = filePath;
+        this.driver = driver;
     }
 
     public Executer(String filePath) {
+        // default browser: chrome...
+        this.driver = Driver.CHROME;
         this.filePath = filePath;
     }
 

@@ -1,11 +1,17 @@
 package framework;
 
 import io.github.bonigarcia.wdm.ChromeDriverManager;
+import io.github.bonigarcia.wdm.FirefoxDriverManager;
+import io.github.bonigarcia.wdm.InternetExplorerDriverManager;
 import org.apache.commons.lang3.SystemUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.Select;
 
 import java.io.File;
@@ -26,9 +32,28 @@ public class Base {
      *
      * @throws Exception
      */
-    protected static void setUp() {
-        ChromeDriverManager.getInstance().setup();
-        driver = new ChromeDriver();
+    protected static void setUp(Driver driver) {
+        switch (driver) {
+//            case FIREFOX:
+//                FirefoxOptions options = new FirefoxOptions();
+//                options.setBinary("/usr/bin/firefox");
+//
+//                FirefoxDriverManager.getInstance().setup();
+//                Base.driver = new FirefoxDriver(options);
+//                break;
+            case IE:
+                InternetExplorerDriverManager.getInstance().setup();
+                Base.driver = new InternetExplorerDriver();
+                break;
+            case HEADLESS:
+                Base.driver = new HtmlUnitDriver();
+                break;
+            case CHROME:
+            default:
+                ChromeDriverManager.getInstance().setup();
+                Base.driver = new ChromeDriver();
+        }
+
 
 //        driver.manage().window().maximize();
     }
@@ -60,6 +85,7 @@ public class Base {
     /**
      * If (find) test equality of two sentences,
      * otherwise test if they are not equal
+     *
      * @param message1
      * @param message2
      * @param find
