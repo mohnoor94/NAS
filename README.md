@@ -29,10 +29,10 @@ section (above) at the moment.
 ## Change Log:
 #### V N2.9:
 * Multiple Browsers Support:
-* * Chrome [Tested]
-* * FireFox
-* * IE
-* * HeadLess [Tested]
+    * Chrome [Tested]
+    * FireFox
+    * IE
+    * HeadLess [Tested]
 
 #### V N2.8:
 * New (and better) **design** for reports.
