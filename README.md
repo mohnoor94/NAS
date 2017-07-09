@@ -27,6 +27,13 @@ folder.
 section (above) at the moment.
 
 ## Change Log:
+#### V N2.10:
+* **Step-By-Step Report Generation**, which guarantee writing the result in case of
+ execution errors or exceptions. Error messages (causes) written to end of the
+ report to state the error.
+* Base framework code clean up.
+* Other minor changes and bugs fixing.
+
 #### V N2.9:
 * Multiple Browsers Support:
     * Chrome [Tested]

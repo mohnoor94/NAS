@@ -1,7 +1,6 @@
 package test;
 
 import action.*;
-import framework.Base;
 import midtier.Writer;
 import scope.Scenario;
 import scope.Site;
@@ -19,8 +18,8 @@ public class WriterTester_Guru99Errors {
     private static String randomEmail;
 
     public static void main(String[] args) throws JAXBException {
-        Base base = new Base();
-        randomEmail = base.generateRandomEmail();
+        Guru99Helper helper = new Guru99Helper();
+        randomEmail = helper.generateRandomEmail();
         register();
         login();
         createNewCustomer();

@@ -16,6 +16,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.io.File;
 import java.security.SecureRandom;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -34,13 +35,10 @@ public class Base {
      */
     protected static void setUp(Driver driver) {
         switch (driver) {
-//            case FIREFOX:
-//                FirefoxOptions options = new FirefoxOptions();
-//                options.setBinary("/usr/bin/firefox");
-//
-//                FirefoxDriverManager.getInstance().setup();
-//                Base.driver = new FirefoxDriver(options);
-//                break;
+            case FIREFOX:
+                FirefoxDriverManager.getInstance().setup();
+                Base.driver = new FirefoxDriver();
+                break;
             case IE:
                 InternetExplorerDriverManager.getInstance().setup();
                 Base.driver = new InternetExplorerDriver();
@@ -54,9 +52,10 @@ public class Base {
                 Base.driver = new ChromeDriver();
         }
 
-
-//        driver.manage().window().maximize();
+        Reporter.writeReportHeader();
+        //        driver.manage().window().maximize();
     }
+
 
     /**
      * After all tests
@@ -65,7 +64,7 @@ public class Base {
      */
     protected static void tearDown() {
         // write report results
-        Reporter.writeResults();
+        Reporter.writeReportFooter();
 
         // quit the browser
         driver.quit();
@@ -102,27 +101,6 @@ public class Base {
      */
     private WebElement findElement(String key) {
         return DriverUtils.findElement(driver, key);
-
-        // My Solution
-//        int trial = 4;
-//        while (--trial != 0) {
-//            try {
-//                if (trial == 3) {
-//                    element = findElementById(key);
-//                    break;
-//                } else if (trial == 2) {
-//                    element = findElementByName(key);
-//                    break;
-//                } else if (trial == 1) {
-//                    element = findElementByXPath(key);
-//                    break;
-//                }
-//            } catch (NoSuchElementException e) {
-//                // continue;
-//            }
-//        }
-//        // TO-DO add other cases..
-//        return element;
     }
 
     /**
@@ -195,36 +173,6 @@ public class Base {
     }
 
     /**
-     * Find webElement by its name
-     *
-     * @param name
-     * @return WebElement
-     */
-    private WebElement findElementByName(String name) {
-        return driver.findElement(By.name(name));
-    }
-
-    /**
-     * Find webElement by its id
-     *
-     * @param id
-     * @return WebElement
-     */
-    private WebElement findElementById(String id) {
-        return driver.findElement(By.id(id));
-    }
-
-    /**
-     * Find webElement by its XPath
-     *
-     * @param xpath
-     * @return WebElement
-     */
-    private WebElement findElementByXPath(String xpath) {
-        return driver.findElement(By.xpath(xpath));
-    }
-
-    /**
      * Find webElements by name
      *
      * @param name
@@ -272,22 +220,5 @@ public class Base {
      */
     protected String getAlertText() {
         return driver.switchTo().alert().getText();
-    }
-
-
-    private static final String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-    private static SecureRandom rnd = new SecureRandom();
-
-    /**
-     * Generate a random email
-     *
-     * @return String email
-     */
-    public String generateRandomEmail() {
-        StringBuilder sb = new StringBuilder(10);
-        for (int i = 0; i < 11; i++)
-            sb.append(AB.charAt(rnd.nextInt(AB.length())));
-        sb.append("@example.com");
-        return sb.toString();
     }
 }

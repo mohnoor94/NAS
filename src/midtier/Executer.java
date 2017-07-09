@@ -4,6 +4,7 @@ package midtier;
 import data.Data;
 import framework.Base;
 import framework.Driver;
+import framework.Reporter;
 import scope.Site;
 
 import javax.xml.bind.JAXBContext;
@@ -19,21 +20,28 @@ import java.util.Collections;
  *
  * @author AbuKhleif
  */
-public class Executer extends Base{
+public class Executer extends Base {
     private String filePath;
     private final String preFilePath = "./xml" + File.separator;
     private final String postFilePath = ".xml";
     private Driver driver;
 
-    public void execute() throws JAXBException, FileNotFoundException {
-        JAXBContext context = JAXBContext.newInstance(Site.class);
-        Unmarshaller um = context.createUnmarshaller();
-        Site site = (Site) um.unmarshal(new FileReader(preFilePath + filePath + postFilePath));
-        // Save file name to use it in report
-        Data.getData().put("file_name", filePath);
-        setUp(driver);
-        site.parse();
-        tearDown();
+    public void execute() {
+        try {
+            JAXBContext context = JAXBContext.newInstance(Site.class);
+            Unmarshaller um = context.createUnmarshaller();
+            Site site = (Site) um.unmarshal(new FileReader(preFilePath + filePath + postFilePath));
+            // Save file name to use it in report
+            Data.getData().put("file_name", filePath);
+            setUp(driver);
+            site.parse();
+            tearDown();
+        } catch (Exception e) {
+            Reporter reporter = Reporter.getInstance();
+            reporter.addHeader("ERROR", "While Executing Tests File, All Remaining Tests have been Skipped!\n" +
+                    "Error Message from Executer: " + e.getMessage());
+            tearDown();
+        }
     }
 
     public void printData() {
@@ -62,4 +70,5 @@ public class Executer extends Base{
     public void setFilePath(String filePath) {
         this.filePath = filePath;
     }
+
 }
