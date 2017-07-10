@@ -1,11 +1,9 @@
 package test;
 
 import action.*;
-import framework.Base;
 import midtier.Writer;
 import scope.Scenario;
 import scope.Site;
-import scope.unit.Form;
 import scope.unit.Page;
 
 import javax.xml.bind.JAXBException;

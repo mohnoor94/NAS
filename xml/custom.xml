@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<site name="Guru" url="http://demo.guru99.com/">
+    <scenario name="Custom Code Injection!">
+        <page name="Main Page" url="">
+            <custom code="verify(&quot;Enter your email address to get&quot;,true);&#xA;verify(&quot;access details to demo site&quot;,true);&#xA;"/>
+        </page>
+    </scenario>
+</site>

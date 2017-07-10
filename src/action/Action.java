@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlSeeAlso;
 @XmlSeeAlso({Click.class, ClickCheckbox.class, FillElement.class,
         ManualStore.class, VerifyNotText.class, VerifyAlert.class,
         RespondAlert.class, Select.class, Store.class,
-        Submit.class, VerifyText.class})
+        Submit.class, VerifyText.class, Custom.class})
 public abstract class Action extends Base {
     public abstract void doAction();
 }

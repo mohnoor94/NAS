@@ -5,16 +5,14 @@ import data.Data;
 import java.io.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 /**
  * @author AbuKhleif
  */
 public class Reporter {
     private static Reporter reporter;
-    private static DateFormat df = new SimpleDateFormat("dd-MM-yyyy_HH-mm");
+    private static DateFormat df = new SimpleDateFormat("dd_MM_yyyy-HH_mm_ss");
     private static String requiredDate = df.format(new Date());
     private static String reportPath;
 
@@ -99,22 +97,26 @@ public class Reporter {
             type = "page_end";
         } else if ("form".equals(type.toLowerCase())) {
             type = "form_end";
+        } else if ("custom".equals(type.toLowerCase())) {
+            type = "custom_end";
         }
         writeResult(new TestResult(type, description));
     }
 
     public static void writeReportHeader() {
-        reportPath = "reports" + File.separator + Data.getData().get("file_name") + "_" + requiredDate + ".html";
+        reportPath = "reports" + File.separator + Data.getData().get("file_name") + "-" + requiredDate + ".html";
         File report = new File(reportPath);
-        try (BufferedReader reader = new BufferedReader(new FileReader("resources" + File.separator + "report_header.html"));
-             PrintWriter writer = new PrintWriter(new FileWriter(report,true), true)
-        ) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                writer.println(line);
+        if (!report.exists()) {
+            try (BufferedReader reader = new BufferedReader(new FileReader("resources" + File.separator + "report_header.html"));
+                 PrintWriter writer = new PrintWriter(new FileWriter(report, true), true)
+            ) {
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    writer.println(line);
+                }
+            } catch (IOException e) {
+                System.out.println("Error writing report!!! --> " + e);
             }
-        } catch (IOException e) {
-            System.out.println("Error writing report!!! --> " + e);
         }
     }
 
@@ -163,6 +165,9 @@ public class Reporter {
                 case "form":
                     writer.println("<tr><td>" + Integer.toString(i++) + "</td>" + "<td class=\"form\" colspan=\"2\">Enter Form: " + result.getDescription() + "</td></tr>");
                     break;
+                case "custom":
+                    writer.println("<tr><td>" + Integer.toString(i++) + "</td>" + "<td class=\"custom\" colspan=\"2\">" + result.getDescription() + "</td></tr>");
+                    break;
                 case "click":
                     writer.println("<tr><td>" + Integer.toString(i++) + "</td>" + "<td class=\"click\" colspan=\"2\">Click: " + result.getDescription() + "</td></tr>");
                     break;
@@ -180,6 +185,9 @@ public class Reporter {
                     break;
                 case "form_end":
                     writer.println("<tr><td>" + Integer.toString(i++) + "</td>" + "<td class=\"end\" colspan=\"2\">Leave Form: " + result.getDescription() + "</td></tr>");
+                    break;
+                case "custom_end":
+                    writer.println("<tr><td>" + Integer.toString(i++) + "</td>" + "<td class=\"custom_end\" colspan=\"2\">" + result.getDescription() + "</td></tr>");
                     break;
                 case "error":
                     writer.println("<tr><td class=\"error\" colspan=\"3\">ERROR: " + result.getDescription() + "</td></tr>");

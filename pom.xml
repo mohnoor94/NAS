@@ -20,7 +20,7 @@
 
     <groupId>AutomationTask02</groupId>
     <artifactId>atypon.com.www</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>3.0-SNAPSHOT</version>
 
 
     <dependencies>

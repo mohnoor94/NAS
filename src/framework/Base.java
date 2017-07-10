@@ -3,20 +3,15 @@ package framework;
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import io.github.bonigarcia.wdm.InternetExplorerDriverManager;
-import org.apache.commons.lang3.SystemUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.Select;
 
-import java.io.File;
-import java.security.SecureRandom;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -56,6 +51,10 @@ public class Base {
         //        driver.manage().window().maximize();
     }
 
+    public static void setUp(){
+        setUp(Driver.CHROME);
+    }
+
 
     /**
      * After all tests
@@ -77,7 +76,7 @@ public class Base {
      * @param message
      * @param find
      */
-    protected void verify(String message, boolean find) {
+    protected static void verify(String message, boolean find) {
         reporter.report(isPageContains(message), find, message);
     }
 
@@ -99,7 +98,7 @@ public class Base {
      * @param key
      * @return WebElement
      */
-    private WebElement findElement(String key) {
+    private static WebElement findElement(String key) {
         return DriverUtils.findElement(driver, key);
     }
 
@@ -137,7 +136,7 @@ public class Base {
      *
      * @param key id, name, or xpath of webElement
      */
-    protected void navigate(String key) {
+    protected static void navigate(String key) {
         try {
             findElement(key).click();
         } catch (Exception e) {
@@ -198,7 +197,7 @@ public class Base {
      * @param text
      * @return boolean
      */
-    private boolean isPageContains(String text) {
+    private static boolean isPageContains(String text) {
         return driver.getPageSource().contains(text);
     }
 
