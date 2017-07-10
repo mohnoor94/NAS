@@ -11,15 +11,6 @@ import java.util.ArrayList;
  */
 @XmlSeeAlso({Form.class, Page.class})
 public abstract class Unit extends Base {
-    public void parse() {
-    }
-
-    /**
-     * must be implemented/overrided in all children
-     *
-     * @return
-     */
-    public ArrayList<Action> getActions() {
-        return null;
-    }
+    public abstract void parse();
+    public abstract ArrayList<Action> getActions();
 }

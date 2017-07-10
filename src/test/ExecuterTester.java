@@ -23,7 +23,7 @@ public class ExecuterTester extends Base {
 //        executer = new Executer("abukhleif_login", Driver.CHROME);
 //        executer = new Executer("abukhleif_login2", Driver.CHROME);
 //        executer = new Executer("guru99_errors", Driver.CHROME);
-        executer = new Executer("custom", Driver.CHROME);
+        executer = new Executer("custom", Driver.HEADLESS);
         executer.execute();
 //        executer.printData();
     }

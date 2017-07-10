@@ -32,6 +32,9 @@ folder.
 section (above) at the moment.
 
 ## Change Log:
+#### V N3.0.1:
+* Code Cleanup.
+
 #### V N3.0:
 * Add **Custom** action, which enable the user (Tests File writer) to 
 inject a java code and execute it directly in case of he/she did not find the
@@ -171,3 +174,11 @@ actions of the page.
 ##### V1.0:
 * Initial Release.
 
+## Todo List:
+* Try-Catch on each action.
+* Custom code elements (Variables and Methods).
+* Print Details on Report
+    * Driver.
+    * Date and Time.
+    * ???
+* ???

@@ -26,7 +26,6 @@ public class Base {
     /**
      * Before all tests
      *
-     * @throws Exception
      */
     protected static void setUp(Driver driver) {
         switch (driver) {
