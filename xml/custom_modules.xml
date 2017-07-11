@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<site name="Google" url="https://www.google.jo/">
+    <scenario name="Custom Code Injection! - Test  #1 - Contain simple method and variable (result printed on the console just for testing purposes).">
+        <form name="Search Page" url="">
+            <text value="الأردن"/>
+            <custom title="FirstModularCustomCode">
+                <var type="int" name="x" value="5"/>
+                <method name="printer">
+                    <code>System.out.println(x);</code>
+                </method>
+            </custom>
+        </form>
+    </scenario>
+</site>

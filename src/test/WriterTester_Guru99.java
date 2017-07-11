@@ -61,7 +61,7 @@ public class WriterTester_Guru99 {
         writer.addAction(new FillElement("pinno", "123456"));
         writer.addAction(new FillElement("telephoneno", "0786201850"));
         writer.addAction(new FillElement("emailid", randomEmail));
-        writer.addAction(new FillElement("password", "password" , "yes"));
+        writer.addAction(new FillElement("password", "password", "yes"));
         writer.addAction(new Submit("sub", "button"));
         writer.addAction(new VerifyText("Customer Registered Successfully!!!"));
         writer.addAction(new Store("id", "//*[@id=\"customer\"]/tbody/tr[4]/td[2]"));
@@ -89,5 +89,6 @@ public class WriterTester_Guru99 {
         writer.addAction(new VerifyText("This access is valid only for 20 days."));
         writer.addAction(new Store("username", "/html/body/table/tbody/tr[4]/td[2]"));
         writer.addAction(new Store("password", "/html/body/table/tbody/tr[5]/td[2]"));
-        writer.addAction(new VerifyNotText("Error 404"));}
+        writer.addAction(new VerifyNotText("Error 404"));
+    }
 }

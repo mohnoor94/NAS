@@ -1,7 +1,8 @@
 package midtier;
 
 import action.Action;
-import data.Data;
+import action.custom.*;
+import action.custom.Package;
 import scope.Scenario;
 import scope.Site;
 import scope.unit.Form;
@@ -24,6 +25,7 @@ public class Writer {
     private Page page;
     private Form form;
     private Unit activeUnit;
+    private Custom custom;
     private final String preFilePath = "." + File.separator + "xml" + File.separator;
     private final String postFilePath = ".xml";
 
@@ -71,6 +73,7 @@ public class Writer {
 
     /**
      * Add a new scenario by name
+     *
      * @param scenarioName
      */
     public void addScenario(String scenarioName) {
@@ -126,9 +129,122 @@ public class Writer {
 
     /**
      * Add an action to the current unit
+     *
      * @param action
      */
     public void addAction(Action action) {
         getActiveUnit().getActions().add(action);
     }
+
+    public Custom getCustom() {
+        if (custom == null) {
+            custom = new Custom();
+        }
+        return custom;
+    }
+
+    public void setCustom(Custom custom) {
+        this.custom = custom;
+    }
+
+    /**
+     * add a method to custom-code action...
+     *
+     * @param method
+     */
+    public void addMethod(Method method) {
+        getCustom().addMethod(method);
+    }
+
+    /**
+     * add a method to custom-code action...
+     *
+     * @param name
+     * @param code
+     */
+    public void addMethod(String name, String code) {
+        getCustom().addMethod(new Method(name, code));
+    }
+
+    /**
+     * add a class variable to custom-code action...
+     *
+     * @param variable
+     */
+    public void addVariable(Variable variable) {
+        getCustom().addVariable(variable);
+    }
+
+    /**
+     * add a class variable to custom-code action...
+     *
+     * @param type
+     * @param name
+     * @param value
+     */
+    public void addVariable(String type, String name, String value) {
+        getCustom().addVariable(new Variable(type, name, value));
+    }
+
+    /**
+     * add import statement to the custom code...
+     * @param anImport
+     */
+    public void addImport(Import anImport) {
+        getCustom().addImport(anImport);
+    }
+
+    /**
+     * add import statement to the custom code...
+     * @param library
+     */
+    public void addImport(String library) {
+        getCustom().addImport(new Import(library));
+    }
+
+    /**
+     * set the custom code package...
+     * @param anPackage
+     */
+    public void setPackage(action.custom.Package anPackage) {
+        getCustom().setPackage(anPackage);
+    }
+
+    /**
+     * set the custom code package...
+     * @param anPackage
+     */
+    public void setPackage(String anPackage) {
+        getCustom().setPackage(new Package(anPackage));
+    }
+
+    /**
+     * set the custom script to accept script code only,
+     * NOTE: any methods or class variables added to this
+     * custom code will be neglected
+     *
+     * @param isScriptCode
+     */
+    public void setAsScriptCode(String isScriptCode) {
+        if ("yes".equals(isScriptCode) || "true".equals(isScriptCode)) {
+            getCustom().setScriptCode("yes");
+        } else {
+            getCustom().setScriptCode("no");
+        }
+    }
+
+    /**
+     * add script code to custom-code action...
+     * NOTE: code will written inside a static method.
+     *
+     * @param code
+     */
+    public void addScriptCode(String code) {
+        getCustom().setCode(code);
+    }
+
+    public void commitCustomAction() {
+        getActiveUnit().getActions().add(custom);
+    }
+
 }

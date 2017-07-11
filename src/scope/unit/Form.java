@@ -6,6 +6,7 @@ import framework.Reporter;
 
 import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * @author AbuKhleif
@@ -97,5 +98,10 @@ public class Form extends Unit {
             actions = new ArrayList<Action>();
         }
         return actions;
+    }
+
+    @Override
+    public String toString() {
+        return "Name: " + getName() + ", url: " + getUrl() + ", isUrlRelative: " + getRelative() + "\nActions:\n" + Arrays.asList(getActions());
     }
 }

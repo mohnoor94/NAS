@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<site name="Google" url="https://www.google.jo/">
+    <scenario name="Custom Code Injection! - Test  #2 - Contains Invalid Variable Type!">
+        <form name="Search Page" url="">
+            <text value="الأردن"/>
+            <custom title="SecondModularCustomCode">
+                <var type="integer" name="x" value="5"/>
+                <method name="printer">
+                    <code>System.out.println(x);</code>
+                </method>
+            </custom>
+        </form>
+    </scenario>
+</site>

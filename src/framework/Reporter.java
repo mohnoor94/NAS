@@ -175,16 +175,16 @@ public class Reporter {
                     writer.println("<tr><td>" + Integer.toString(i++) + "</td>" + "<td class=\"submit\" colspan=\"2\">Submit Form " + result.getDescription() + "</td></tr>");
                     break;
                 case "site_end":
-                    writer.println("<tr><td>" + Integer.toString(i++) + "</td>" + "<td class=\"end\" colspan=\"2\">Leave Site: " + result.getDescription() + "</td></tr>");
+                    writer.println("<tr><td>" + Integer.toString(i++) + "</td>" + "<td class=\"site_end\" colspan=\"2\">Leave Site: " + result.getDescription() + "</td></tr>");
                     break;
                 case "scenario_end":
-                    writer.println("<tr><td>" + Integer.toString(i++) + "</td>" + "<td class=\"end\" colspan=\"2\">End Scenario: " + result.getDescription() + "</td></tr>");
+                    writer.println("<tr><td>" + Integer.toString(i++) + "</td>" + "<td class=\"scenario_end\" colspan=\"2\">End Scenario: " + result.getDescription() + "</td></tr>");
                     break;
                 case "page_end":
-                    writer.println("<tr><td>" + Integer.toString(i++) + "</td>" + "<td class=\"end\" colspan=\"2\">Leave Page: " + result.getDescription() + "</td></tr>");
+                    writer.println("<tr><td>" + Integer.toString(i++) + "</td>" + "<td class=\"page_end\" colspan=\"2\">Leave Page: " + result.getDescription() + "</td></tr>");
                     break;
                 case "form_end":
-                    writer.println("<tr><td>" + Integer.toString(i++) + "</td>" + "<td class=\"end\" colspan=\"2\">Leave Form: " + result.getDescription() + "</td></tr>");
+                    writer.println("<tr><td>" + Integer.toString(i++) + "</td>" + "<td class=\"form_end\" colspan=\"2\">Leave Form: " + result.getDescription() + "</td></tr>");
                     break;
                 case "custom_end":
                     writer.println("<tr><td>" + Integer.toString(i++) + "</td>" + "<td class=\"custom_end\" colspan=\"2\">" + result.getDescription() + "</td></tr>");
@@ -192,8 +192,11 @@ public class Reporter {
                 case "error":
                     writer.println("<tr><td class=\"error\" colspan=\"3\">ERROR: " + result.getDescription() + "</td></tr>");
                     break;
+                case "note":
+                    writer.println("<tr><td class=\"note\" colspan=\"3\">User Note: " + result.getDescription() + "</td></tr>");
+                    break;
                 default:
-                    writer.println("<tr><td>" + Integer.toString(i++) + "</td><td>" + result.getResult() + "</td><td>" + result.getDescription() + "</td></tr>");
+                    writer.println("<tr><td>" + Integer.toString(i++) + "</td>" + "<td colspan=\"2\">" + result.getDescription() + "</td></tr>");
             }
         } catch (IOException e) {
             System.out.println("Error writing report!!! --> " + e);

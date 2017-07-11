@@ -32,6 +32,9 @@ folder.
 section (above) at the moment.
 
 ## Change Log:
+#### V N3.1 beta:
+* added features will be added later....
+
 #### V N3.0.1:
 * Code Cleanup.
 

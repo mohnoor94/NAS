@@ -4,6 +4,7 @@ import java.security.SecureRandom;
 
 /**
  * @author AbuKhleif
+ * This class cntains a simple method used in guru99 website tests..
  */
 public class Guru99Helper {
     private static final String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
