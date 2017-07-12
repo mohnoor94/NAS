@@ -2,7 +2,6 @@ package midtier;
 
 import action.Action;
 import action.custom.*;
-import action.custom.Package;
 import scope.Scenario;
 import scope.Site;
 import scope.unit.Form;
@@ -89,11 +88,11 @@ public class Writer {
         return form;
     }
 
-    public Unit getActiveUnit() {
+    private Unit getActiveUnit() {
         return activeUnit;
     }
 
-    public void setActiveUnit(Unit activeUnit) {
+    private void setActiveUnit(Unit activeUnit) {
         this.activeUnit = activeUnit;
     }
 
@@ -137,9 +136,9 @@ public class Writer {
     }
 
     public Custom getCustom() {
-        if (custom == null) {
-            custom = new Custom();
-        }
+//        if (custom == null) {
+//            custom = new Custom();
+//        }
         return custom;
     }
 
@@ -147,47 +146,13 @@ public class Writer {
         this.custom = custom;
     }
 
-    /**
-     * add a method to custom-code action...
-     *
-     * @param method
-     */
-    public void addMethod(Method method) {
-        getCustom().addMethod(method);
-    }
-
-    /**
-     * add a method to custom-code action...
-     *
-     * @param name
-     * @param code
-     */
-    public void addMethod(String name, String code) {
-        getCustom().addMethod(new Method(name, code));
-    }
-
-    /**
-     * add a class variable to custom-code action...
-     *
-     * @param variable
-     */
-    public void addVariable(Variable variable) {
-        getCustom().addVariable(variable);
-    }
-
-    /**
-     * add a class variable to custom-code action...
-     *
-     * @param type
-     * @param name
-     * @param value
-     */
-    public void addVariable(String type, String name, String value) {
-        getCustom().addVariable(new Variable(type, name, value));
+    public void setCustom(String title) {
+        getCustom().setTitle(title);
     }
 
     /**
      * add import statement to the custom code...
+     *
      * @param anImport
      */
     public void addImport(Import anImport) {
@@ -196,55 +161,10 @@ public class Writer {
 
     /**
      * add import statement to the custom code...
+     *
      * @param library
      */
     public void addImport(String library) {
         getCustom().addImport(new Import(library));
     }
-
-    /**
-     * set the custom code package...
-     * @param anPackage
-     */
-    public void setPackage(action.custom.Package anPackage) {
-        getCustom().setPackage(anPackage);
-    }
-
-    /**
-     * set the custom code package...
-     * @param anPackage
-     */
-    public void setPackage(String anPackage) {
-        getCustom().setPackage(new Package(anPackage));
-    }
-
-    /**
-     * set the custom script to accept script code only,
-     * NOTE: any methods or class variables added to this
-     * custom code will be neglected
-     *
-     * @param isScriptCode
-     */
-    public void setAsScriptCode(String isScriptCode) {
-        if ("yes".equals(isScriptCode) || "true".equals(isScriptCode)) {
-            getCustom().setScriptCode("yes");
-        } else {
-            getCustom().setScriptCode("no");
-        }
-    }
-
-    /**
-     * add script code to custom-code action...
-     * NOTE: code will written inside a static method.
-     *
-     * @param code
-     */
-    public void addScriptCode(String code) {
-        getCustom().setCode(code);
-    }
-
-    public void commitCustomAction() {
-        getActiveUnit().getActions().add(custom);
-    }
-
 }

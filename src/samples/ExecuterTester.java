@@ -1,4 +1,4 @@
-package test;
+package samples;
 
 import framework.Base;
 import framework.Driver;
@@ -9,7 +9,7 @@ import java.io.FileNotFoundException;
 
 /**
  * Test Executer Class
- * Using this class you can convert any Java-written test case to its equivalent XML test file.
+ * Using this class you can convert any Java-written samples case to its equivalent XML samples file.
  *
  * @author AbuKhleif
  */
@@ -26,10 +26,7 @@ public class ExecuterTester extends Base {
 //        executer = new Executer("guru99_errors", Driver.CHROME);
 //        executer = new Executer("custom_script", Driver.CHROME);
 //        executer = new Executer("custom_script2", Driver.CHROME);
-//        executer = new Executer("custom_modules", Driver.CHROME);
-//        executer = new Executer("custom_modules2", Driver.CHROME);
-//        executer = new Executer("custom_modules3", Driver.CHROME);
-        executer = new Executer("custom_modules4", Driver.CHROME);
+        executer = new Executer("custom_script3", Driver.CHROME);
 //        executer = new Executer("report_notes", Driver.CHROME);
         executer.execute();
 //        executer.printData();

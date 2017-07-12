@@ -14,7 +14,7 @@ import java.util.Map;
  * Utility class for compiling classes whose source code is given as
  * strings, in-memory, at runtime, using the JavaCompiler tools.
  *
- * source: https://stackoverflow.com/questions/21544446/how-do-you-dynamically-compile-and-load-external-java-classes
+ * source: https://stackoverflow.com/questions/935175/convert-string-to-code
  * @author AbuKhleif
  */
 public class RuntimeCompiler {

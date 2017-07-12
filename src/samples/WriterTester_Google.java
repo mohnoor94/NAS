@@ -1,4 +1,4 @@
-package test;
+package samples;
 
 import action.FillElement;
 import action.Submit;

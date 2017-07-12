@@ -1,4 +1,4 @@
-package test;
+package samples;
 
 import action.VerifyText;
 import action.custom.Custom;
@@ -7,7 +7,6 @@ import midtier.Writer;
 import scope.Scenario;
 import scope.Site;
 import scope.unit.Form;
-import scope.unit.Page;
 
 import javax.xml.bind.JAXBException;
 
@@ -25,13 +24,13 @@ public class WriterTester_Custom2 extends Base {
         writer.addForm(new Form("Search Page", ""));
         writer.addAction(new VerifyText("الأردن"));
         StringBuilder sb = new StringBuilder();
-        sb.append("String directSearch = \"https://www.google.jo/search?q=abukhleif\";");
-        sb.append("navigate(directSearch);");
-        sb.append("navigate(\"Abu Khleif | Programimng and Coding C++, Java and Android\");");
+        sb.append("String directSearch = \"https://www.google.jo/search?q=abukhleif\";\n");
+        sb.append("navigate(directSearch);\n");
+        sb.append("navigate(\"Abu Khleif | Programimng and Coding C++, Java and Android\");\n");
         sb.append("verify(\"Latest stories\",true);\n");
         sb.append("verify(\"Page not found\",false);\n");
         // no need to commit Custom Action if it does not contains members (methods, imports, or variables)...
-        writer.addAction(new Custom("Navigation1","yes", sb.toString()));
+        writer.addAction(new Custom("Navigation1", sb.toString()));
         writer.write("custom_script2");
     }
 }

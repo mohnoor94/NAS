@@ -5,7 +5,7 @@
             <text value="Latest stories"/>
         </page>
         <form name="Login Page" url="wp-login.php">
-            <store-manual key="username" value="test"/>
+            <store-manual key="username" value="samples"/>
             <store-manual key="password" value="thisIsATest"/>
             <text value="Username or Email Address"/>
             <text value="Password"/>

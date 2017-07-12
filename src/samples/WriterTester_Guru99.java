@@ -1,4 +1,4 @@
-package test;
+package samples;
 
 import action.*;
 import midtier.Writer;

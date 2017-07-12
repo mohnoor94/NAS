@@ -6,7 +6,8 @@ import java.lang.reflect.Modifier;
 
 /**
  * Utility methods not directly related to the RuntimeCompiler
- * source: https://stackoverflow.com/questions/21544446/how-do-you-dynamically-compile-and-load-external-java-classes
+ * source: https://stackoverflow.com/questions/935175/convert-string-to-code
+ *
  * @author AbuKhleif
  */
 public class MethodInvocationUtils {

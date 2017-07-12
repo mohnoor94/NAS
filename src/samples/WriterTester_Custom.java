@@ -1,4 +1,4 @@
-package test;
+package samples;
 
 import action.custom.Custom;
 import framework.Base;
@@ -24,7 +24,7 @@ public class WriterTester_Custom extends Base {
         StringBuilder sb = new StringBuilder();
         sb.append("verify(\"Enter your email address to get\",true);\n");
         sb.append("verify(\"access details to demo site\",true);\n");
-        writer.addAction(new Custom("Navigation1","yes", sb.toString()));
+        writer.addAction(new Custom("Navigation1", sb.toString()));
         writer.write("custom_script");
     }
 }

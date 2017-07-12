@@ -69,8 +69,8 @@ public class Base {
     }
 
     /**
-     * If (find) test if the page contains a certain sentence,
-     * otherwise test if it's not contain it
+     * If (find) samples if the page contains a certain sentence,
+     * otherwise samples if it's not contain it
      *
      * @param message
      * @param find
@@ -80,8 +80,8 @@ public class Base {
     }
 
     /**
-     * If (find) test equality of two sentences,
-     * otherwise test if they are not equal
+     * If (find) samples equality of two sentences,
+     * otherwise samples if they are not equal
      *
      * @param message1
      * @param message2

@@ -1,4 +1,4 @@
-package test;
+package samples;
 
 import java.security.SecureRandom;
 
