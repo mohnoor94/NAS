@@ -26,20 +26,28 @@ public class Form extends Unit {
     public void parse() {
         Reporter reporter = Reporter.getInstance();
         reporter.addHeader("Form", getName() + " (" + getUrl() + ")");
-        Data.getData().put("form", getName());
+        try {
+            Data.getData().put("form", getName());
 
-        // navigate to form
-        if (getRelative().equals("no") && getUrl().equals("")) {
-            // do nothing...
-        } else if (getRelative().equals("no")) {
-            navigate(getUrl());
-        } else {
-            navigate(Data.getData().get("url") + "/" + getUrl());
-        }
+            // navigate to form
+            if (getRelative().equals("no") && getUrl().equals("")) {
+                // do nothing...
+            } else if (getRelative().equals("no")) {
+                navigate(getUrl());
+            } else {
+                navigate(Data.getData().get("url") + "/" + getUrl());
+            }
 
-        // do actions
-        for (Action action : actions) {
-            action.doAction();
+            // do actions
+            for (Action action : actions) {
+                action.doAction();
+
+            }
+        } catch (Exception e) {
+            reporter.addHeader("ERROR", "While Executing Form '" +
+                    getName() + " (" + getUrl() +
+                    ")', All Remaining Tests at this form have been Skipped!\n" +
+                    "Error Message from Executer: " + e.getMessage());
         }
 
         reporter.addFooter("Form", getName() + " (" + getUrl() + " )");

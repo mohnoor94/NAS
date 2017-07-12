@@ -16,7 +16,7 @@ import java.io.FileNotFoundException;
 public class ExecuterTester extends Base {
     public static void main(String[] args) throws JAXBException, FileNotFoundException {
         Executer executer;
-//        executer = new Executer("guru99", Driver.CHROME);
+        executer = new Executer("guru99", Driver.CHROME);
 //        executer = new Executer("abukhleif", Driver.CHROME);
 //        executer = new Executer("google", Driver.CHROME);
 //        executer = new Executer("multiple_sites", Driver.CHROME);
@@ -28,7 +28,7 @@ public class ExecuterTester extends Base {
 //        executer = new Executer("custom_script2", Driver.CHROME);
 //        executer = new Executer("custom_script3", Driver.CHROME);
 //        executer = new Executer("custom_script4", Driver.CHROME);
-        executer = new Executer("custom_script5", Driver.CHROME);
+//        executer = new Executer("custom_script5", Driver.CHROME);
 //        executer = new Executer("report_notes", Driver.CHROME);
         executer.execute();
 //        executer.printData();

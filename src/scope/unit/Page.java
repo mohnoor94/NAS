@@ -25,19 +25,25 @@ public class Page extends Unit {
     public void parse() {
         Reporter reporter = Reporter.getInstance();
         reporter.addHeader("Page", getName() + " (" + getUrl() + ")");
+        try {
+            // navigate to page
+            if (getRelative().equals("no") && getUrl().equals("")) {
+                // do nothing...
+            } else if ("no".equals(getRelative())) {
+                navigate(getUrl());
+            } else {
+                navigate(Data.getData().get("url") + "/" + getUrl());
+            }
 
-        // navigate to page
-        if (getRelative().equals("no") && getUrl().equals("")) {
-            // do nothing...
-        } else if ("no".equals(getRelative())) {
-            navigate(getUrl());
-        } else {
-            navigate(Data.getData().get("url") + "/" + getUrl());
-        }
-
-        // do actions
-        for (Action action : actions) {
-            action.doAction();
+            // do actions
+            for (Action action : actions) {
+                action.doAction();
+            }
+        } catch (Exception e) {
+            reporter.addHeader("ERROR", "While Executing Page '"+
+                            getName() + " (" + getUrl() +
+                    ")', All Remaining Tests at this page have been Skipped!\n" +
+                    "Error Message from Executer: " + e.getMessage());
         }
 
         reporter.addFooter("Page", getName() + " (" + getUrl() + " )");
