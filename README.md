@@ -21,12 +21,12 @@ executed, you can create your own class or just use it as is.
 the results.
 
 ### Samples:
-* Test Files (XML) samples can be found inside the project under xml folder.
-* Java Classes which used to generate XML files can be found under (src/samples)
+* Test Files (XML) samples can be found inside the project under (/xml) folder.
+* Java Classes which used to generate XML files can be found under (/src/samples)
 folder.
-* Java Class 'ExecuterTester' under (src/samples folder) which used to execute the tests can be found under (src/samples)
+* Java Class 'ExecuterTester' under (/src/samples) folder which used to execute the tests can be found under (src/samples)
 folder.
-* Report Samples can be found under (reports) folder.
+* Report Samples can be found under (/reports) folder.
 
 ## Change Log:
 #### V N3.1 - N3.1.2:
