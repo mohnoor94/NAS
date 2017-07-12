@@ -32,8 +32,10 @@ folder.
 section (above) at the moment.
 
 ## Change Log:
-#### V N3.1 beta:
-* added features will be added later....
+#### V N3.1:
+* User can add custom notes to the report.
+* Custom Code Action updated, new features comming in the next version.
+* Other minor changes.
 
 #### V N3.0.1:
 * Code Cleanup.
@@ -46,7 +48,7 @@ inject a java code and execute it directly in case of he/she did not find the
 * Improve Reporter and Base framework.
 * Add Samples for the new feature (Custom Code injection) under Java Writer
 and Executer classes, in addition to the generated xml file!
-* Other minor changes and bugs fixing.
+* Other minor changes.
 
 #### V N2.10:
 * **Step-By-Step Report Generation**, which guarantee writing the result in case of
@@ -72,7 +74,7 @@ to the date and time of the execution.
 (no values) resulting in staying at the same page or form and use all actions
 of the unit (page or form). This can help in execute the scenarios in more
 logical (natural) way, and generates more readable and natural reports.
-* Other minor changes and bugs fixing.
+* Other minor changes.
 
 #### V 2.0, V1.9.2, V1.9.1:
 * Minor changes and bugs fixing.
