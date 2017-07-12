@@ -8,58 +8,13 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class DriverUtils {
+/**
+ * This class is copied (with minor changes) from Atypon automation framework.
+ */
+class DriverUtils {
     private static final boolean TRACE = false;
 
-    public static WebElement getInput(WebDriver driver, String idOrNameOrClass) {
-        return getBy(driver, "input", idOrNameOrClass);
-    }
-
-    public static WebElement getBy(WebDriver driver, String tagName, String idOrNameOrClass) {
-        if (TRACE)
-            System.out.println("getBy.1: " + idOrNameOrClass);
-        WebElement elem = getBy(driver, By.id(idOrNameOrClass));
-        if (elem == null) {
-            if (TRACE)
-                System.out.println("getBy.2: " + idOrNameOrClass);
-            elem = getBy(driver, By.name(idOrNameOrClass));
-        }
-        if (elem == null) {
-            if (TRACE)
-                System.out.println("getBy.3: " + idOrNameOrClass);
-            elem = getBy(driver, By.className(idOrNameOrClass));
-        }
-        if (elem != null) {
-            if (TRACE)
-                System.out.println("getBy.4: " + idOrNameOrClass);
-            if (!elem.getTagName().equalsIgnoreCase(tagName)) {
-                if (TRACE)
-                    System.out.println("getBy.5: " + idOrNameOrClass);
-                elem = null;
-            }
-        }
-        if (TRACE)
-            System.out.println("getBy.6: " + idOrNameOrClass);
-        return elem;
-    }
-
-    public static WebElement getFormByName(WebDriver driver, String name) {
-        WebElement elem = getBy(driver, By.id(name));
-        if (elem != null) {
-            if (!"form".equalsIgnoreCase(elem.getTagName())) {
-                elem = null;
-            }
-        }
-        elem = getBy(driver, By.name(name));
-        if (elem != null) {
-            if (!"form".equalsIgnoreCase(elem.getTagName())) {
-                elem = null;
-            }
-        }
-        return elem;
-    }
-
-    public static WebElement getBy(WebDriver driver, By by) {
+    private static WebElement getBy(WebDriver driver, By by) {
 
         try {
             WebElement elem = driver.findElement(by);
@@ -72,7 +27,7 @@ public class DriverUtils {
 
     }
 
-    public static WebElement findElement(WebDriver driver, String identifier) {
+    static WebElement findElement(WebDriver driver, String identifier) {
 
         WebElement element = findElementByAll(driver, identifier);
         if (element == null) {
@@ -89,7 +44,6 @@ public class DriverUtils {
      *
      * @param driver
      * @param identifier
-     * @return
      */
     private static WebElement findElementByAll(WebDriver driver, String identifier) {
         WebElement element = getBy(driver, By.id(identifier));
@@ -193,7 +147,6 @@ public class DriverUtils {
      * @param driver
      * @param findBy
      * @param identifier
-     * @return
      */
     private static WebElement findElementInsideFrames(WebDriver driver, By findBy, String identifier) {
 
@@ -235,5 +188,4 @@ public class DriverUtils {
         }
         return element;
     }
-
 }
