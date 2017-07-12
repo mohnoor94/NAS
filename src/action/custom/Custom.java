@@ -14,8 +14,8 @@ import java.util.ArrayList;
 
 @XmlRootElement(name = "custom")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(propOrder = {"title", "imports", "code"})
-@XmlSeeAlso({Import.class})
+@XmlType(propOrder = {"title", "imports", "superClass", "interfaces", "code"})
+@XmlSeeAlso({Import.class, Extend.class, Implement.class})
 public class Custom extends Action {
     @XmlAttribute
     private String title;
@@ -23,6 +23,10 @@ public class Custom extends Action {
     private String code;
     @XmlElementRef
     private ArrayList<Import> imports;
+    @XmlElementRef
+    private Extend superClass;
+    @XmlElementRef
+    private ArrayList<Implement> interfaces;
     @XmlTransient
     private RuntimeCompiler compiler = new RuntimeCompiler();
 
@@ -30,7 +34,6 @@ public class Custom extends Action {
         Reporter reporter = Reporter.getInstance();
         reporter.addHeader("Custom", "Start Executing Custom Code (" + getTitle() + ")");
         try {
-            System.out.println(buildClass());
             compiler.addClass(getTitle(), buildClass());
             compiler.compile();
             invokeDefaultMethod();
@@ -45,14 +48,19 @@ public class Custom extends Action {
     public Custom() {
     }
 
-    // script only code...
+    public Custom(String title) {
+        this.title = title;
+    }
+
     public Custom(String title, String code) {
         this.title = title;
         this.code = code;
     }
 
-    public Custom(String title) {
+    public Custom(String title, String code, Extend superClass) {
         this.title = title;
+        this.code = code;
+        this.superClass = superClass;
     }
 
     public String getTitle() {
@@ -64,6 +72,21 @@ public class Custom extends Action {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public Extend getSuperClass() {
+        return superClass;
+    }
+
+    public void setSuperClass(Extend superClass) {
+        this.superClass = superClass;
+    }
+
+    public ArrayList<Implement> getInterfaces() {
+        if (interfaces == null){
+            interfaces = new ArrayList<>();
+        }
+        return interfaces;
     }
 
     private ArrayList<Import> getImports() {
@@ -88,9 +111,36 @@ public class Custom extends Action {
         getImports().add(anImport);
     }
 
+    public void addInterface(Implement theInterface){
+        getInterfaces().add(theInterface);
+    }
+
+    private String getSuperClassAsString() {
+        if (superClass == null) {
+            return " extends Base ";
+        }
+        return superClass.toString();
+    }
+
+    private String getInterfacesAsString(){
+        if (getInterfaces().isEmpty()){
+            return "";
+        } else if (getInterfaces().size()==1){
+            return "implements " +getInterfaces().get(0).getInterface();
+        } else {
+            StringBuilder sb = new StringBuilder("implements ");
+            for (Implement implement : getInterfaces()){
+                sb.append(implement.getInterface());
+                sb.append(", ");
+            }
+            sb.deleteCharAt(sb.lastIndexOf(", "));
+            return sb.toString();
+        }
+    }
+
     private String getImportsAsString() {
         if (getImports().isEmpty()) {
-            return "\n";
+            return "import framework.Base;\n";
         }
         StringBuilder sb = new StringBuilder();
         for (Import im : getImports()) {
@@ -106,7 +156,9 @@ public class Custom extends Action {
         return getImportsAsString() +
                 "public class " +
                 getTitle() +
-                " extends Base {\n\tpublic static void myMethod(){\n" +
+                getSuperClassAsString() +
+                getInterfacesAsString() +
+                " {\n\tpublic static void myMethod(){\n" +
                 getCode() +
                 "\n\t}\n}";
     }

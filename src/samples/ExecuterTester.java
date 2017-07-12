@@ -26,7 +26,9 @@ public class ExecuterTester extends Base {
 //        executer = new Executer("guru99_errors", Driver.CHROME);
 //        executer = new Executer("custom_script", Driver.CHROME);
 //        executer = new Executer("custom_script2", Driver.CHROME);
-        executer = new Executer("custom_script3", Driver.CHROME);
+//        executer = new Executer("custom_script3", Driver.CHROME);
+//        executer = new Executer("custom_script4", Driver.CHROME);
+        executer = new Executer("custom_script5", Driver.CHROME);
 //        executer = new Executer("report_notes", Driver.CHROME);
         executer.execute();
 //        executer.printData();

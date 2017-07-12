@@ -29,6 +29,19 @@ folder.
 * Report Samples can be found under (/reports) folder.
 
 ## Change Log:
+#### V N3.2:
+* Add **Extend** statement to the **custom code** action, using this action
+the user could extend any Java class.
+    * By default: Base framework class is inherited.
+* Add **Implement** statement to the **custom code** action, using this action
+the user could implement any Java interface.
+    * The user could add as much as he wants implement actions.
+    * The user 'at least currently' can not override interfaces' methods.
+    * By default: No interfaces inherited.
+* Other minor changes:
+        * Redesign custom notes (in reports)
+        * New samples added to (java samples/ reports/ xml files).
+
 #### V N3.1 - N3.1.2:
 * User can add **custom notes** to the report.
 * Add **Import** statements to the **custom code** action.

@@ -21,9 +21,9 @@ public class WriterTester_Custom3_Imports extends Base {
         writer = new Writer(new Site("CodeForces", "http://codeforces.com/"));
         writer.addScenario(new Scenario("Custom Code Injection! - Test  #3 with Import Statement"));
         writer.addForm(new Form("F. Dirty Arkady's Kitchen", "problemset/problem/827/F"));
-        // You HAVE TO add import statements before add the custom actions..
-        writer.addImport("java.util.ArrayList");
-        writer.addAction(new Custom("SharedWordsVerifying", "ArrayList<String> texts = new ArrayList<>();\n" +
+        // You HAVE TO 'setCustom(...)' Acton, add members (imports, extend, implements),
+        // then commit your action with 'commitCustomAction()'
+        writer.setCustom(new Custom("SharedWordsVerifying", "ArrayList<String> texts = new ArrayList<>();\n" +
                 "        texts.add(\"Input\");\n" +
                 "        texts.add(\"Output\");\n" +
                 "        texts.add(\"Examples\");\n" +
@@ -34,6 +34,8 @@ public class WriterTester_Custom3_Imports extends Base {
                 "        for (String text : texts){\n" +
                 "            verify(text, true);\n" +
                 "        }"));
+        writer.addImport("java.util.ArrayList");
+        writer.commitCustomAction();
         writer.write("custom_script3");
     }
 }

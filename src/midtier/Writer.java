@@ -136,9 +136,9 @@ public class Writer {
     }
 
     public Custom getCustom() {
-//        if (custom == null) {
-//            custom = new Custom();
-//        }
+        if (custom == null) {
+            custom = new Custom();
+        }
         return custom;
     }
 
@@ -166,5 +166,26 @@ public class Writer {
      */
     public void addImport(String library) {
         getCustom().addImport(new Import(library));
+    }
+
+    /**
+     * Set a custom super class for your script
+     * NOTE: you will loss your access to Base framework...
+     * @param superClass
+     */
+    public void extend (String superClass){
+        getCustom().setSuperClass(new Extend(superClass));
+    }
+
+    /**
+     * Implement an interface...
+     * @param theInterface
+     */
+    public void implement (String theInterface){
+        getCustom().addInterface(new Implement(theInterface));
+    }
+
+    public void commitCustomAction() {
+        getActiveUnit().getActions().add(custom);
     }
 }
