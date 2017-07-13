@@ -5,11 +5,11 @@
             <text value="الأردن"/>
             <custom title="Navigation1">
                 <code>String directSearch = "https://www.google.jo/search?q=abukhleif";
-navigate(directSearch);
-navigate("Abu Khleif | Programimng and Coding C++, Java and Android");
-verify("Latest stories",true);
-verify("Page not found",false);
-</code>
+                    navigate(directSearch);
+                    navigate("Abu Khleif | Programimng and Coding C++, Java and Android");
+                    verify("Latest stories",true);
+                    verify("Page not found",false);
+                </code>
             </custom>
         </form>
     </scenario>

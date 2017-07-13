@@ -49,6 +49,8 @@ public class Executer extends Base {
         System.out.println(Collections.singletonList(Data.getData()));
         System.out.println("\nUser Data:");
         System.out.println(Collections.singletonList(Data.getUserData()));
+        System.out.println("\nScenarios Status:");
+        System.out.println(Collections.singletonList(Data.getScenariosStatus()));
     }
 
 

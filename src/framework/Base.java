@@ -24,7 +24,7 @@ public class Base {
     private static Reporter reporter = Reporter.getInstance();
 
     /**
-     * Before all tests
+     * Before all tests... setup the driver!
      *
      */
     protected static void setUp(Driver driver) {
@@ -56,7 +56,7 @@ public class Base {
 
 
     /**
-     * After all tests
+     * After all tests, finish the report and quit the browser.
      *
      * @throws Exception
      */
@@ -92,7 +92,7 @@ public class Base {
     }
 
     /**
-     * Find action by id, name, or xpath
+     * Find action by id, name, xpath, etc...
      *
      * @param key
      * @return WebElement
@@ -148,7 +148,7 @@ public class Base {
      * navigate checkbox by index
      * Currently support find webElements just by name
      *
-     * @param webElementKey id, name, or xpath of webElement
+     * @param webElementKey id, name, xpath, etc... of webElement
      * @param index         of action to select
      */
     protected void clickCheckbox(String webElementKey, int index) {

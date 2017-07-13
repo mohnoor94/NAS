@@ -1,5 +1,5 @@
 # AKAS-N (Abukhleif Automation System - Native)
-## V N3+ released, with custom code injection ability!
+## V N3.4 released with New Features!
 * Check out the change log (below) for more details.
 
 ## Native Version of the System:
@@ -24,11 +24,17 @@ the results.
 * Test Files (XML) samples can be found inside the project under (/xml) folder.
 * Java Classes which used to generate XML files can be found under (/src/samples)
 folder.
-* Java Class 'ExecuterTester' under (/src/samples) folder which used to execute the tests can be found under (src/samples)
+* Java Class 'ExecuterTester' which used to execute the tests can be found under (src/samples)
 folder.
 * Report Samples can be found under (/reports) folder.
 
 ## Change Log:
+#### V N3.4:
+* Add **Scenario Dependencies** Feature: The user could add dependencies between scenarios,
+so that the scenario which depend on another won't be executed unless the other one has been
+succesfully executed without any failed steps.
+* Other minor changes.
+
 #### V N3.3:
 * Errors catching and reporting at unit (page and form) level.
     * Errors catching at test file level still available and work.

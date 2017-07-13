@@ -15,6 +15,7 @@ public class Reporter {
     private static DateFormat df = new SimpleDateFormat("dd_MM_yyyy-HH_mm_ss");
     private static String requiredDate = df.format(new Date());
     private static String reportPath;
+    private static int failCounter;
 
     static {
         reporter = new Reporter();
@@ -39,10 +40,13 @@ public class Reporter {
                 writeResult(new TestResult("Passed", "Value Founded: '" + value + "'"));
             } else {
                 writeResult(new TestResult("Failed", "Value cannot be founded: '" + value + "'"));
+                ++failCounter;
             }
         } else {
             if (result) {
                 writeResult(new TestResult("Failed", "Value Founded: '" + value + "' but it should not!"));
+                ++failCounter;
+
             } else {
                 writeResult(new TestResult("Passed", "Value '" + value + "' cannot be founded, as it should!"));
             }
@@ -62,10 +66,12 @@ public class Reporter {
                 writeResult(new TestResult("Passed", "Actual value '" + actualValue + "' matches expected value"));
             } else {
                 writeResult(new TestResult("Failed", "Actual value '" + actualValue + "' does not match expected value '" + expectedValue + "'"));
+                ++failCounter;
             }
         } else {
             if (result) {
                 writeResult(new TestResult("Failed", "Value '" + actualValue + "' founded, but it should not!"));
+                ++failCounter;
             } else {
                 writeResult(new TestResult("Passed", "Value '" + actualValue + "' can not be founded, as it should!"));
             }
@@ -195,11 +201,33 @@ public class Reporter {
                 case "note":
                     writer.println("<tr><td class=\"note\" colspan=\"3\">User Note: " + result.getDescription() + "</td></tr>");
                     break;
+                case "dependency":
+                    writer.println("<tr><td>" + Integer.toString(i++) + "</td>" + "<td class=\"dependency\" colspan=\"2\">" + result.getDescription() + "</td></tr>");
+                    break;
                 default:
                     writer.println("<tr><td>" + Integer.toString(i++) + "</td>" + "<td colspan=\"2\">" + result.getDescription() + "</td></tr>");
             }
         } catch (IOException e) {
             System.out.println("Error writing report!!! --> " + e);
         }
+    }
+
+    /**
+     * get the current value of the failed tests counter.
+     * @return
+     */
+    public static int getFailCounter() {
+        return failCounter;
+    }
+
+    /**
+     * Reset the value of the failed tests counter.
+     */
+    public static void resetFailCounter() {
+        failCounter = 0;
+    }
+
+    public static void reportError(){
+        ++failCounter;
     }
 }

@@ -14,6 +14,7 @@
         </form>
     </scenario>
     <scenario name="Login">
+        <dependency scenario="Register"/>
         <form name="Login Form" url="/V4/index.php">
             <text value="Steps To Generate Access"/>
             <fill id="uid" value="username" stored="yes"/>
@@ -23,6 +24,7 @@
         </form>
     </scenario>
     <scenario name="Create New Customer">
+        <dependency scenario="Login"/>
         <form name="Create Customer Form" url="/html/body/div[2]/div/ul/li[2]/a" relative="no">
             <text value="Add New Customer"/>
             <fill id="name" value="Mohammad Noor"/>
@@ -33,7 +35,7 @@
             <fill id="state" value="Unknown"/>
             <fill id="pinno" value="123456"/>
             <fill id="telephoneno" value="0786201850"/>
-            <fill id="emailid" value="g20hiEzvv0y@example.com"/>
+            <fill id="emailid" value="MiSwjjrRN32@example.com"/>
             <fill id="password" value="password" stored="yes"/>
             <submit element="sub" type="button"/>
             <text value="Customer Registered Successfully!!!"/>
@@ -41,6 +43,7 @@
         </form>
     </scenario>
     <scenario name="Create New Account">
+        <dependency scenario="Create New Customer"/>
         <form name="Create Account Form" url="/html/body/div[2]/div/ul/li[5]/a" relative="no">
             <text value="Add new account form"/>
             <fill id="cusid" value="id" stored="yes"/>
@@ -51,6 +54,7 @@
         </form>
     </scenario>
     <scenario name="Logout">
+        <dependency scenario="Create New Account"/>
         <form name="Logout Form" url="/html/body/div[2]/div/ul/li[15]/a" relative="no">
             <verify-alert expected="You Have Succesfully Logged Out!!"/>
             <response-alert response="true"/>

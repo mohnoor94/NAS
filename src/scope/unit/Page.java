@@ -44,6 +44,7 @@ public class Page extends Unit {
                             getName() + " (" + getUrl() +
                     ")', All Remaining Tests at this page have been Skipped!\n" +
                     "Error Message from Executer: " + e.getMessage());
+            Reporter.reportError();
         }
 
         reporter.addFooter("Page", getName() + " (" + getUrl() + " )");

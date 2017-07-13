@@ -83,7 +83,7 @@ public class Custom extends Action {
     }
 
     public ArrayList<Implement> getInterfaces() {
-        if (interfaces == null){
+        if (interfaces == null) {
             interfaces = new ArrayList<>();
         }
         return interfaces;
@@ -111,7 +111,7 @@ public class Custom extends Action {
         getImports().add(anImport);
     }
 
-    public void addInterface(Implement theInterface){
+    public void addInterface(Implement theInterface) {
         getInterfaces().add(theInterface);
     }
 
@@ -122,14 +122,14 @@ public class Custom extends Action {
         return superClass.toString();
     }
 
-    private String getInterfacesAsString(){
-        if (getInterfaces().isEmpty()){
+    private String getInterfacesAsString() {
+        if (getInterfaces().isEmpty()) {
             return "";
-        } else if (getInterfaces().size()==1){
-            return "implements " +getInterfaces().get(0).getInterface();
+        } else if (getInterfaces().size() == 1) {
+            return "implements " + getInterfaces().get(0).getInterface();
         } else {
             StringBuilder sb = new StringBuilder("implements ");
-            for (Implement implement : getInterfaces()){
+            for (Implement implement : getInterfaces()) {
                 sb.append(implement.getInterface());
                 sb.append(", ");
             }

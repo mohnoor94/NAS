@@ -48,6 +48,7 @@ public class Form extends Unit {
                     getName() + " (" + getUrl() +
                     ")', All Remaining Tests at this form have been Skipped!\n" +
                     "Error Message from Executer: " + e.getMessage());
+            Reporter.reportError();
         }
 
         reporter.addFooter("Form", getName() + " (" + getUrl() + " )");

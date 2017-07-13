@@ -4,6 +4,7 @@ import action.Action;
 import action.custom.*;
 import scope.Scenario;
 import scope.Site;
+import scope.dependency.Dependency;
 import scope.unit.Form;
 import scope.unit.Page;
 import scope.unit.Unit;
@@ -53,6 +54,9 @@ public class Writer {
     }
 
     public Scenario getScenario() {
+        if (scenario == null) {
+            scenario = new Scenario();
+        }
         return scenario;
     }
 
@@ -78,6 +82,14 @@ public class Writer {
     public void addScenario(String scenarioName) {
         Scenario scenario = new Scenario(scenarioName);
         addScenario(scenario);
+    }
+
+    /**
+     * Add dependency to a scenario
+     * @param dependency
+     */
+    public void addDependency(String dependency) {
+        getScenario().getDependencies().add(new Dependency(dependency));
     }
 
     public Page getPage() {
@@ -171,17 +183,19 @@ public class Writer {
     /**
      * Set a custom super class for your script
      * NOTE: you will loss your access to Base framework...
+     *
      * @param superClass
      */
-    public void extend (String superClass){
+    public void extend(String superClass) {
         getCustom().setSuperClass(new Extend(superClass));
     }
 
     /**
      * Implement an interface...
+     *
      * @param theInterface
      */
-    public void implement (String theInterface){
+    public void implement(String theInterface) {
         getCustom().addInterface(new Implement(theInterface));
     }
 
