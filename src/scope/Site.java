@@ -20,8 +20,6 @@ public class Site extends Scope {
     private ArrayList<Scenario> scenarios;
 
     public void parse() {
-        Reporter reporter = Reporter.getInstance();
-        reporter.addHeader("site", getName() + " (" + getUrl() + ")");
         if (getUrl() != null) {
             Data.getData().put("url", getUrl());
             navigate(getUrl());
@@ -30,7 +28,6 @@ public class Site extends Scope {
         for (Scenario scenario : scenarios) {
             scenario.parse();
         }
-        reporter.addFooter("site", getName() + " (" + getUrl() + ")");
     }
 
     public Site() {

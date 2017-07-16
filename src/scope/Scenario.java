@@ -1,5 +1,6 @@
 package scope;
 
+import com.aventstack.extentreports.Status;
 import data.Data;
 import framework.Reporter;
 import scope.dependency.Dependency;
@@ -14,10 +15,12 @@ import java.util.ArrayList;
 @XmlRootElement(name = "scenario")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlSeeAlso({Dependency.class})
-@XmlType(propOrder = {"name", "dependencies", "units"})
+@XmlType(propOrder = {"name", "description", "dependencies", "units"})
 public class Scenario extends Scope {
     @XmlAttribute
     private String name;
+    @XmlElement
+    private String description;
     @XmlElementRef
     private ArrayList<Unit> units;
     @XmlElementRef
@@ -25,19 +28,17 @@ public class Scenario extends Scope {
 
 
     public void parse() {
-        Reporter reporter = Reporter.getInstance();
+        Reporter.createTest(getName(), getDescription());
         String dep = getDependenciesAsString();
         if (dep != null && !dep.equals("")) {
-            reporter.addHeader("Dependency", "Scenario '" + getName() + "' skipped.<br>" +
+            Reporter.log(Status.SKIP, "Scenario '" + getName() + "' skipped.\n" +
                     "Reason: Scenario is depending on previous failed scenario(s): { " + dep + "}");
             // Set the status of scenario
             Data.getScenariosStatus().put(getName(), false);
         } else {
-            reporter.addHeader("scenario", getName());
             for (Unit unit : units) {
                 unit.parse();
             }
-            reporter.addFooter("scenario", getName());
             // Set the status of scenario
             Data.getScenariosStatus().put(getName(), (Reporter.getFailCounter() == 0));
         }
@@ -100,5 +101,16 @@ public class Scenario extends Scope {
             }
             return sb.toString();
         }
+    }
+
+    public String getDescription() {
+        if (description == null) {
+            description = "No Description Available";
+        }
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

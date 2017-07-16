@@ -1,6 +1,7 @@
 package scope.unit;
 
 import action.Action;
+import com.aventstack.extentreports.Status;
 import data.Data;
 import framework.Reporter;
 
@@ -23,8 +24,7 @@ public class Page extends Unit {
     private ArrayList<Action> actions = new ArrayList<Action>();
 
     public void parse() {
-        Reporter reporter = Reporter.getInstance();
-        reporter.addHeader("Page", getName() + " (" + getUrl() + ")");
+        Reporter.log(Status.INFO, "Enter Page: " + getName() + " (" + getUrl() + ")");
         try {
             // navigate to page
             if (getRelative().equals("no") && getUrl().equals("")) {
@@ -40,14 +40,14 @@ public class Page extends Unit {
                 action.doAction();
             }
         } catch (Exception e) {
-            reporter.addHeader("ERROR", "While Executing Page '"+
-                            getName() + " (" + getUrl() +
+            Reporter.log(Status.FATAL, "While Executing Page '" +
+                    getName() + " (" + getUrl() +
                     ")', All Remaining Tests at this page have been Skipped!\n" +
                     "Error Message from Executer: " + e.getMessage());
             Reporter.reportError();
         }
 
-        reporter.addFooter("Page", getName() + " (" + getUrl() + " )");
+        Reporter.log(Status.INFO, "Leave Page: " + getName() + " (" + getUrl() + " )");
     }
 
     public Page() {

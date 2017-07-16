@@ -46,7 +46,7 @@ public class Base {
                 Base.driver = new ChromeDriver();
         }
 
-        Reporter.writeReportHeader();
+        Reporter.init();
         //        driver.manage().window().maximize();
     }
 
@@ -62,7 +62,7 @@ public class Base {
      */
     protected static void tearDown() {
         // write report results
-        Reporter.writeReportFooter();
+        Reporter.flush();
 
         // quit the browser
         driver.quit();

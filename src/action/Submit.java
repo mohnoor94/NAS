@@ -1,5 +1,6 @@
 package action;
 
+import com.aventstack.extentreports.Status;
 import data.Data;
 import framework.Reporter;
 
@@ -22,14 +23,13 @@ public class Submit extends Action {
     // type = button or field
 
     public void doAction() {
-        Reporter reporter = Reporter.getInstance();
         if (getElement() != null) {
             if ("field".equals(getType())) {
                 submit(getElement());
             } else {
                 navigate(getElement());
             }
-            reporter.addHeader("Submit", "'"+Data.getData().get("form") + "' via '" + getElement() + "'");
+            Reporter.log(Status.INFO, "Submit Form '" + Data.getData().get("form") + "' via '" + getElement() + "'");
         }
     }
 
@@ -49,18 +49,10 @@ public class Submit extends Action {
         return element;
     }
 
-    public void setElement(String element) {
-        this.element = element;
-    }
-
     public String getType() {
         if (type == null) {
             type = "field";
         }
         return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 }

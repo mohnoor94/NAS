@@ -1,6 +1,7 @@
 package scope.unit;
 
 import action.Action;
+import com.aventstack.extentreports.Status;
 import data.Data;
 import framework.Reporter;
 
@@ -24,8 +25,7 @@ public class Form extends Unit {
     private ArrayList<Action> actions = new ArrayList<Action>();
 
     public void parse() {
-        Reporter reporter = Reporter.getInstance();
-        reporter.addHeader("Form", getName() + " (" + getUrl() + ")");
+        Reporter.log(Status.INFO, "Enter Form: " + getName() + " (" + getUrl() + ")");
         try {
             Data.getData().put("form", getName());
 
@@ -44,14 +44,14 @@ public class Form extends Unit {
 
             }
         } catch (Exception e) {
-            reporter.addHeader("ERROR", "While Executing Form '" +
+            Reporter.log(Status.FATAL, "While Executing Form '" +
                     getName() + " (" + getUrl() +
                     ")', All Remaining Tests at this form have been Skipped!\n" +
                     "Error Message from Executer: " + e.getMessage());
             Reporter.reportError();
         }
 
-        reporter.addFooter("Form", getName() + " (" + getUrl() + " )");
+        Reporter.log(Status.INFO, "Leave Form: " + getName() + " (" + getUrl() + " )");
     }
 
     public Form() {

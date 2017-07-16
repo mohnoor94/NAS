@@ -1,6 +1,7 @@
 package action.custom;
 
 import action.Action;
+import com.aventstack.extentreports.Status;
 import framework.Reporter;
 import runtime.MethodInvocationUtils;
 import runtime.RuntimeCompiler;
@@ -31,18 +32,16 @@ public class Custom extends Action {
     private RuntimeCompiler compiler = new RuntimeCompiler();
 
     public void doAction() {
-        Reporter reporter = Reporter.getInstance();
-        reporter.addHeader("Custom", "Start Executing Custom Code (" + getTitle() + ")");
+        Reporter.log(Status.INFO, "Start Executing Custom Code (" + getTitle() + ")");
         try {
             compiler.addClass(getTitle(), buildClass());
             compiler.compile();
             invokeDefaultMethod();
         } catch (Exception e) {
-            System.out.println("Error Executing custom code... --> " + e);
-            reporter.addHeader("ERROR", "'" + getTitle() + "' contains errors! Check the console for more details.</br>" +
+            Reporter.log(Status.FATAL, "'" + getTitle() + "' contains errors! " +
                     "Error Message from Executer: " + e);
         }
-        reporter.addFooter("Custom", "Executing Custom Code Ended (" + getTitle() + ")");
+        Reporter.log(Status.INFO, "Executing Custom Code Ended (" + getTitle() + ")");
     }
 
     public Custom() {

@@ -85,6 +85,14 @@ public class Writer {
     }
 
     /**
+     * Set thescenario description
+     * @param description
+     */
+    public void setScenarioDescription(String description){
+        getScenario().setDescription(description);
+    }
+
+    /**
      * Add dependency to a scenario
      * @param dependency
      */

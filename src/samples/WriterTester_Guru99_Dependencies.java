@@ -30,7 +30,6 @@ public class WriterTester_Guru99_Dependencies {
 
     private static void logout() {
         writer.addScenario(new Scenario("Logout"));
-        writer.addDependency("Create New Account");
         writer.addForm(new Form("Logout Form", "/html/body/div[2]/div/ul/li[15]/a", "no"));
         writer.addAction(new VerifyAlert("You Have Succesfully Logged Out!!"));
         writer.addAction(new RespondAlert(true));
@@ -39,6 +38,7 @@ public class WriterTester_Guru99_Dependencies {
 
     private static void createNewAccount() {
         writer.addScenario(new Scenario("Create New Account"));
+        writer.addDependency("Login");
         writer.addDependency("Create New Customer");
         writer.addForm(new Form("Create Account Form", "/html/body/div[2]/div/ul/li[5]/a", "no"));
         writer.addAction(new VerifyText("Add new account form"));

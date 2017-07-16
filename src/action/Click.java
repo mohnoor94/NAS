@@ -1,5 +1,6 @@
 package action;
 
+import com.aventstack.extentreports.Status;
 import framework.Reporter;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -18,9 +19,8 @@ public class Click extends Action {
     private String id;
 
     public void doAction() {
-        Reporter reporter = Reporter.getInstance();
         navigate(getId());
-        reporter.addHeader("Click", getId());
+        Reporter.log(Status.INFO, "Click: " + getId());
     }
 
     public Click() {

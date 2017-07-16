@@ -1,6 +1,7 @@
 package midtier;
 
 
+import com.aventstack.extentreports.Status;
 import data.Data;
 import framework.Base;
 import framework.Driver;
@@ -22,6 +23,7 @@ import java.util.Collections;
  */
 public class Executer extends Base {
     private String filePath;
+    private String title = null;
     private final String preFilePath = "./xml" + File.separator;
     private final String postFilePath = ".xml";
     private Driver driver;
@@ -33,12 +35,12 @@ public class Executer extends Base {
             Site site = (Site) um.unmarshal(new FileReader(preFilePath + filePath + postFilePath));
             // Save file name to use it in report
             Data.getData().put("file_name", filePath);
+            Data.getData().put("title", getTitle());
             setUp(driver);
             site.parse();
             tearDown();
         } catch (Exception e) {
-            Reporter reporter = Reporter.getInstance();
-            reporter.addHeader("ERROR", "While Executing Tests File, All Remaining Tests have been Skipped!\n" +
+            Reporter.log(Status.FATAL, "While Executing Tests File, All Remaining Tests have been Skipped!\n" +
                     "Error Message from Executer: " + e.getMessage());
             tearDown();
         }
@@ -59,6 +61,12 @@ public class Executer extends Base {
         this.driver = driver;
     }
 
+    public Executer(String filePath, String title, Driver driver) {
+        this.filePath = filePath;
+        this.title = title;
+        this.driver = driver;
+    }
+
     public Executer(String filePath) {
         // default browser: chrome...
         this.driver = Driver.CHROME;
@@ -73,4 +81,10 @@ public class Executer extends Base {
         this.filePath = filePath;
     }
 
+    public String getTitle() {
+        if (title == null) {
+            title = filePath;
+        }
+        return title;
+    }
 }

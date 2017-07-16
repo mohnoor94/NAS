@@ -1,5 +1,5 @@
 # AKFNAS (Abukhleif Native Automation System)
-## V N3.4 released with New Features!
+## V N3.5 released with Advanced Reporting Feature.
 * Check out the change log (below) for more details.
 
 ## Native Version of the System:
@@ -29,6 +29,13 @@ folder.
 * Report Samples can be found under (/reports) folder.
 
 ## Change Log:
+#### V 3.5:
+* **Extent Reporting System** used instead of our previous native reporting system, in order
+to provide the team with advanced reports and visual data summaries.
+    * Full features of Extent can be found at: http://extentreports.com/
+    * All report samples updated to the new version of reports.
+* Other minor changes.
+
 #### V N3.4:
 * Add **Scenario Dependencies** Feature: The user could add dependencies between scenarios,
 so that the scenario which depend on another won't be executed unless the other one has been

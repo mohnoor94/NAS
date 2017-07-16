@@ -6,10 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="AKFNAS" />
         <module name="Automation Task 02" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
+      <module name="AKFNAS" target="1.8" />
       <module name="Automation Task 02" target="1.8" />
     </bytecodeTargetLevel>
   </component>

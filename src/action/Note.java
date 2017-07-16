@@ -1,5 +1,6 @@
 package action;
 
+import com.aventstack.extentreports.Status;
 import framework.Reporter;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -18,8 +19,7 @@ public class Note extends Action {
     private String text;
 
     public void doAction() {
-        Reporter reporter = Reporter.getInstance();
-        reporter.addHeader("Note", getText());
+        Reporter.log(Status.INFO, "User Note: " + getText());
     }
 
     public Note() {

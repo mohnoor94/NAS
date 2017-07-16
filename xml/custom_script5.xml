@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <site name="localhost" url="http://localhost/">
-    <scenario name="Custom Code Injection! - Test  #5 with Interface and SuperClass inherited, and import statement used.">
+    <scenario name="Custom Code Injection! - Test  #5">
+        <description>This scenario includes Interface and SuperClass inherited, and import statement with the CustomCode!</description>
         <form name="Localhost" url="">
             <note text="No steps actually tested here, you can check the Java console output.&lt;br&gt;This is just an example to show the ability of implement Java interfaces.&lt;br&gt;Note: you can implement many interfaces (but 'at least currently' you can't override their methods"/>
             <custom title="CustomSuperClass">

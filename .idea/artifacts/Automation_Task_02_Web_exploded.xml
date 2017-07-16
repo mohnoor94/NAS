@@ -2,10 +2,10 @@
   <artifact type="exploded-war" name="Automation Task 02:Web exploded">
     <output-path>$PROJECT_DIR$/out/artifacts/Automation_Task_02_Web_exploded</output-path>
     <root id="root">
-      <element id="javaee-facet-resources" facet="Automation Task 02/web/Web" />
+      <element id="javaee-facet-resources" facet="AKFNAS/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="Automation Task 02" />
+          <element id="module-output" name="AKFNAS" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: javax.servlet:javax.servlet-api:3.1.0" />

@@ -16,21 +16,21 @@ import java.io.FileNotFoundException;
 public class ExecuterTester extends Base {
     public static void main(String[] args) throws JAXBException, FileNotFoundException {
         Executer executer;
-//        executer = new Executer("guru99", Driver.CHROME);
-//        executer = new Executer("abukhleif", Driver.CHROME);
+//        executer = new Executer("guru99", "Guru 99", Driver.CHROME);
+//        executer = new Executer("abukhleif", "AbuKhleif", Driver.CHROME);
 //        executer = new Executer("google", Driver.CHROME);
-//        executer = new Executer("multiple_sites", Driver.CHROME);
-//        executer = new Executer("multiple_sites2", Driver.CHROME);
-//        executer = new Executer("abukhleif_login", Driver.CHROME);
-//        executer = new Executer("abukhleif_login2", Driver.CHROME);
+//        executer = new Executer("multiple_sites", "Multiple Sites", Driver.CHROME);
+//        executer = new Executer("multiple_sites2", "Multiple Sites V2", Driver.CHROME);
+//        executer = new Executer("abukhleif_login", "AbuKhleif - Login", Driver.CHROME);
+//        executer = new Executer("abukhleif_login2", "AbuKhleif - Login V2", Driver.CHROME);
 //        executer = new Executer("guru99_errors", Driver.CHROME);
 //        executer = new Executer("custom_script", Driver.CHROME);
 //        executer = new Executer("custom_script2", Driver.CHROME);
 //        executer = new Executer("custom_script3", Driver.CHROME);
 //        executer = new Executer("custom_script4", Driver.CHROME);
-//        executer = new Executer("custom_script5", Driver.CHROME);
+        executer = new Executer("custom_script5", "Custom Script - Description", Driver.CHROME);
 //        executer = new Executer("report_notes", Driver.CHROME);
-        executer = new Executer("guru99_dependencies", Driver.CHROME);
+//        executer = new Executer("guru99_dependencies", Driver.CHROME);
         executer.execute();
         executer.printData();
     }

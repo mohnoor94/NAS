@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <site name="AbuKhleif" url="http://www.abukhleif.com">
     <scenario name="Login via manually saved data">
+        <description>Login into AbuKhleif.com website</description>
         <page name="Main Page" url="">
             <text value="Latest stories"/>
         </page>

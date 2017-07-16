@@ -20,8 +20,9 @@ public class WriterTester_Custom5_Interface extends Base {
 
     public static void main(String[] args) throws JAXBException {
         writer = new Writer(new Site("localhost", "http://localhost/"));
-        writer.addScenario(new Scenario("Custom Code Injection! - Test  #5 with Interface and SuperClass inherited, " +
-                "and import statement used."));
+        writer.addScenario(new Scenario("Custom Code Injection! - Test  #5"));
+        writer.setScenarioDescription("This scenario includes Interface and SuperClass inherited, " +
+                        "and import statement with the CustomCode!");
         writer.addForm(new Form("Localhost", ""));
         writer.addAction(new Note("No steps actually tested here, you can check the Java console output.<br>This is" +
                 " just an example to show the ability of implement Java interfaces.<br>" +
