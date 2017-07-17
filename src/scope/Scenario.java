@@ -46,11 +46,16 @@ public class Scenario extends Scope {
         Reporter.resetFailCounter();
     }
 
+    public Scenario() {
+    }
+
     public Scenario(String name) {
         this.name = name;
     }
 
-    public Scenario() {
+    public Scenario(String name, String description) {
+        this.name = name;
+        this.description = description;
     }
 
     public String getName() {
@@ -66,7 +71,7 @@ public class Scenario extends Scope {
 
     public ArrayList<Unit> getUnits() {
         if (units == null) {
-            units = new ArrayList<Unit>();
+            units = new ArrayList<>();
         }
         return units;
     }

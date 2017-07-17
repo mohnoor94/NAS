@@ -85,15 +85,27 @@ public class Writer {
     }
 
     /**
+     * Add a new scenario.
+     * @param scenarioName
+     * @param scenarioDescription
+     */
+    public void addScenario(String scenarioName, String scenarioDescription) {
+        Scenario scenario = new Scenario(scenarioName, scenarioDescription);
+        addScenario(scenario);
+    }
+
+    /**
      * Set thescenario description
+     *
      * @param description
      */
-    public void setScenarioDescription(String description){
+    public void setScenarioDescription(String description) {
         getScenario().setDescription(description);
     }
 
     /**
      * Add dependency to a scenario
+     *
      * @param dependency
      */
     public void addDependency(String dependency) {
