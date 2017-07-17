@@ -111,7 +111,7 @@ executed, you can create your own class or just use it as is.
 the results.
 
 ### Samples:
-* All Samples can be found at: http://abukhleif.com/projects/AKF_NAS/samples/
+* All Samples can be found at: http://www.abukhleif.com/projects-data/AKF-NAS/samples/
     * Java Samples: Contains the Java Classes which used to generate the XML test files.
     * XML: XML test file samples.
     * Reports: all generated reports after run each of the previous xml tests file.
