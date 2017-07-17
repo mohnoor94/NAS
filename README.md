@@ -132,6 +132,13 @@ the results.
             <artifactId>extentreports</artifactId>
             <version>3.0.6</version>
         </dependency>
+        
+### TECHNOLOGIES USED:
+* Java (with IntelliJ IDEA IDE)
+* Jaxb (XML Parsing Library)
+* Maven
+* Selenium Webdriver
+* Extent (Reporting Library)
 
 ## Change Log:
 #### V 3.6 [July 17, 2017] - First Public Release:
