@@ -141,6 +141,11 @@ the results.
 * Extent (Reporting Library)
 
 ## Change Log:
+#### V 3.6.1 - V 3.6.6:
+* Improvement: check and create xml and reports folder if they not exists.
+* Update: project description.
+* Other minor changes and improvements.
+
 #### V 3.6 [July 17, 2017] - First Public Release:
 * **The Project source opened for public!**
 * Samples removed, you still can access them by downloading them from the provided link (above).

@@ -29,6 +29,18 @@ public class Writer {
     private final String preFilePath = "." + File.separator + "xml" + File.separator;
     private final String postFilePath = ".xml";
 
+    {
+        // Create directories (folders) if not exists..
+        File xml = new File("xml");
+        File reports = new File("reports");
+        if (!xml.exists()) {
+            xml.mkdir();
+        }
+        if (!reports.exists()) {
+            reports.mkdir();
+        }
+    }
+
     public void write(String fileName) throws JAXBException {
         // create JAXB context and instantiate marshaller
         JAXBContext context = JAXBContext.newInstance(Site.class);
@@ -86,6 +98,7 @@ public class Writer {
 
     /**
      * Add a new scenario.
+     *
      * @param scenarioName
      * @param scenarioDescription
      */
