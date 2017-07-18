@@ -49,17 +49,18 @@ public class Reporter {
             // create ExtentReports and attach reporter(s)
             extent = new ExtentReports();
             extent.attachReporter(htmlReporter);
-            setSystemInfo();
+//            setSystemInfo();
 
             // Configurations:
             configureReport(title, htmlReporter);
         }
     }
 
-    private static void setSystemInfo() {
-        extent.setSystemInfo("Tester", "AbuKhleif");
-        extent.setSystemInfo("Environemnt", "intellij IDEA");
-    }
+    // TODO: Generalize this method (Add as Action)!
+//    private static void setSystemInfo() {
+//        extent.setSystemInfo("Tester", "AbuKhleif");
+//        extent.setSystemInfo("Environemnt", "intellij IDEA");
+//    }
 
     private static void configureReport(String title, ExtentHtmlReporter htmlReporter) {
         htmlReporter.config().setTestViewChartLocation(ChartLocation.BOTTOM);

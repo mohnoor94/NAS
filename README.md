@@ -141,7 +141,7 @@ the results.
 * Extent (Reporting Library)
 
 ## Change Log:
-#### V 3.6.1 - V 3.6.6:
+#### V 3.6.1 - V 3.6.7:
 * Improvement: check and create xml and reports folder if they not exists.
 * Update: project description.
 * Other minor changes and improvements.
