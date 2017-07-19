@@ -1,4 +1,4 @@
-# NAS (Native Automation System, by AKF)
+# NAS (Native Automation System) by AKF
 An advanced -OPEN SOURCE- automation framework (based on Selenium) with custom code injection ability. Developed by AKF (AbuKhleif). 
 ## V 3.6 released with Advanced Reporting Features.
 * The Project source opened for public!
