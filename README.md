@@ -114,4 +114,5 @@ the results.
 * Selenium Webdriver
 * Extent (Reporting Library)
 
-* Check out the change log for more details.
+
+#### Please check out the change log [CHANGELOG.md] file for more details.
