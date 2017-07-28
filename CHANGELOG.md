@@ -1,12 +1,11 @@
 #### V 3.7 [July 27, 2017]
 * Introduce a new **IBridge interface and Bridge class** to connect any input interface
 to the whole framework.
-    * **Writer and Executer classes deprecated**, and instead the Bridge class can be extended
+    * **Deprecate Writer and Executer classes**, and instead the Bridge class can be extended
     to produce same functionality.
     * **Introduce XMLBridge** class to deal with xml input files.
     * All samples needs to be edited to work with the new version.
         * One sample added to the framework, all samples will be updated soon.
-    * More Bridges can be easily integrated with framework.
 * Many other minor changes.
 
 #### V 3.6.1 - V 3.6.7:

@@ -63,7 +63,7 @@ public class XMLBridge extends Bridge {
             JAXBContext context = JAXBContext.newInstance(Site.class);
             Unmarshaller um = context.createUnmarshaller();
             Site site = (Site) um.unmarshal(new FileReader(preFilePath + fileName + postFilePath));
-            // Save file name to use it in report
+            // Save file name and title to use it in report
             Data.getData().put("file_name", fileName);
             Data.getData().put("title", getTitle());
             Base.setUp(driver);
