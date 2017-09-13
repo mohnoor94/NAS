@@ -1,3 +1,9 @@
+#### V 3.7 [Sep 13, 2017]
+* Add Support for Chrome headless browser.
+* Make HeadlessChrome the default driver.
+* Update to Selenium 3.5.3
+* Update web drivers version.
+ 
 #### V 3.7 [July 27, 2017]
 * Introduce a new **IBridge interface and Bridge class** to connect any input interface
 to the whole framework.
