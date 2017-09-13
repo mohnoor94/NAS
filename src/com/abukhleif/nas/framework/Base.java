@@ -7,9 +7,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
@@ -41,9 +43,19 @@ public class Base {
                 Base.driver = new HtmlUnitDriver();
                 break;
             case CHROME:
-            default:
                 ChromeDriverManager.getInstance().setup();
                 Base.driver = new ChromeDriver();
+                break;
+            case HEADLESSCHROME:
+            default:
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--test-type");
+                options.addArguments("--headless");
+                DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+                capabilities.setJavascriptEnabled(true);
+                capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+                ChromeDriverManager.getInstance().setup();
+                Base.driver = new ChromeDriver(capabilities);
         }
 
         Reporter.init();
